@@ -1,0 +1,33 @@
+%h1.page-header
+  Members
+  %small / View
+.row
+  .col-md-12
+    %p#notice= notice
+    .text-right
+      = render 'shared/masters/show_actions'
+
+    .row
+      .col-md-6
+        = display_field @master.code, label: 'Code'
+      .col-md-6
+        = display_field @master.name, label: 'Name'
+    .row
+      .col-md-6
+        = display_field @master.membership.name, label: 'Membership'
+      .col-md-6
+        = display_field @master.kind, label: 'Type'
+    .row
+      .col-md-6
+        = display_field @master.gender, label: 'Gender'
+      .col-md-6
+        = display_field @master.age_group, label: 'Age Group'
+
+    %hr
+    %h4.form-section Address
+    = render 'shared/addresses/show', address: @master.address
+
+    %hr
+    .row
+      .col-md-12
+        = display_field @master.notes, label: 'Notes'

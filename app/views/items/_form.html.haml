@@ -1,0 +1,71 @@
+= simple_form_for @master, defaults: {input_html: { class: "form-control" }} do |f|
+  .row
+    .col-md-12
+      %p#notice= notice
+      .text-right
+        = render 'shared/masters/form_actions', f: f
+
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-6
+        = f.input :code, autofocus: true
+      .col-md-6
+        = f.input :name
+    .row
+      .col-md-6
+        = f.association :category, input_html: { class: 'selectize' }
+      .col-md-6
+        = f.input :subject
+    .row
+      .col-md-6
+        = f.association :creator, input_html: { class: 'selectize' }
+    .row
+      .col-md-6
+        = f.input :kind,                                |
+          label: "Type",                                |
+          collection: Settings.item.kinds,             |
+          input_html: {class: "form-control selectize"} |
+      .col-md-6
+        = f.input :format,                              |
+          collection: Settings.item.formats,           |
+          input_html: {class: "form-control selectize"} |
+    .row
+      .col-md-6
+        = f.input :publisher
+      .col-md-6
+        = f.input :published_date, as: :datepick
+    .row
+      .col-md-6
+        = f.input :pages
+      .col-md-6
+        = f.input :language,                            |
+          collection: Settings.item.languages,         |
+          input_html: {class: "form-control selectize"} |
+    .row
+      .col-md-6
+        = f.input :isbn_10, label: 'ISBN 10'
+      .col-md-6
+        = f.input :isbn_13, label: 'ISBN 13'
+    .row
+      .col-md-6
+        = f.input :rights,                              |
+          collection: Settings.item.rights,            |
+          input_html: {class: "form-control selectize"} |
+      .col-md-6
+        = f.input :rating,                              |
+          collection: Settings.item.ratings,           |
+          input_html: {class: "form-control selectize"} |
+    .row
+      .col-md-12
+        = f.input :tags
+    .row
+      .col-md-12
+        = f.input :excerpt
+    .row
+      .col-md-12
+        = f.input :notes
+
+  .form-actions
+    = render 'shared/masters/form_actions', f: f

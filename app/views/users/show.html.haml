@@ -1,0 +1,17 @@
+%h1.page-header
+  Users
+  %small / View
+.row
+  .col-md-12
+    %p#notice= notice
+    .text-right
+      = render 'shared/masters/show_actions'
+
+    .row
+      .col-md-6
+        = display_field @master.name, label: 'Name'
+      .col-md-6
+        = display_field @master.email, label: 'Email'
+    .row
+      .col-md-12
+        = display_field @master.notes, label: 'Notes'

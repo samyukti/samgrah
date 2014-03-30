@@ -1,0 +1,30 @@
+Documentation:
+  Enabled: false
+
+StringLiterals:
+  Enabled: false
+
+NumericLiterals:
+  Enabled: false
+
+LineLength:
+  Max: 360
+
+ClassAndModuleChildren:
+  Enabled: false
+
+AccessModifierIndentation:
+  Enabled: false
+
+CaseIndentation:
+  IndentWhenRelativeTo: case
+  IndentOneStep: true
+
+WordArray:
+  MinSize: 100
+
+RedundantSelf:
+  Enabled: false
+
+MethodLength:
+  Enabled: false

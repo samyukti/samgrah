@@ -1,0 +1,35 @@
+= simple_form_for @master, defaults: {input_html: { class: "form-control" }} do |f|
+  .row
+    .col-md-12
+      %p#notice= notice
+      .text-right
+        = render 'shared/masters/form_actions', f: f
+
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-6
+        = f.input :kind,                                |
+          label: "Type",                                |
+          collection: Settings.creator.kinds,           |
+          include_blank: false, autofocus: true,        |
+          input_html: {class: "form-control selectize"} |
+    .row
+      .col-md-4
+        = f.input :first_name
+      .col-md-4
+        = f.input :middle_name
+      .col-md-4
+        = f.input :last_name
+    .row
+      .col-md-6
+        = f.input :full_name
+      .col-md-6
+        = f.input :sort_name
+    .row
+      .col-md-12
+        = f.input :notes
+
+  .form-actions
+    = render 'shared/masters/form_actions', f: f

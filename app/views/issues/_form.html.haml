@@ -1,0 +1,33 @@
+= simple_form_for @issue, defaults: {input_html: { class: "form-control" }} do |f|
+  .row
+    .col-md-12
+      %p#notice= notice
+      .text-right
+        = f.button :submit, class: 'btn-primary'
+        = link_to @issue do
+          %button.btn.btn-default{type: "button"} Cancel
+
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-6
+        = f.input :copy_id,                             |
+          collection: Copy.available,                   |
+          autofocus: true,                              |
+          input_html: {class: "form-control selectize"} |
+      .col-md-6
+        = f.association :member, input_html: { class: 'selectize' }
+    .row
+      .col-md-6
+        = f.input :issued_date, as: :datepick
+      .col-md-6
+        = f.input :return_date, as: :datepick
+    .row
+      .col-md-12
+        = f.input :notes
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = link_to @issue do
+      %button.btn.btn-default{type: "button"} Cancel

@@ -1,0 +1,39 @@
+%h1.page-header
+  Copies
+  %small / Index
+.row
+  .col-md-12
+    .text-right
+      = link_to new_copy_path do
+        %button.btn.btn-success{type: "button"} New
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Item
+            %th Accession No
+            %th Quality
+            %th Status
+            %th Issued
+            %th.action-cell
+        %tbody
+          - @masters.each do |copy|
+            %tr
+              %td= copy.id
+              %td= copy.item.name
+              %td= copy.name
+              %td= lookup(Settings.copy.qualities, copy.quality)
+              %td= lookup(Settings.copy.statuses, copy.status)
+              %td= copy.issued ? 'Yes' : 'No'
+              %td.action-cell
+                = link_to copy do
+                  %span.btn-xs.btn-info
+                    %i.fa.fa-search
+                  %span.spacer
+                = link_to edit_copy_path(copy) do
+                  %span.btn-xs.btn-primary
+                    %i.fa.fa-pencil
+.row
+  .col-md-12.text-right
+    = paginate @masters

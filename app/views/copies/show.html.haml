@@ -1,0 +1,31 @@
+%h1.page-header
+  Copies
+  %small / View
+.row
+  .col-md-12
+    %p#notice= notice
+    .text-right
+      = render 'shared/masters/show_actions'
+
+    .row
+      .col-md-6
+        = display_field @master.item.name, label: 'Item'
+      .col-md-6
+        = display_field @master.name, label: 'Accession No'
+    .row
+      .col-md-6
+        = display_field @master.procured_date, label: 'Procured Date'
+      .col-md-3
+        = display_field @master.quantity, label: 'Quantity'
+      .col-md-3
+        = display_field @master.issuable.to_s.titleize, label: 'Issuable'
+    .row
+      .col-md-6
+        = display_field lookup(Settings.copy.qualities, @master.quality), |
+                        label: 'Quality'                                |
+      .col-md-6
+        = display_field lookup(Settings.copy.statuses, @master.status),   |
+                        label: 'Status'                                 |
+    .row
+      .col-md-12
+        = display_field @master.notes, label: 'Notes'

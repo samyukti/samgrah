@@ -1,0 +1,34 @@
+%h1.page-header
+  Reservations
+  %small / Index
+.row
+  .col-md-12
+    .text-right
+      = link_to new_reservation_path do
+        %button.btn.btn-success{type: "button"} New
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Book
+            %th Member
+            %th Reserved On
+            %th Status
+            %th.action-cell
+        %tbody
+          - @reservations.each do |reservation|
+            %tr
+              %td= reservation.id
+              %td= reservation.item.name
+              %td= reservation.member.name
+              %td= reservation.reserved_date
+              %td= reservation.status.titleize
+              %td.action-cell
+                = link_to reservation do
+                  %span.btn-xs.btn-info
+                    %i.fa.fa-search
+                  %span.spacer
+.row
+  .col-md-12.text-right
+    = paginate @reservations

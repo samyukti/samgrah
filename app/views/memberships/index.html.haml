@@ -1,0 +1,35 @@
+%h1.page-header
+  Memberships
+  %small / Index
+.row
+  .col-md-12
+    .text-right
+      = link_to new_membership_path do
+        %button.btn.btn-success{type: "button"} New
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Code
+            %th Name
+            %th Type
+            %th.action-cell
+        %tbody
+          - @masters.each do |membership|
+            %tr
+              %td= membership.id
+              %td= membership.code
+              %td= membership.name
+              %td= membership.kind
+              %td.action-cell
+                = link_to membership do
+                  %span.btn-xs.btn-info
+                    %i.fa.fa-search
+                  %span.spacer
+                = link_to edit_membership_path(membership) do
+                  %span.btn-xs.btn-primary
+                    %i.fa.fa-pencil
+.row
+  .col-md-12.text-right
+    = paginate @masters

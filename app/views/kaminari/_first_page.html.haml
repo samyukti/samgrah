@@ -1,0 +1,7 @@
+%li
+  - if current_page.first?
+    %a.disabled
+      %i.fa.fa-angle-double-left
+  - else
+    = link_to url, remote: remote do
+      %i.fa.fa-angle-double-left

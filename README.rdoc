@@ -1,0 +1,30 @@
+== About
+
+Sangrah is a simple Library Management System built using Ruby on Rails.
+
+At this moment, the primary purpose is to use this project as a training ground in Samyukti.
+In future we may consider to develop this as a full-fledged application.
+
+== Installation
+
+* Install Ruby on Rails. Probably http://guides.railsgirls.com/install is an easy way to do it.
+
+* Clone this repository into your computer
+
+    cd ~
+    mkdir -p Code
+    cd Code
+    git clone https://github.com/samyukti/sangrah.git Sangrah
+
+* Install the dependencies
+
+    cd Sangrah
+    bundle install
+
+* (Re)Initialize the database
+
+    rake db:reset
+
+* Start the application in development mode
+
+    rails server

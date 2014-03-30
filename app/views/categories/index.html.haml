@@ -1,0 +1,35 @@
+%h1.page-header
+  Categories
+  %small / Index
+.row
+  .col-md-12
+    .text-right
+      = link_to new_category_path do
+        %button.btn.btn-success{type: "button"} New
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Code
+            %th Name
+            %th Type
+            %th.action-cell
+        %tbody
+          - @masters.each do |category|
+            %tr
+              %td= category.id
+              %td= category.code
+              %td= category.name
+              %td= category.kind
+              %td.action-cell
+                = link_to category do
+                  %span.btn-xs.btn-info
+                    %i.fa.fa-search
+                  %span.spacer
+                = link_to edit_category_path(category) do
+                  %span.btn-xs.btn-primary
+                    %i.fa.fa-pencil
+.row
+  .col-md-12.text-right
+    = paginate @masters
