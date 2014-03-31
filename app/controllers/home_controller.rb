@@ -10,6 +10,6 @@ class HomeController < ApplicationController
   end
 
   def items
-    @items = Item.page(params[:page])
+    @items = Item.page(params[:page]).per(12)
   end
 end
