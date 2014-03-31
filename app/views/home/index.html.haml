@@ -1,5 +1,8 @@
-%h1.page-header
-  Home
-  %small / Dashboard
-.row
-  %p Welcome to Sangrah Library Management System
+%h2 New Items
+- @items.each_slice(4) do |row|
+  %hr
+  .row
+    - row.each do |item|
+      .col-md-3
+        %h3= item.name
+        %p= item.excerpt

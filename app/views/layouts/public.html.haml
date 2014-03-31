@@ -24,29 +24,24 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{href: application_root_path} Sangrah
+          %a.navbar-brand{href: public_root_path} Sangrah
         .navbar-collapse.collapse
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              %a{href: ""} About
-            %li
-              %a{href: ""} Policies
-            %li
-              %a{href: ""} Books
-            %li
-              - if user_signed_in?
-                = link_to "Sign Out", destroy_user_session_path, method: :delete
-              - else
-                = link_to "Sign In", new_user_session_path
-          %form.navbar-form.navbar-right
-            %input.form-control{placeholder: "Search...", type: "text", autofocus: true}/
-    .container-fluid
-      .row
-        .col-sm-3.col-md-2.sidebar
-          .navbar-collapse.collapse
-            = render 'layouts/navigation'
-        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-          = yield
+          = simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "navbar-form navbar-right", role: "form" } do |f|
+            .form-group
+              = f.input_field :email, label: false, placeholder: 'Email', class: 'form-control', size: 0
+            .form-group
+              = f.input_field :password, label: false, placeholder: 'Password', class: 'form-control', size: 0
+            %button.btn.btn-success{type: :submit} Sign in
+    .jumbotron
+      .container
+        %h1 Sangrah
+        %p A simple library management system
+    .container
+      = yield
+      %hr
+    #footer
+      .container
+        %p &copy; Samyukti 2014
 
     = javascript_include_tag "application"
     :javascript

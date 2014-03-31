@@ -1,6 +1,12 @@
 Sangrah::Application.routes.draw do
 
-  root to: 'home#index'
+  unauthenticated do
+    root to: 'home#index', as: :public_root
+  end
+
+  authenticated :user do
+    root to: 'dashboard#index', as: :application_root
+  end
 
   devise_for :users, skip: [:registrations]
   as :user do

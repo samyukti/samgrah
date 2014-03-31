@@ -5,16 +5,39 @@ puts 'Seeding Default Users...'
 User.create! email: 'admin@sangrah.local', password: 'samyukti', password_confirmation: 'samyukti'
 
 puts 'Seeding Demo Data...'
-y01 = Category.create! code: '1001', name: 'Classics', kind: 'Literature'
+Category.create! code: '1001', name: 'Classics', kind: 'Literature'
 
-r01 = Creator.create! kind: 'Author', first_name: 'Jane', last_name: 'Austen', sort_name: 'Austen, Jane'
+jane_austen = Creator.create! kind: 'Author', first_name: 'Jane', last_name: 'Austen', sort_name: 'Austen, Jane'
+charlotte_bronte = Creator.create! kind: 'Author', first_name: 'Charlotte', last_name: 'Brontë', sort_name: 'Brontë, Charlotte'
+emily_bronte = Creator.create! kind: 'Author', first_name: 'Emily', last_name: 'Brontë', sort_name: 'Brontë, Emily'
+oscar_wilde = Creator.create! kind: 'Author', first_name: 'Oscar', last_name: 'Wilde', sort_name: 'Wilde, Oscar'
+william_shakespeare = Creator.create! kind: 'Author', first_name: 'William', last_name: 'Shakespeare', sort_name: 'Shakespeare, William'
+charles_dickens = Creator.create! kind: 'Author', first_name: 'Charles', last_name: 'Dickens', sort_name: 'Dickens, Charles'
 
-a01 = Item.create! code: 'B10001', name: 'Pride and Prejudice', category: y01, creator: r01, kind: 'Book',
-                   format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10
+Item.create! code: 'B10001', name: 'Pride and Prejudice', category: Category.first, creator: jane_austen, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum ligula eu vestibulum cursus.)
+Item.create! code: 'B10002', name: 'Jane Eyre', category: Category.first, creator: charlotte_bronte, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean fermentum ligula eu vestibulum cursus.)
+Item.create! code: 'B10003', name: 'Wuthering Heights', category: Category.first, creator: emily_bronte, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean fermentum ligula eu vestibulum cursus.)
+Item.create! code: 'B10004', name: 'Sense and Sensibility', category: Category.first, creator: jane_austen, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean fermentum ligula eu vestibulum cursus.)
+Item.create! code: 'B10005', name: 'The Picture of Dorian Gray', category: Category.first, creator: oscar_wilde, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean fermentum ligula eu vestibulum cursus.)
+Item.create! code: 'B10006', name: 'Emma', category: Category.first, creator: jane_austen, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean fermentum ligula eu vestibulum cursus.)
+Item.create! code: 'B10007', name: 'Romeo and Juliet', category: Category.first, creator: william_shakespeare, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean fermentum ligula eu vestibulum cursus.)
+Item.create! code: 'B10008', name: 'Oliver Twist', category: Category.first, creator: charles_dickens, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean fermentum ligula eu vestibulum cursus.)
+Item.create! code: 'B10009', name: 'Persuasion', category: Category.first, creator: jane_austen, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean fermentum ligula eu vestibulum cursus.)
+Item.create! code: 'B10010', name: 'Mansfield Park', category: Category.first, creator: jane_austen, kind: 'Book',
+             format: 'Paperback', language: 'English', rights: 'Public Domain', rating: 10, excerpt: %q(Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean fermentum ligula eu vestibulum cursus.)
 
-Copy.create! item: a01, name: 'P118127340JA001', quality: 'n', status: 'a'
-Copy.create! item: a01, name: 'P118127340JA002', quality: 'u', status: 'a'
+Copy.create! item: Item.first, name: 'P118127340JA001', quality: 'n', status: 'a'
+Copy.create! item: Item.first, name: 'P118127340JA002', quality: 'u', status: 'a'
 
-p01 = Membership.create! code: '1001', name: 'Premium Members', kind: 'Premium'
+Membership.create! code: '1001', name: 'Premium Members', kind: 'Premium'
 
-Member.create! code: '1234', name: 'John Doe', membership: p01
+Member.create! code: '1234', name: 'John Doe', membership: Membership.first
