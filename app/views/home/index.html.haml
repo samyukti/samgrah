@@ -10,5 +10,9 @@
       - row.each do |item|
         .col-md-3
           %h3= item.name
-          %p= item.excerpt
+          .row
+            .col-xs-4
+              = image_tag item.photo.select.url
+            .col-xs-8
+              = item.excerpt
   %hr

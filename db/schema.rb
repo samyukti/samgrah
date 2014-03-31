@@ -54,12 +54,14 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.date     "procured_date"
     t.string   "status"
     t.string   "quality"
-    t.integer  "quantity",      default: 1
-    t.boolean  "issuable",      default: true
-    t.boolean  "issued",        default: false
+    t.integer  "quantity",        default: 1
+    t.boolean  "issuable",        default: true
+    t.boolean  "issued",          default: false
+    t.string   "photo"
+    t.string   "remote_photo_url"
     t.text     "notes"
-    t.boolean  "active",        default: true
-    t.boolean  "archived",      default: false
+    t.boolean  "active",          default: true
+    t.boolean  "archived",        default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -127,9 +129,11 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.string   "rating"
     t.string   "tags"
     t.text     "excerpt"
+    t.string   "photo"
+    t.string   "remote_photo_url"
     t.text     "notes"
-    t.boolean  "active",          default: true
-    t.boolean  "archived",        default: false
+    t.boolean  "active",           default: true
+    t.boolean  "archived",         default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"

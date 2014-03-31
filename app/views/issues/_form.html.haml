@@ -22,9 +22,11 @@
         = f.input :issued_date, as: :datepick
       .col-md-6
         = f.input :return_date, as: :datepick
+
+    %h4.form-section Notes
     .row
       .col-md-12
-        = f.input :notes
+        = f.input :notes, label: false
 
   .form-actions
     = f.button :submit, class: 'btn-primary'

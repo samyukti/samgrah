@@ -7,15 +7,22 @@
       = render 'shared/masters/show_actions'
 
     .row
+      .col-md-6.text-center.pull-right
+        .image-container
+          = image_tag @master.photo.thumb.url
       .col-md-6
-        = display_field @master.code, label: 'Code'
-      .col-md-6
-        = display_field @master.name, label: 'Name'
-    .row
-      .col-md-6
-        = display_field @master.category.name, label: 'Category'
-      .col-md-6
-        = display_field @master.subject, label: 'Subject'
+        .row
+          .col-md-12
+            = display_field @master.code, label: 'Code'
+        .row
+          .col-md-12
+            = display_field @master.name, label: 'Name'
+        .row
+          .col-md-12
+            = display_field @master.category.name, label: 'Category'
+        .row
+          .col-md-12
+            = display_field @master.subject, label: 'Subject'
     .row
       .col-md-6
         = display_field @master.creator.name, label: 'Author' if @master.creator

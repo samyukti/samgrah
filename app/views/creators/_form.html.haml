@@ -26,9 +26,11 @@
         = f.input :full_name
       .col-md-6
         = f.input :sort_name
+
+    %h4.form-section Notes
     .row
       .col-md-12
-        = f.input :notes
+        = f.input :notes, label: false
 
   .form-actions
     = render 'shared/masters/form_actions', f: f

@@ -17,9 +17,11 @@
     .row
       .col-md-6
         = f.input :reserved_date, as: :datepick
+
+    %h4.form-section Notes
     .row
       .col-md-12
-        = f.input :notes
+        = f.input :notes, label: false
 
   .form-actions
     = f.button :submit, class: 'btn-primary'

@@ -23,3 +23,6 @@
 .pagination > li > a.disabled {
   background-color: #eeeeee;
 }
+.image-container {
+  margin: 20px;
+}

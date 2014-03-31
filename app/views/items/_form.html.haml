@@ -1,4 +1,4 @@
-= simple_form_for @master, defaults: {input_html: { class: "form-control" }} do |f|
+= simple_form_for @master, defaults: {input_html: { class: "form-control" }}, html: { multipart: true } do |f|
   .row
     .col-md-12
       .text-right
@@ -62,9 +62,19 @@
     .row
       .col-md-12
         = f.input :excerpt
+
+    %h4.form-section Photo
     .row
       .col-md-12
-        = f.input :notes
+        = f.input :photo, as: :file, label: false, input_html: { capture: "camera" }
+    .row
+      .col-md-12
+        = f.input :remote_photo_url, label: 'Or a URL to the photo'
+
+    %h4.form-section Notes
+    .row
+      .col-md-12
+        = f.input :notes, label: false
 
   .form-actions
     = render 'shared/masters/form_actions', f: f

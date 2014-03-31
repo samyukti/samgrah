@@ -1,6 +1,8 @@
 class Copy < ActiveRecord::Base
   include MasterConcerns
 
+  mount_uploader :photo, PhotoUploader
+
   # constants
   STATUS_AVAILABLE   = 'a'
   STATUS_MISPLACED   = 'm'

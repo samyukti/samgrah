@@ -7,24 +7,32 @@
       = render 'shared/masters/show_actions'
 
     .row
+      .col-md-6.text-center.pull-right
+        .image-container
+          - if @master.photo.present?
+            = image_tag @master.photo.thumb.url
+          - elsif @master.item.photo
+            = image_tag @master.item.photo.thumb.url
+          - else
+            = image_tag @master.photo.thumb.url
       .col-md-6
-        = display_field @master.item.name, label: 'Item'
-      .col-md-6
-        = display_field @master.name, label: 'Accession No'
+        .row
+          .col-md-12
+            = display_field @master.item.name, label: 'Item'
+          .col-md-12
+            = display_field @master.name, label: 'Accession No'
+          .col-md-12
+            = display_field @master.procured_date, label: 'Procured Date'
     .row
-      .col-md-6
-        = display_field @master.procured_date, label: 'Procured Date'
       .col-md-3
         = display_field @master.quantity, label: 'Quantity'
       .col-md-3
         = display_field @master.issuable.to_s.titleize, label: 'Issuable'
     .row
-      .col-md-6
-        = display_field lookup(Settings.copy.qualities, @master.quality), |
-                        label: 'Quality'                                |
-      .col-md-6
-        = display_field lookup(Settings.copy.statuses, @master.status),   |
-                        label: 'Status'                                 |
+      .col-md-3
+        = display_field lookup(Settings.copy.qualities, @master.quality), label: 'Quality'
+      .col-md-3
+        = display_field lookup(Settings.copy.statuses, @master.status), label: 'Status'
     .row
       .col-md-12
         = display_field @master.notes, label: 'Notes'
