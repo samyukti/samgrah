@@ -1,22 +1,28 @@
-= link_to @master, method: :delete, confirm: 'Are you sure?' do
+= destroy_link @master do
   %button.btn.btn-danger{type: "button"} Delete
+
 - if @master.archived
-  = link_to [@master, :unarchive], method: :patch, confirm: 'Are you sure?' do
+  = unarchive_link @master do
     %button.btn.btn-warning{type: "button"} Unarchive
 - else
-  = link_to [@master, :archive], method: :patch, confirm: 'Are you sure?' do
+  = archive_link @master do
     %button.btn.btn-warning{type: "button"} Archive
+
 - if @master.active
-  = link_to [@master, :lock], method: :patch, confirm: 'Are you sure?' do
+  = lock_link @master do
     %button.btn.btn-info{type: "button"} Lock
 - else
-  = link_to [@master, :unlock], method: :patch, confirm: 'Are you sure?' do
+  = unlock_link @master do
     %button.btn.btn-info{type: "button"} Unlock
-= link_to [:edit, @master] do
+
+= edit_link @master do
   %button.btn.btn-primary{type: "button"} Edit
-= link_to [@master, :copy] do
+
+= copy_link @master do
   %button.btn.btn-success{type: "button"} Copy
-= link_to [:new, @master] do
+
+= new_link @master do
   %button.btn.btn-success{type: "button"} New
-= link_to @master_class do
+
+= index_link @master do
   %button.btn.btn-default{type: "button"} Index

@@ -23,11 +23,11 @@
               %td= creator.full_name || [creator.first_name, creator.last_name].join(' ')
               %td= creator.sort_name
               %td.action-cell
-                = link_to creator do
+                = show_link creator do
                   %span.btn-xs.btn-info
                     %i.fa.fa-search
                 %span.spacer
-                = link_to edit_creator_path(creator) do
+                = edit_link creator do
                   %span.btn-xs.btn-primary
                     %i.fa.fa-pencil
 .row

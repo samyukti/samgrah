@@ -27,11 +27,11 @@
               %td= lookup(Settings.copy.statuses, copy.status)
               %td= copy.issued ? 'Yes' : 'No'
               %td.action-cell
-                = link_to copy do
+                = show_link copy do
                   %span.btn-xs.btn-info
                     %i.fa.fa-search
                 %span.spacer
-                = link_to edit_copy_path(copy) do
+                = edit_link copy do
                   %span.btn-xs.btn-primary
                     %i.fa.fa-pencil
 .row

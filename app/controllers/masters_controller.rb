@@ -1,5 +1,6 @@
 class MastersController < ApplicationController
   include Userstamp
+  load_and_authorize_resource
 
   attr_writer :master_class
   attr_writer :klass

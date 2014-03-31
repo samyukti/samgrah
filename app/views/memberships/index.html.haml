@@ -23,11 +23,11 @@
               %td= membership.name
               %td= membership.kind
               %td.action-cell
-                = link_to membership do
+                = show_link membership do
                   %span.btn-xs.btn-info
                     %i.fa.fa-search
                 %span.spacer
-                = link_to edit_membership_path(membership) do
+                = edit_link membership do
                   %span.btn-xs.btn-primary
                     %i.fa.fa-pencil
 .row

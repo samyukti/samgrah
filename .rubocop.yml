@@ -13,6 +13,9 @@ LineLength:
 ClassAndModuleChildren:
   Enabled: false
 
+ClassLength:
+  Enabled: false
+
 AccessModifierIndentation:
   Enabled: false
 

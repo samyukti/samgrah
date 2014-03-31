@@ -1,28 +1,56 @@
 %ul.nav.nav-sidebar
-  %li{class: active?([:dashboard])}
-    %a{href: application_root_path} Overview
-  %li{class: active?([:reports])}
-    %a{href: reports_path} Reports
-  %li{class: active?([:issues])}
-    %a{href: issues_path} Issue
-  %li{class: active?([:reservations])}
-    %a{href: reservations_path} Reservation
+
+  - if user_can? [:read], [:dashboard]
+    %li{class: active?([:dashboard])}
+      %a{href: application_root_path} Overview
+
+  - if user_can? [:read], [:report]
+    %li{class: active?([:reports])}
+      %a{href: reports_path} Reports
+
+  - if user_can? [:read], [Issue]
+    %li{class: active?([:issues])}
+      %a{href: issues_path} Issue
+
+  - if user_can? [:read], [Reservation]
+    %li{class: active?([:reservations])}
+      %a{href: reservations_path} Reservation
+
 %ul.nav.nav-sidebar
-  %li{class: active?([:creators])}
-    %a{href: creators_path} Creators
-  %li{class: active?([:categories])}
-    %a{href: categories_path} Categories
-  %li{class: active?([:items])}
-    %a{href: items_path} Items
-  %li{class: active?([:copies])}
-    %a{href: copies_path} Copies
+
+  - if user_can? [:read], [Creator]
+    %li{class: active?([:creators])}
+      %a{href: creators_path} Creators
+
+  - if user_can? [:read], [Category]
+    %li{class: active?([:categories])}
+      %a{href: categories_path} Categories
+
+  - if user_can? [:read], [Item]
+    %li{class: active?([:items])}
+      %a{href: items_path} Items
+
+  - if user_can? [:read], [Copy]
+    %li{class: active?([:copies])}
+      %a{href: copies_path} Copies
+
 %ul.nav.nav-sidebar
-  %li{class: active?([:memberships])}
-    %a{href: memberships_path} Memberships
-  %li{class: active?([:members])}
-    %a{href: members_path} Members
-%ul.nav.nav-sidebar
-  %li{class: active?([:users])}
-    %a{href: users_path} Users
-  %li{class: active?([:settings])}
-    %a{href: ""} Settings
+
+  - if user_can? [:read], [Membership]
+    %li{class: active?([:memberships])}
+      %a{href: memberships_path} Memberships
+
+  - if user_can? [:read], [Member]
+    %li{class: active?([:members])}
+      %a{href: members_path} Members
+
+- if current_user.has_role? :admin
+  %ul.nav.nav-sidebar
+
+    - if user_can? [:read], [User]
+      %li{class: active?([:users])}
+        %a{href: users_path} Users
+
+    - if user_can? [:read], [:settings]
+      %li{class: active?([:settings])}
+        %a{href: ""} Settings

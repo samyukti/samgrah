@@ -23,11 +23,11 @@
               %td= user.current_sign_in_at
               %td= user.last_sign_in_at
               %td.action-cell
-                = link_to user do
+                = show_link user do
                   %span.btn-xs.btn-info
                     %i.fa.fa-search
                 %span.spacer
-                = link_to edit_user_path(user) do
+                = edit_link user do
                   %span.btn-xs.btn-primary
                     %i.fa.fa-pencil
 .row

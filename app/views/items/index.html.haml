@@ -27,11 +27,11 @@
               %td= item.kind
               %td= item.format
               %td.action-cell
-                = link_to item do
+                = show_link item do
                   %span.btn-xs.btn-info
                     %i.fa.fa-search
                 %span.spacer
-                = link_to edit_item_path(item) do
+                = edit_link item do
                   %span.btn-xs.btn-primary
                     %i.fa.fa-pencil
 .row

@@ -5,14 +5,21 @@
   .col-md-12
     .text-right
       - if @reservation.reserved?
-        = link_to reservation_close_path(@reservation), method: :patch, data: { confirm: 'Are you sure?' } do
-          %button.btn.btn-danger{type: "button"} Close
-        = link_to reservation_cancel_path(@reservation), method: :patch, data: { confirm: 'Are you sure?' } do
-          %button.btn.btn-warning{type: "button"} Cancel
-        = link_to edit_reservation_path(@reservation) do
-          %button.btn.btn-primary{type: "button"} Edit
-      = link_to new_reservation_path do
-        %button.btn.btn-success{type: "button"} New
+        - if user_can? [:close], [@reservation]
+          = link_to reservation_close_path(@reservation), method: :patch, data: { confirm: 'Are you sure?' } do
+            %button.btn.btn-danger{type: "button"} Close
+        - if user_can? [:cancel], [@reservation]
+          = link_to reservation_cancel_path(@reservation), method: :patch, data: { confirm: 'Are you sure?' } do
+            %button.btn.btn-warning{type: "button"} Cancel
+        - if user_can? [:update], [@reservation]
+          = link_to edit_reservation_path(@reservation) do
+            %button.btn.btn-primary{type: "button"} Edit
+      - if user_can? [:create], [@reservation]
+        = link_to new_reservation_path do
+          %button.btn.btn-success{type: "button"} New
+      - if user_can? [:read], [@reservation]
+        = link_to @reservation.class do
+          %button.btn.btn-default{type: "button"} Index
 
     .row
       .col-md-6

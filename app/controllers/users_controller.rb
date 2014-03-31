@@ -1,4 +1,6 @@
 class UsersController < MastersController
+  before_filter :authenticate_user!
+
   def update
     if params[:user][:password].blank?
       params[:user].delete(:password)
@@ -21,6 +23,10 @@ class UsersController < MastersController
   end
 
 private
+
+  def user_params
+    master_params
+  end
 
   def master_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :role_ids)

@@ -4,7 +4,7 @@
 .row
   .col-md-12
     .text-right
-      = link_to new_reservation_path do
+      = new_link Reservation do
         %button.btn.btn-success{type: "button"} New
     .table-responsive
       %table.table.table-striped
@@ -25,7 +25,7 @@
               %td= reservation.reserved_date
               %td= reservation.status.titleize
               %td.action-cell
-                = link_to reservation do
+                = show_link reservation do
                   %span.btn-xs.btn-info
                     %i.fa.fa-search
                 %span.spacer

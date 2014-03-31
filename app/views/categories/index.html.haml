@@ -4,8 +4,8 @@
 .row
   .col-md-12
     .text-right
-      = link_to new_category_path do
-        %button.btn.btn-success{type: "button"} New
+      = render 'shared/masters/index_actions'
+
     .table-responsive
       %table.table.table-striped
         %thead
@@ -23,11 +23,11 @@
               %td= category.name
               %td= category.kind
               %td.action-cell
-                = link_to category do
+                = show_link category do
                   %span.btn-xs.btn-info
                     %i.fa.fa-search
                 %span.spacer
-                = link_to edit_category_path(category) do
+                = edit_link category do
                   %span.btn-xs.btn-primary
                     %i.fa.fa-pencil
 .row

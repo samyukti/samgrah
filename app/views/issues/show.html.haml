@@ -5,14 +5,21 @@
   .col-md-12
     .text-right
       - if @issue.issued?
-        = link_to issue_close_path(@issue), method: :patch, data: { confirm: 'Are you sure?' } do
-          %button.btn.btn-danger{type: "button"} Close
-        = link_to issue_cancel_path(@issue), method: :patch, data: { confirm: 'Are you sure?' } do
-          %button.btn.btn-warning{type: "button"} Cancel
-        = link_to edit_issue_path(@issue) do
-          %button.btn.btn-primary{type: "button"} Edit
-      = link_to new_issue_path do
-        %button.btn.btn-success{type: "button"} New
+        - if user_can? [:close], [@issue]
+          = link_to issue_close_path(@issue), method: :patch, data: { confirm: 'Are you sure?' } do
+            %button.btn.btn-danger{type: "button"} Close
+        - if user_can? [:cancel], [@issue]
+          = link_to issue_cancel_path(@issue), method: :patch, data: { confirm: 'Are you sure?' } do
+            %button.btn.btn-warning{type: "button"} Cancel
+        - if user_can? [:update], [@issue]
+          = link_to edit_issue_path(@issue) do
+            %button.btn.btn-primary{type: "button"} Edit
+      - if user_can? [:create], [@issue]
+        = link_to new_issue_path do
+          %button.btn.btn-success{type: "button"} New
+      - if user_can? [:read], [@issue]
+        = link_to @issue.class do
+          %button.btn.btn-default{type: "button"} Index
 
     .row
       .col-md-6

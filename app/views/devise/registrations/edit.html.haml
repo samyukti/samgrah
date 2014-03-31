@@ -6,7 +6,7 @@
     = simple_form_for @user, url: user_registration_path, defaults: {input_html: { class: "form-control" }}, html: { class: "horizontal-form" } do |f|
       .row
         .col-md-12
-              .text-right
+          .text-right
             = render 'shared/masters/form_actions', f: f
 
       = f.error_notification

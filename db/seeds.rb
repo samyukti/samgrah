@@ -6,6 +6,9 @@ admin = User.create! email: 'admin@sangrah.local', password: 'samyukti', passwor
 
 puts 'Seeding Default Roles...'
 role_admin = Role.create! name: 'admin'
+Role.create! name: 'auditor'
+Role.create! name: 'manager'
+Role.create! name: 'member'
 
 puts 'Seeding Default User Role Associations...'
 admin.roles << role_admin
@@ -46,4 +49,4 @@ Copy.create! item: Item.first, name: 'P118127340JA002', quality: 'u', status: 'a
 
 Membership.create! code: '1001', name: 'Premium Members', kind: 'Premium'
 
-Member.create! code: '1234', name: 'John Doe', membership: Membership.first
+Member.create! code: '1234', name: 'John Doe', membership: Membership.first, address: Address.create!

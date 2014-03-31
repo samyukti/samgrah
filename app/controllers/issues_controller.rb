@@ -1,4 +1,5 @@
 class IssuesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -76,6 +77,6 @@ private
   end
 
   def issue_params
-    params.require(:issue).permit(:copy_id, :member_id, :issued_date, :kind, :status, :return_date, :extension, :notes, :created_by, :updated_by)
+    params.require(:issue).permit(:copy_id, :member_id, :issued_date, :kind, :return_date, :notes)
   end
 end

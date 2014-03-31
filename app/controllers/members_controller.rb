@@ -10,6 +10,10 @@ class MembersController < MastersController
 
 private
 
+  def member_params
+    master_params
+  end
+
   def master_params
     params.require(:member).permit(:membership_id, :code, :name, :kind, :gender, :age_group, :notes,
                                    address_attributes: [:id, :line_1, :line_2, :landmark, :city,
