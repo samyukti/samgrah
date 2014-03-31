@@ -2,6 +2,9 @@ Sangrah::Application.routes.draw do
 
   unauthenticated do
     root to: 'home#index', as: :public_root
+    get '/about', to: 'home#about'
+    get '/policies', to: 'home#policies'
+    get '/items', to: 'home#items'
   end
 
   authenticated :user do

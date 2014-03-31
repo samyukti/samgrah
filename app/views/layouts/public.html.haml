@@ -32,13 +32,16 @@
             .form-group
               = f.input_field :password, label: false, placeholder: 'Password', class: 'form-control', size: 0
             %button.btn.btn-success{type: :submit} Sign in
-    .jumbotron
-      .container
-        %h1 Sangrah
-        %p A simple library management system
-    .container
-      = yield
-      %hr
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: "/about"} About
+            %li
+              %a{href: "/policies"} Policies
+            %li
+              %a{href: "/items"} Items
+            %li
+              %a
+    = yield
     #footer
       .container
         %p &copy; Samyukti 2014

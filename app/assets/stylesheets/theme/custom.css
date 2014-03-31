@@ -9,6 +9,9 @@
 .spacer {
   margin: 2px;
 }
+.space-r-m {
+  margin-right: 10px;
+}
 .action-cell {
   width: 10%;
 }
