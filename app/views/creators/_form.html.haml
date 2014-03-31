@@ -27,6 +27,14 @@
       .col-md-6
         = f.input :sort_name
 
+    %h4.form-section Photo
+    .row
+      .col-md-12
+        = f.input :photo, as: :file, label: false, input_html: { capture: "camera" }
+    .row
+      .col-md-12
+        = f.input :remote_photo_url, label: 'Or a URL to the photo'
+
     %h4.form-section Notes
     .row
       .col-md-12

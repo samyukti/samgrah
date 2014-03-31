@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.string   "last_name"
     t.string   "full_name"
     t.string   "sort_name"
+    t.string   "photo"
+    t.string   "remote_photo_url"
     t.text     "notes"
     t.boolean  "active",      default: true
     t.boolean  "archived",    default: false
@@ -147,6 +149,7 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.string   "kind"
     t.string   "gender"
     t.string   "age_group"
+    t.string   "photo"
     t.text     "notes"
     t.boolean  "active",      default: true
     t.boolean  "archived",    default: false

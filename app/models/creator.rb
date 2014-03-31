@@ -1,6 +1,8 @@
 class Creator < ActiveRecord::Base
   include MasterConcerns
 
+  mount_uploader :photo, PhotoUploader
+
   has_many :item_creators, dependent: :restrict_with_error
   has_many :items,  through: :item_creators
 

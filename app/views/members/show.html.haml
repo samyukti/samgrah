@@ -7,15 +7,22 @@
       = render 'shared/masters/show_actions'
 
     .row
+      .col-md-6.text-center.pull-right
+        .image-container
+          = image_tag "/members/#{@master.id}/photo/thumb"
       .col-md-6
-        = display_field @master.code, label: 'Code'
-      .col-md-6
-        = display_field @master.name, label: 'Name'
-    .row
-      .col-md-6
-        = display_field @master.membership.name, label: 'Membership'
-      .col-md-6
-        = display_field @master.kind, label: 'Type'
+        .row
+          .col-md-12
+            = display_field @master.code, label: 'Code'
+        .row
+          .col-md-12
+            = display_field @master.name, label: 'Name'
+        .row
+          .col-md-12
+            = display_field @master.membership.name, label: 'Membership'
+        .row
+          .col-md-12
+            = display_field @master.kind, label: 'Type'
     .row
       .col-md-6
         = display_field @master.gender, label: 'Gender'

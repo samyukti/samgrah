@@ -49,6 +49,7 @@ Sangrah::Application.routes.draw do
 
   resources :members do
     get :copy
+    get 'photo(/:version)', to: 'members#photo'
     patch :lock, :unlock, :archive, :unarchive
   end
 

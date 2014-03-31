@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   include MasterConcerns
 
-  mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, ImageUploader
 
   belongs_to :category
   belongs_to :creator

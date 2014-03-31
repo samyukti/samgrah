@@ -1,4 +1,4 @@
-= simple_form_for @master, defaults: {input_html: { class: "form-control" }} do |f|
+= simple_form_for @master, defaults: {input_html: { class: "form-control" }}, html: { multipart: true } do |f|
   .row
     .col-md-12
       .text-right
@@ -36,6 +36,11 @@
       = render 'shared/addresses/form', f: a
 
     %hr
+
+    %h4.form-section Photo
+    .row
+      .col-md-12
+        = f.input :photo, as: :file, label: false, input_html: { capture: "camera" }
 
     %h4.form-section Notes
     .row

@@ -7,13 +7,19 @@
       = render 'shared/masters/show_actions'
 
     .row
+      .col-md-6.text-center.pull-right
+        .image-container
+          = image_tag @master.photo.thumb.url
       .col-md-6
-        = display_field @master.kind, label: 'Type'
-    .row
-      .col-md-6
-        = display_field @master.first_name, label: 'First Name'
-      .col-md-6
-        = display_field @master.last_name, label: 'Last Name'
+        .row
+          .col-md-12
+            = display_field @master.kind, label: 'Type'
+        .row
+          .col-md-12
+            = display_field @master.first_name, label: 'First Name'
+        .row
+          .col-md-12
+            = display_field @master.last_name, label: 'Last Name'
     .row
       .col-md-6
         = display_field @master.full_name, label: 'Full Name'

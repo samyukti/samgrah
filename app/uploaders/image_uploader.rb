@@ -1,4 +1,4 @@
-class PhotoUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   storage :file
@@ -12,8 +12,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    # ActionController::Base.helpers.asset_path("missing/" + [version_name, "photo.png"].compact.join('_'))
-    "/static/images/missing/" + [version_name, "photo.png"].compact.join('_')
+    # ActionController::Base.helpers.asset_path("missing/" + [version_name, "image.png"].compact.join('_'))
+    "/static/images/missing/" + [version_name, "image.png"].compact.join('_')
   end
 
   version :thumb do

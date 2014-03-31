@@ -1,6 +1,8 @@
 class Member < ActiveRecord::Base
   include MasterConcerns
 
+  mount_uploader :photo, MemberUploader
+
   belongs_to :membership
 
   has_one :address, as: :addressable, dependent: :destroy
