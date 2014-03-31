@@ -3,7 +3,6 @@
   %small / View
 .row
   .col-md-12
-    %p#notice= notice
     .text-right
       - if @reservation.reserved?
         = link_to reservation_close_path(@reservation), method: :patch, data: { confirm: 'Are you sure?' } do

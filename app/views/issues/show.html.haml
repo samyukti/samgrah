@@ -3,7 +3,6 @@
   %small / View
 .row
   .col-md-12
-    %p#notice= notice
     .text-right
       - if @issue.issued?
         = link_to issue_close_path(@issue), method: :patch, data: { confirm: 'Are you sure?' } do

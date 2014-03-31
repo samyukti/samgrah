@@ -21,10 +21,8 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @reservation }
       else
         format.html { render action: 'new' }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,10 +31,8 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.update(reservation_params)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,10 +42,8 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.cancel!
         format.html { redirect_to @reservation, notice: 'Reservation was successfully canceled.' }
-        format.json { head :no_content }
       else
         format.html { redirect_to @reservation, notice: 'Reservation could not be canceled due to errors.' }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,19 +53,19 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.return!
         format.html { redirect_to @reservation, notice: 'Reservation was successfully closed.' }
-        format.json { head :no_content }
       else
         format.html { redirect_to @reservation, notice: 'Reservation could not be closed due to errors.' }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @reservation.destroy
     respond_to do |format|
-      format.html { redirect_to reservations_url }
-      format.json { head :no_content }
+      if @reservation.destroy
+        format.html { redirect_to reservations_url }
+      else
+        format.html { redirect_to @reservation, alert: @reservation.errors[:base][0] }
+      end
     end
   end
 

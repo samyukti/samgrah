@@ -1,13 +1,29 @@
 = simple_form_for @master, defaults: {input_html: { class: "form-control" }} do |f|
   .row
     .col-md-12
-      %p#notice= notice
       .text-right
         = render 'shared/masters/form_actions', f: f
 
   = f.error_notification
 
   .form-inputs
+    .row
+      .col-md-6
+        = f.input :name, autofocus: true
+      .col-md-6
+        = f.input :email
+    .row
+      .col-md-6
+        = f.input :role_ids,                                      |
+          label: false,                                           |
+          collection: Role.all.map {|r| [r.name.titleize, r.id]}, |
+          required: true,                                         |
+          input_html: { class: "form-control selectize" }         |
+    .row
+      .col-md-6
+        = f.input :password
+      .col-md-6
+        = f.input :password_confirmation
 
   .form-actions
     = render 'shared/masters/form_actions', f: f

@@ -1,7 +1,6 @@
 = simple_form_for @reservation, defaults: {input_html: { class: "form-control" }} do |f|
   .row
     .col-md-12
-      %p#notice= notice
       .text-right
         = f.button :submit, class: 'btn-primary'
         = link_to @reservation do

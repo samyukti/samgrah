@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include MasterConcerns
+  rolify
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

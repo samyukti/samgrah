@@ -21,10 +21,8 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @issue }
       else
         format.html { render action: 'new' }
-        format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,10 +31,8 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.update(issue_params)
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,10 +42,8 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.cancel!
         format.html { redirect_to @issue, notice: 'Issue was successfully canceled.' }
-        format.json { head :no_content }
       else
         format.html { redirect_to @issue, notice: 'Issue could not be canceled due to errors.' }
-        format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,19 +53,19 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.close!
         format.html { redirect_to @issue, notice: 'Item was successfully returned.' }
-        format.json { head :no_content }
       else
         format.html { redirect_to @issue, notice: 'Item could not be returned due to errors.' }
-        format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @issue.destroy
     respond_to do |format|
-      format.html { redirect_to issues_url }
-      format.json { head :no_content }
+      if @issue.destroy
+        format.html { redirect_to issues_url }
+      else
+        format.html { redirect_to @issue, alert: @issue.errors[:base][0] }
+      end
     end
   end
 

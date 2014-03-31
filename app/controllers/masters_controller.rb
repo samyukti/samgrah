@@ -46,9 +46,12 @@ class MastersController < ApplicationController
   end
 
   def destroy
-    @master.destroy
     respond_to do |format|
-      format.html { redirect_to @master_class }
+      if @master.destroy
+        format.html { redirect_to @master_class }
+      else
+        format.html { redirect_to @master, alert: @master.errors[:base][0] }
+      end
     end
   end
 
