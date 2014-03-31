@@ -1,10 +1,10 @@
 .container
   %h1 Items
+  %hr
   - @items.each_slice(4) do |row|
-    %hr
     .row
       - row.each do |item|
         .col-md-3
           %h3= item.name
           %p= item.excerpt
-  %hr
+    %hr
