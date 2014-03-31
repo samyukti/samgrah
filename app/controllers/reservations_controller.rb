@@ -77,6 +77,6 @@ private
   end
 
   def reservation_params
-    params.require(:reservation).permit(:item_id, :member_id, :reserved_date, :status, :notes, :created_by, :updated_by)
+    params.require(:reservation).permit(:item_id, :member_id, :reserved_date, :status, :notes)
   end
 end
