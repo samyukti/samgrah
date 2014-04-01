@@ -1,0 +1,33 @@
+%h1.page-header
+  Search
+  %small / Results
+  - if @items.present?
+    %h3 Items
+    %hr
+    - @items.each_slice(4) do |row|
+      .row
+        - row.each do |item|
+          .col-md-3
+            %h4= link_to item.name, item
+            .row
+              .col-xs-4
+                = image_tag item.photo.select.url
+              .col-xs-8
+                = item.excerpt
+      %hr
+  - if @creators.present?
+    %h3 Creators
+    %hr
+    - @creators.each_slice(4) do |row|
+      .row
+        - row.each do |creator|
+          .col-md-3
+            %h4= creator.sort_name
+            .row
+              .col-xs-4
+                = image_tag creator.photo.select.url
+              .col-xs-8
+                %ul
+                  - creator.items.each do |i|
+                    %li= link_to i.name, i
+      %hr

@@ -26,8 +26,8 @@
             %span.icon-bar
           %a.navbar-brand{href: application_root_path} Sangrah
         .navbar-collapse.collapse
-          %form.navbar-form.navbar-right
-            %input.form-control{placeholder: "Search...", type: "text", autofocus: true}/
+          %form.navbar-form.navbar-right{action: "#{search_path}", method: :get}
+            = text_field_tag 's', params[:s], placeholder: 'Search...', class: 'form-control', autofocus: true
             %button.btn.btn-success{type: "submit"}
               %i.fa.fa-search
             %span.space-r-m
