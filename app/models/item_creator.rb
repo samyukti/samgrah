@@ -4,5 +4,5 @@ class ItemCreator < ActiveRecord::Base
 
   validates_presence_of :creator_id, :role
 
-  default_scope order('sequence asc')
+  default_scope { order('sequence asc') }
 end

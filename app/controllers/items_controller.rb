@@ -1,5 +1,4 @@
 class ItemsController < MastersController
-
   def new
     @master = @master_class.new
     @master.item_creators.build

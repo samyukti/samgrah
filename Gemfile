@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.3'
 
-# database
-gem 'sqlite3'
+# Databases
+gem 'pg'
 
 # assets
 gem 'sass-rails', '~> 4.0.0'
