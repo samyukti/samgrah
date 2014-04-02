@@ -8,6 +8,9 @@ FactoryGirl.define do
     age_group 'Middle'
     profession 'Teacher'
     join_date '2014-01-01'
+    renewal_date '2030-12-31'
+    renewed_date '2014-01-01'
+    closed_date nil
     status 'active'
     photo 'member.jpg'
     notes 'This is a test member record'
