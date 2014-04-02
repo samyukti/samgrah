@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.integer  "quantity",        default: 1
     t.boolean  "issuable",        default: true
     t.boolean  "issued",          default: false
+    t.string   "location"
     t.string   "photo"
     t.string   "remote_photo_url"
     t.text     "notes"

@@ -35,6 +35,8 @@
         = display_field lookup(Settings.copy.qualities, @master.quality), label: 'Quality'
       .col-md-3
         = display_field lookup(Settings.copy.statuses, @master.status), label: 'Status'
+      .col-md-6
+        = display_field @master.location, label: 'Location'
     .row
       .col-md-12
         = display_field @master.notes, label: 'Notes'

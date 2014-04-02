@@ -12,6 +12,7 @@ FactoryGirl.define do
     quantity 1
     issuable true
     issued false
+    location 'A1'
     photo 'item.jpg'
     remote_photo_url nil
     notes 'This is a test copy record'
