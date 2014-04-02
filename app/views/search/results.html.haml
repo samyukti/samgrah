@@ -22,12 +22,12 @@
       .row
         - row.each do |creator|
           .col-md-3
-            %h4= creator.sort_name
+            %h4= link_to creator.sort_name, creator
             .row
               .col-xs-4
                 = image_tag creator.photo.select.url
               .col-xs-8
                 %ul
-                  - creator.items.each do |i|
-                    %li= link_to i.name, i
+                  - creator.item_creators.each do |ic|
+                    %li= link_to ic.item.name, ic.item
       %hr

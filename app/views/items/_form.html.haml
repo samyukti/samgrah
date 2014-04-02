@@ -1,10 +1,10 @@
-= simple_form_for @master, defaults: {input_html: { class: "form-control" }}, html: { multipart: true } do |f|
+= simple_nested_form_for @master, defaults: {input_html: { class: "form-control" }}, html: { multipart: true } do |f|
   .row
     .col-md-12
       .text-right
         = render 'shared/masters/form_actions', f: f
 
-  = f.error_notification
+  = render 'shared/errors/messages', object: f.object
 
   .form-inputs
     .row
@@ -17,9 +17,29 @@
         = f.association :category, input_html: { class: 'selectize' }
       .col-md-6
         = f.input :subject
-    .row
-      .col-md-6
-        = f.association :creator, input_html: { class: 'selectize' }
+    .creator-tabs
+      %ul.nav.nav-tabs
+        %li.margin-10
+        %li.active
+          %a{href: '#tab_creators', data: {toggle: 'tab'}} Creators
+      .tab-content
+        #tab_contacts.tab-pane.active
+          .row
+            .col-md-12
+              .table-responsive
+                %table#item_creators.table.table-striped.table-hover.spreadsheet
+                  %thead
+                    %tr
+                      %th #
+                      %th Creator
+                      %th Role
+                      %th
+                  %tbody#item_creator_fields
+                    = f.simple_fields_for :item_creators, wrapper: false do |ff|
+                      = render 'item_creator_fields', f: ff
+              %p
+                = f.link_to_add ' Add', :item_creators, 'data-target' => '#item_creator_fields', class: 'btn btn-sm btn-primary fa fa-plus'
+    .spaceholder
     .row
       .col-md-6
         = f.input :kind,                                |

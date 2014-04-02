@@ -9,7 +9,7 @@
           .text-right
             = render 'shared/masters/form_actions', f: f
 
-      = f.error_notification
+      = render 'shared/errors/messages', object: f.object
 
       .form-inputs
         .row

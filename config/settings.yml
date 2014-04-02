@@ -100,6 +100,16 @@ item:
     - 9
     - 10
 
+item_creator:
+  roles:
+    - Author
+    - Actor
+    - Director
+    - Editor
+    - Performer
+    - Producer
+    - Translator
+
 copy:
   qualities:
     - {id: 'n', name: 'New'}

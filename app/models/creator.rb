@@ -3,7 +3,7 @@ class Creator < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 
-  # has_many :item_creators, dependent: :restrict_with_error
+  has_many :item_creators, dependent: :restrict_with_error
   has_many :items
 
   validates_presence_of :kind, :sort_name

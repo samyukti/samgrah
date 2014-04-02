@@ -103,6 +103,7 @@ GEM
     minitest (4.7.5)
     mousetrap-rails (1.4.6)
     multi_json (1.9.2)
+    nested_form (0.3.2)
     orm_adapter (0.5.0)
     polyglot (0.3.4)
     pry (0.9.12.6)
@@ -212,6 +213,7 @@ DEPENDENCIES
   meta_request
   mini_magick
   mousetrap-rails
+  nested_form
   pry-rails
   quiet_assets
   rails (= 4.0.3)

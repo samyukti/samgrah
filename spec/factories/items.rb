@@ -4,7 +4,6 @@ FactoryGirl.define do
     code 'B10001'
     name 'Pride and Prejudice'
     alt_name 'Pride and Prejudice'
-    creator_id 1
     subject 'Novel of Manners'
     kind 'Book'
     format 'Paperback'

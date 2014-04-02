@@ -1,6 +1,6 @@
 %h2 Forgot your password?
 = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-  = f.error_notification
+  = render 'shared/errors/messages', object: f.object
   .form-inputs
     = f.input :email, :required => true, :autofocus => true
   .form-actions

@@ -123,7 +123,6 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.string   "code"
     t.string   "name"
     t.string   "alt_name"
-    t.string   "creator_id"
     t.string   "subject"
     t.string   "kind"
     t.string   "format"

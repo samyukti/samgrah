@@ -6,7 +6,7 @@
         = link_to @reservation do
           %button.btn.btn-default{type: "button"} Cancel
 
-  = f.error_notification
+  = render 'shared/errors/messages', object: f.object
 
   .form-inputs
     .row

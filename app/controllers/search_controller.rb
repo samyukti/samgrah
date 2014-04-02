@@ -5,9 +5,7 @@ class SearchController < ApplicationController
     if params[:s].present?
       search = "%#{params[:s].gsub(/\s+/, '%')}%"
       @items = Item.where('name like :search', search: search)
-      @creators = Creator.includes(:items).where('sort_name like :search', search: search)
-    else
-      redirect_to root_url
+      @creators = Creator.includes(:item_creators => :item).where('sort_name like :search', search: search)
     end
   end
 

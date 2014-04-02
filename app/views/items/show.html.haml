@@ -23,9 +23,29 @@
         .row
           .col-md-12
             = display_field @master.subject, label: 'Subject'
-    .row
-      .col-md-6
-        = display_field @master.creator.name, label: 'Author' if @master.creator
+    .tabbable
+      %ul.nav.nav-tabs
+        %li.margin-10
+        %li.active
+          %a{href: '#tab_creators', data: {toggle: 'tab'}} Creators
+      .tab-content
+        #tab_contacts.tab-pane.active
+          .row
+            .col-md-12
+              .table-responsive
+                %table#item_creators.table.table-striped.table-hover.spreadsheet
+                  %thead
+                    %tr
+                      %th #
+                      %th Creator
+                      %th Role
+                  %tbody#item_creator_fields
+                    - @master.item_creators.each_with_index do |item_creator, index|
+                      %tr
+                        %td= index + 1
+                        %td= item_creator.creator.name
+                        %td= item_creator.role
+    .spaceholder
     .row
       .col-md-6
         = display_field @master.kind, label: 'Type'

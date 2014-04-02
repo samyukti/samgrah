@@ -12,6 +12,9 @@
 .space-r-m {
   margin-right: 10px;
 }
+.spaceholder {
+  min-height: 33px;
+}
 .action-cell {
   width: 10%;
 }
@@ -25,4 +28,7 @@
 }
 .image-container {
   margin: 20px;
+}
+.margin-10{
+  margin: 10px;
 }
