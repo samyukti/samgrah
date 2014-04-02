@@ -16,6 +16,17 @@ In future we may consider to develop this as a full-fledged application.
     cd Code
     git clone https://github.com/samyukti/sangrah.git Sangrah
 
+* Configure the PostgreSQL database
+
+    create user sangrah with encrypted password 'sangrah';
+    alter user sangrah createdb;
+    create database sangrah;
+    create database sangrah_dev;
+    create database sangrah_test;
+    alter database sangrah owner to sangrah;
+    alter database sangrah_dev owner to sangrah;
+    alter database sangrah_test owner to sangrah;
+
 * Install the dependencies
 
     cd Sangrah
