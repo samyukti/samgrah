@@ -6,6 +6,10 @@ FactoryGirl.define do
     kind 'Person'
     gender 'Male'
     age_group 'Middle'
+    profession 'Teacher'
+    join_date '2014-01-01'
+    status 'active'
+    photo 'member.jpg'
     notes 'This is a test member record'
     active true
     archived false

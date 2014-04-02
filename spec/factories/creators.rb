@@ -6,6 +6,8 @@ FactoryGirl.define do
     last_name 'Austen'
     full_name 'Jane Austen'
     sort_name 'Auste, Jane'
+    photo 'item.jpg'
+    remote_photo_url nil
     notes 'English novelist'
     active true
     archived false

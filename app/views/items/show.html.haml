@@ -38,7 +38,7 @@
         = display_field @master.published_date, label: 'Published Date'
     .row
       .col-md-6
-        = display_field @master.pages, label: 'Pages'
+        = display_field "#{@master.length} #{@master.length_uom}", label: 'Length'
       .col-md-6
         = display_field @master.language, label: 'Language'
     .row
