@@ -1,19 +1,19 @@
 = destroy_link @master do
-  %button.btn.btn-danger{type: "button"} Delete
+  %button.btn.btn-danger.hidden-xs{type: "button"} Delete
 
 - if @master.archived
   = unarchive_link @master do
-    %button.btn.btn-warning{type: "button"} Unarchive
+    %button.btn.btn-warning.hidden-xs{type: "button"} Unarchive
 - else
   = archive_link @master do
-    %button.btn.btn-warning{type: "button"} Archive
+    %button.btn.btn-warning.hidden-xs{type: "button"} Archive
 
 - if @master.active
   = lock_link @master do
-    %button.btn.btn-info{type: "button"} Lock
+    %button.btn.btn-info.hidden-xs{type: "button"} Lock
 - else
   = unlock_link @master do
-    %button.btn.btn-info{type: "button"} Unlock
+    %button.btn.btn-info.hidden-xs{type: "button"} Unlock
 
 = edit_link @master do
   %button.btn.btn-primary{type: "button"} Edit
