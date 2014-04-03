@@ -9,7 +9,7 @@
   .form-inputs
     .row
       .col-md-6
-        = f.association :item, input_html: { class: 'selectize' }, autofocus: true
+        = f.input :item_id, collection: [], input_html: {class: "form-control custom", data: {id: f.object.item_id}}, autofocus: true
       .col-md-6
         = f.input :name, label: 'Accession No'
     .row

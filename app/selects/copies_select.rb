@@ -15,8 +15,8 @@ private
   def data
     copies.map do |copy|
       { id: copy.id,
-        code: copy.name,
-        name: copy.item.name,
+        code: copy.item.name,
+        name: copy.name,
         detail: copy.item.creator.name,
         image: copy.image_url(:select)
       }

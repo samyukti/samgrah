@@ -3,7 +3,7 @@ var Reservation = function () {
   var initForm = function () {
     $('#reservation_item_id').selectize({
         valueField: 'id',
-        labelField: 'code',
+        labelField: 'name',
         searchField: ['code', 'name'],
         create: false,
         render: { option: Selectizer.renderOptions },
