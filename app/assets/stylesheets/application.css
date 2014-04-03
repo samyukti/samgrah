@@ -10,8 +10,6 @@
  *
  *= require_self
  *= require mousetrap
- *= require selectize
- *= require selectize.bootstrap3
  *= require plugins
  *= require theme
  */
