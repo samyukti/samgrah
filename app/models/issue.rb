@@ -9,8 +9,8 @@ class Issue < ActiveRecord::Base
   validates_presence_of :copy_id, :member_id, :issued_date, :return_date
   validate :valid_issued_date, if: proc { |i| i.issued_date.present? }
   validate :valid_return_date, if: proc { |i| i.issued_date.present? && i.return_date.present? }
-  validate :availability, if: proc { |i| i.copy.present? }
-  validate :reservations, if: proc { |i| i.copy.present? }
+  validate :availability, if: proc { |i| i.copy.present? && i.copy_id_changed? }
+  validate :reservations, if: proc { |i| i.copy.present? && i.copy_id_changed? }
 
   after_initialize :init_dates
   before_save :set_item

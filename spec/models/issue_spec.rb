@@ -67,6 +67,15 @@ describe Issue do
     build(:issue, copy: copy_2, member: member).should_not be_valid
   end
 
+  it 'should allow changing the issue details' do
+    item = create(:item)
+    copy = create(:copy, name: 'name', item: item)
+    member = create(:member)
+    issue = create(:issue, copy: copy, member: member, issued_date: Date.today - 1, return_date: Date.today + 6)
+    issue.assign_attributes(issued_date: Date.today, return_date: Date.today + 7)
+    issue.save.should be(true)
+  end
+
   it 'should mark the copy as issued upon issue' do
     item = create(:item)
     copy = create(:copy, item: item)
