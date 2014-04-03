@@ -35,11 +35,17 @@ Sangrah::Application.routes.draw do
   resources :items do
     get :copy
     patch :lock, :unlock, :archive, :unarchive
+    collection do
+      match 'select', to: 'items#select', via: [:get]
+    end
   end
 
   resources :copies do
     get :copy
     patch :lock, :unlock, :archive, :unarchive
+    collection do
+      match 'select', to: 'copies#select', via: [:get]
+    end
   end
 
   resources :memberships do
@@ -51,6 +57,9 @@ Sangrah::Application.routes.draw do
     get :copy
     get 'photo(/:version)', to: 'members#photo'
     patch :lock, :unlock, :archive, :unarchive
+    collection do
+      match 'select', to: 'members#select', via: [:get]
+    end
   end
 
   resources :issues do

@@ -1,0 +1,8 @@
+/*
+ * This is a manifest file for Selectize
+ *
+ *= require ./selectize
+ *= require ./selectize.bootstrap3
+ *= require ./custom
+ */
+

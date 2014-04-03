@@ -11,9 +11,9 @@
   .form-inputs
     .row
       .col-md-6
-        = f.association :item, input_html: { class: 'selectize' }, autofocus: true
+        = f.input :item_id, collection: [], input_html: {class: "form-control custom", data: {id: f.object.item_id}}, autofocus: true
       .col-md-6
-        = f.association :member, input_html: { class: 'selectize' }
+        = f.input :member_id, collection: [], input_html: {class: "form-control custom", data: {id: f.object.member_id}}
     .row
       .col-md-6
         = f.input :reserved_date, as: :datepick

@@ -16,10 +16,10 @@ var Page = function () {
 
         if (isFunction(window[fController]["init"])) {
           window[fController]["init"]();
-        }       
+        }
         if (isFunction(window[fController][fAction])) {
           window[fController][fAction]();
-        }       
+        }
       });
 
     }

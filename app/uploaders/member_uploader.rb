@@ -21,7 +21,7 @@ class MemberUploader < CarrierWave::Uploader::Base
   end
 
   version :select do
-    process resize_to_limit: [100, 100]
+    process resize_to_limit: [40, 40]
   end
 
   def extension_white_list

@@ -1,4 +1,10 @@
 class CopiesController < MastersController
+  def select
+    respond_to do |format|
+      format.json { render json: CopiesSelect.new(view_context, @masters) }
+    end
+  end
+
 private
 
   def copy_params

@@ -16,6 +16,7 @@
 //= require mousetrap
 //= require selectize
 //= require plugins
+//= require shared
 //= require_directory .
 //= require page
 

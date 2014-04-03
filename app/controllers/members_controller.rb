@@ -22,6 +22,12 @@ class MembersController < MastersController
     send_file(photo, disposition: 'inline', x_sendfile: true)
   end
 
+  def select
+    respond_to do |format|
+      format.json { render json: MembersSelect.new(view_context, @masters) }
+    end
+  end
+
 private
 
   def member_params

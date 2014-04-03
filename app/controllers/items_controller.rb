@@ -8,6 +8,12 @@ class ItemsController < MastersController
     @master.item_creators.build unless @master.item_creators.present?
   end
 
+  def select
+    respond_to do |format|
+      format.json { render json: ItemsSelect.new(view_context, @masters) }
+    end
+  end
+
 private
 
   def item_params

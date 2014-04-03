@@ -2,3 +2,4 @@
 //
 //= require ./bootstrap/bootstrap
 //= require ./datepicker/bootstrap-datepicker
+//= require ./selectize/selectize
