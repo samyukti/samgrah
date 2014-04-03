@@ -36,6 +36,12 @@ class Copy < ActiveRecord::Base
     self.issued == true
   end
 
+  def image_url(version = nil)
+    version = version && version.to_sym
+    self.photo.blank? && self.item.photo.present? ? \
+      self.item.photo.url(version) : self.photo.url(version)
+  end
+
 private
 
   def valid_procured_date
