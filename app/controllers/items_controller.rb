@@ -4,6 +4,17 @@ class ItemsController < MastersController
     @master.item_creators.build
   end
 
+  def copy
+    original = @master
+    @master  = @master_class.new(original.attributes)
+
+    original.item_creators.each do |creator|
+      @master.item_creators.build(creator.attributes)
+    end
+
+    render :new
+  end
+
   def edit
     @master.item_creators.build unless @master.item_creators.present?
   end
