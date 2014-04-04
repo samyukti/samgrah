@@ -27,6 +27,6 @@ private
     items = Item.includes(:category).order("items.name")
     items = items.where("items.name ilike :search or items.code ilike :search", search: "%#{params[:s]}%") if params[:s].present?
     items = items.where(id: "#{params[:id]}") if params[:id].present?
-    items.limit(params[:per])
+    items.limit(params[:per] || 10)
   end
 end

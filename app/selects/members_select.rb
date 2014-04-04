@@ -27,6 +27,6 @@ private
     members = Member.includes(:membership).order("members.name")
     members = members.where("members.name ilike :search or members.code ilike :search", search: "%#{params[:s]}%") if params[:s].present?
     members = members.where(id: "#{params[:id]}") if params[:id].present?
-    members.limit(params[:per])
+    members.limit(params[:per] || 10)
   end
 end
