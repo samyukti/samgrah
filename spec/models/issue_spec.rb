@@ -76,6 +76,16 @@ describe Issue do
     issue.save.should be(true)
   end
 
+  it 'should not allow changing the copy of an issue' do
+    item = create(:item)
+    copy_1 = create(:copy, name: 'name_1', item: item)
+    copy_2 = create(:copy, name: 'name_2', item: item)
+    member = create(:member)
+    issue = create(:issue, copy: copy_1, member: member)
+    issue.assign_attributes(copy: copy_2)
+    issue.save.should be(false)
+  end
+
   it 'should mark the copy as issued upon issue' do
     item = create(:item)
     copy = create(:copy, item: item)

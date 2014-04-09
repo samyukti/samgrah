@@ -11,6 +11,7 @@ class Issue < ActiveRecord::Base
   validate :valid_return_date, if: proc { |i| i.issued_date.present? && i.return_date.present? }
   validate :availability, if: proc { |i| i.copy.present? && i.copy_id_changed? }
   validate :reservations, if: proc { |i| i.copy.present? && i.copy_id_changed? }
+  validate :changed_copy, if: proc { |i| i.copy.present? && i.copy_id_changed? }
 
   after_initialize :init_dates
   before_save :set_item
@@ -48,6 +49,11 @@ private
     available = item.copies.available.count
     errors.add(:copy_id, 'All the copies of this item are reserved.') \
       unless available > reserved
+  end
+
+  def changed_copy
+    errors.add(:copy_id, 'Copy cannot be changed after issue. Please cancel this issue if there is a mistake.') \
+      if copy_id_was && copy_id != copy_id_was
   end
 
   def valid_issued_date
