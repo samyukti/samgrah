@@ -20,8 +20,9 @@ class ItemsController < MastersController
   end
 
   def select
+    @masters = Item.where(id: "#{params[:id]}") if params[:id].present?
     respond_to do |format|
-      format.json { render json: ItemsSelect.new(view_context, @masters) }
+      format.json { render json: ItemsSelect.new(@masters, params) }
     end
   end
 

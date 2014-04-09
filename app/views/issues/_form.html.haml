@@ -11,9 +11,13 @@
   .form-inputs
     .row
       .col-md-6
-        = f.input :copy_id, collection: [], input_html: {class: "form-control custom", data: {id: f.object.copy_id}}, autofocus: true
+        = f.input :copy_id, autofocus: true,            |
+          collection: copy_collection([f.object.copy]), |
+          input_html: {class: "form-control custom"}    |
       .col-md-6
-        = f.input :member_id, collection: [], input_html: {class: "form-control custom", data: {id: f.object.member_id}}
+        = f.input :member_id,                               |
+          collection: member_collection([f.object.member]), |
+          input_html: {class: "form-control custom"}        |
     .row
       .col-md-6
         = f.input :issued_date, as: :datepick

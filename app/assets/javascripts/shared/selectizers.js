@@ -1,14 +1,9 @@
 var Selectizer = function () {
   return {
     loadOptions: function (query, callback) {
-      // if (!query.length) return callback();
-      var selectize = this;
-      var url = selectize.settings.remoteUrl;
-      if (selectize.settings.initItem === true && selectize.settings.dataId) {
-        url = url + '?id=' + selectize.settings.dataId;
-      }
+      if (!query.length) return callback();
       $.ajax({
-        url: url,
+        url: this.settings.remoteUrl,
         type: 'GET',
         dataType: 'json',
         data: {
@@ -19,11 +14,7 @@ var Selectizer = function () {
           callback();
         },
         success: function(data) {
-          callback(data.options);
-          if (selectize.settings.initItem === true && selectize.settings.dataId) {
-            selectize.addItem(selectize.settings.dataId);
-            selectize.settings.initItem = false;
-          }
+          callback(data);
         }
       });
     },

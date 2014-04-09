@@ -1,13 +1,11 @@
 class MembersSelect
-  delegate :params, :h, :link_to, :raw, to: :@view
-
-  def initialize(view, members)
-    @view = view
+  def initialize(members, params = {})
     @members = members
+    @params = params
   end
 
   def as_json(options = {})
-    { options: data }
+    data
   end
 
 private
@@ -23,10 +21,14 @@ private
     end
   end
 
-  def members
+  def search_members
     members = Member.includes(:membership).order("members.name")
-    members = members.where("members.name ilike :search or members.code ilike :search", search: "%#{params[:s]}%") if params[:s].present?
-    members = members.where(id: "#{params[:id]}") if params[:id].present?
-    members.limit(params[:per] || 10)
+    members = members.where("members.name ilike :search or members.code ilike :search", search: "%#{@params[:s]}%") \
+      if @params[:s].present?
+    members.limit(@params[:per] || 10)
+  end
+
+  def members
+    members = @members || search_members
   end
 end

@@ -1,13 +1,11 @@
 class CopiesSelect
-  delegate :params, :h, :link_to, :raw, to: :@view
-
-  def initialize(view, copies)
-    @view = view
+  def initialize(copies, params = {})
     @copies = copies
+    @params = params
   end
 
   def as_json(options = {})
-    { options: data }
+    data
   end
 
 private
@@ -23,15 +21,14 @@ private
     end
   end
 
+  def search_copies
+    copies = Copy.available.includes(item: :category).order("copies.name")
+    copies = copies.where("copies.name ilike :search or items.name ilike :search", search: "%#{@params[:s]}%") \
+      if @params[:s].present?
+    copies.limit(@params[:per] || 10)
+  end
+
   def copies
-    copies = Copy.includes(item: :category).order("copies.name")
-    if params[:id].present?
-      copies = copies.where(id: "#{params[:id]}")
-    else
-      copies = copies.available
-    end
-    copies = copies.where("copies.name ilike :search or items.name ilike :search", search: "%#{params[:s]}%") \
-      if params[:s].present?
-    copies.limit(params[:per] || 10)
+    copies = @copies || search_copies
   end
 end

@@ -1,7 +1,8 @@
 class CopiesController < MastersController
   def select
+    @masters = Copy.where(id: "#{params[:id]}") if params[:id].present?
     respond_to do |format|
-      format.json { render json: CopiesSelect.new(view_context, @masters) }
+      format.json { render json: CopiesSelect.new(@masters, params) }
     end
   end
 

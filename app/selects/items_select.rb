@@ -1,13 +1,11 @@
 class ItemsSelect
-  delegate :params, :h, :link_to, :raw, to: :@view
-
-  def initialize(view, items)
-    @view = view
+  def initialize(items, params = {})
     @items = items
+    @params = params
   end
 
   def as_json(options = {})
-    { options: data }
+    data
   end
 
 private
@@ -23,10 +21,14 @@ private
     end
   end
 
+  def search_items
+    items = Item.order("items.name")
+    items = items.where("items.name ilike :search or items.code ilike :search", search: "%#{@params[:s]}%") \
+      if @params[:s].present?
+    items.limit(@params[:per] || 10)
+  end
+
   def items
-    items = Item.includes(:category).order("items.name")
-    items = items.where("items.name ilike :search or items.code ilike :search", search: "%#{params[:s]}%") if params[:s].present?
-    items = items.where(id: "#{params[:id]}") if params[:id].present?
-    items.limit(params[:per] || 10)
+    items = @items || search_items
   end
 end

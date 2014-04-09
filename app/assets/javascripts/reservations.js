@@ -2,30 +2,29 @@ var Reservation = function () {
 
   var initForm = function () {
     $('#reservation_item_id').selectize({
-        valueField: 'id',
-        labelField: 'name',
-        searchField: ['code', 'name'],
-        create: false,
-        render: { option: Selectizer.renderOptions },
-        remoteUrl: '/items/select.json',
-        dataId: $('#reservation_item_id').data('id'),
-        initItem: true,
-        preload: true,
-        load: Selectizer.loadOptions
+      valueField: 'id',
+      labelField: 'name',
+      searchField: ['code', 'name'],
+      create: false,
+      render: { option: Selectizer.renderOptions },
+      remoteUrl: '/items/select.json',
+      load: Selectizer.loadOptions
     });
 
     $('#reservation_member_id').selectize({
-        valueField: 'id',
-        labelField: 'name',
-        searchField: ['code', 'name'],
-        create: false,
-        render: { option: Selectizer.renderOptions },
-        remoteUrl: '/members/select.json',
-        dataId: $('#reservation_member_id').data('id'),
-        initItem: true,
-        preload: true,
-        load: Selectizer.loadOptions
+      valueField: 'id',
+      labelField: 'name',
+      searchField: ['code', 'name'],
+      create: false,
+      render: { option: Selectizer.renderOptions },
+      remoteUrl: '/members/select.json',
+      load: Selectizer.loadOptions
     });
+
+    $(document).on('selectize:load', function(event){
+      console.log(event);
+    });
+
   };
   return {
     index: function () {},

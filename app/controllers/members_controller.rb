@@ -23,8 +23,9 @@ class MembersController < MastersController
   end
 
   def select
+    @masters = Member.where(id: "#{params[:id]}") if params[:id].present?
     respond_to do |format|
-      format.json { render json: MembersSelect.new(view_context, @masters) }
+      format.json { render json: MembersSelect.new(@masters, params) }
     end
   end
 
