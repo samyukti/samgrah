@@ -1,7 +1,7 @@
 var Reservation = function () {
 
   var initForm = function () {
-    $('#reservation_item_id').selectize({
+    $select_item = $('#reservation_item_id').selectize({
       valueField: 'id',
       labelField: 'name',
       searchField: ['code', 'name'],
@@ -10,6 +10,7 @@ var Reservation = function () {
       remoteUrl: '/items/select.json',
       load: Selectizer.loadOptions
     });
+    $select_item[0].selectize.focus();
 
     $('#reservation_member_id').selectize({
       valueField: 'id',

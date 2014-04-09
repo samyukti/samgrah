@@ -1,7 +1,7 @@
 var Issue = function () {
 
   var initForm = function () {
-    $('#issue_copy_id').selectize({
+    $select_copy = $('#issue_copy_id').selectize({
       valueField: 'id',
       labelField: 'name',
       searchField: ['code', 'name'],
@@ -10,6 +10,7 @@ var Issue = function () {
       remoteUrl: '/copies/select.json',
       load: Selectizer.loadOptions
     });
+    $select_copy[0].selectize.focus();
 
     $('#issue_member_id').selectize({
       valueField: 'id',
