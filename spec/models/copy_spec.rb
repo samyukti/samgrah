@@ -43,12 +43,13 @@ describe Copy do
 
   it 'shows the item image if does not have an cover image' do
     item = create(:item, photo: 'photo.jpg')
-    copy = create(:copy, photo: nil)
+    copy = create(:copy, item: item, photo: nil)
     copy.image_url.should eql(item.photo.url)
   end
 
   it 'shows the default cover image if both copy and item do not have a cover image' do
-    copy = create(:copy, photo: nil)
+    item = create(:item, photo: nil)
+    copy = create(:copy, item: item, photo: nil)
     copy.image_url.should eql(ImageUploader.new.default_url)
   end
 end
