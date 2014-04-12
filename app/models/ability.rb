@@ -14,7 +14,7 @@ class Ability
     end
 
     if user.has_role? :member
-      can :perform, :search
+      can :results, :search
       can :read, :report
       can :read, Item
       can :read, Copy
