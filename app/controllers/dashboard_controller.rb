@@ -13,9 +13,10 @@ class DashboardController < ApplicationController
     end
 
     # build data for pie chart
-    @share = Issue.includes(item: :category)
-                  .group_by { |i| i.item.category }
-                  .map { |k, v| { label: k.name, data: v.count } }
-                  .to_json
+    share = Issue.open
+                 .includes(item: :category)
+                 .group_by { |i| i.item.category }
+                 .map { |k, v| { label: k.name, data: v.count } }
+    @share = (share.empty? ? [{}] : share).to_json
   end
 end
