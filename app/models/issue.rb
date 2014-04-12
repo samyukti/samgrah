@@ -18,6 +18,7 @@ class Issue < ActiveRecord::Base
   after_create :update_copy
 
   scope :open, -> { where(status: :issued) }
+  scope :overdue, -> { where('return_date < current_date') }
 
   workflow do
     state :issued do

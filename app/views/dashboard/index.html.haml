@@ -2,4 +2,28 @@
   Home
   %small / Dashboard
 .row
-  %p Welcome to Sangrah Library Management System
+  .col-md-12
+    %p Welcome to Sangrah Library Management System
+%hr
+.row
+  .col-md-3
+    .panel.panel-success
+      .panel-heading
+        %h1= Issue.open.count
+        %p Currently Issued
+  .col-md-3
+    .panel.panel-warning
+      .panel-heading
+        %h1= Reservation.open.count
+        %p Currently Reserved
+  .col-md-3
+    .panel.panel-info
+      .panel-heading
+        %h1= Copy.available.count
+        %p Available for Issue
+  .col-md-3
+    .panel.panel-danger
+      .panel-heading
+        %h1= Issue.open.overdue.count
+        %p Currently Overdue
+%hr
