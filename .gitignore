@@ -17,7 +17,7 @@
 
 # Ignore assets and uploads
 public/assets
-public/static
+public/static/images
 public/uploads
 
 # Ignore pow configuration

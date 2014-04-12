@@ -1,0 +1,1 @@
+Please refer https://code.google.com/p/html5shiv/ for html5shiv license (MIT).
