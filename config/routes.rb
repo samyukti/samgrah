@@ -11,6 +11,8 @@ Sangrah::Application.routes.draw do
     root to: 'dashboard#index', as: :application_root
   end
 
+  match 'welcome', to: 'dashboard#welcome', via: [:get]
+
   devise_for :users, skip: [:registrations]
   as :user do
     get 'my/profile/edit' => 'devise/registrations#edit', as: 'edit_user_registration'

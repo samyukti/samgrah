@@ -42,6 +42,9 @@
 .image-container {
   margin: 20px;
 }
-.margin-10{
+.margin-10 {
   margin: 10px;
+}
+h4 a:hover {
+  text-decoration: none;
 }

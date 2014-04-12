@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
   def index
+    redirect_to :welcome if cannot? :read, :dashboard
+
     # build data for trend chart, considering weeks without any issues
     @trend = []
     issues = Issue.where(issued_date: 13.weeks.ago..Date.today)
@@ -18,5 +20,9 @@ class DashboardController < ApplicationController
                  .group_by { |i| i.item.category }
                  .map { |k, v| { label: k.name, data: v.count } }
     @share = (share.empty? ? [{}] : share).to_json
+  end
+
+  def welcome
+    @items = Item.page(params[:page]).per(12)
   end
 end
