@@ -1,3 +1,9 @@
+.dashboard-icon {
+  font-size: 48px;
+}
+.dashboard-metric {
+  font-size: 48px;
+}
 .display-label {
   width: 100%;
   border-bottom: 1px solid #eeeeee;

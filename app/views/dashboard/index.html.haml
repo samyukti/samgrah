@@ -9,21 +9,33 @@
   .col-md-3
     .panel.panel-success
       .panel-heading
-        %h1= Issue.open.count
+        .dashboard-metric.pull-right
+          .text-right= Issue.open.count
+        .dashboard-icon
+          %i.fa.fa-tags
         %p Currently Issued
   .col-md-3
     .panel.panel-warning
       .panel-heading
-        %h1= Reservation.open.count
+        .dashboard-metric.pull-right
+          .text-right= Reservation.open.count
+        .dashboard-icon
+          %i.fa.fa-lock
         %p Currently Reserved
   .col-md-3
     .panel.panel-info
       .panel-heading
-        %h1= Copy.available.count
+        .dashboard-metric.pull-right
+          .text-right= Copy.available.count
+        .dashboard-icon
+          %i.fa.fa-barcode
         %p Available for Issue
   .col-md-3
     .panel.panel-danger
       .panel-heading
-        %h1= Issue.open.overdue.count
+        .dashboard-metric.pull-right
+          .text-right= Issue.open.overdue.count
+        .dashboard-icon
+          %i.fa.fa-calendar-o
         %p Currently Overdue
 %hr
