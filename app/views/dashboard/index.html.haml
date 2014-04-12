@@ -2,10 +2,6 @@
   Home
   %small / Dashboard
 .row
-  .col-md-12
-    %p Welcome to Sangrah Library Management System
-%hr
-.row
   .col-md-3
     .panel.panel-success
       .panel-heading
@@ -39,3 +35,18 @@
           %i.fa.fa-calendar-o
         %p Currently Overdue
 %hr
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        %i.fa.fa-bar-chart-o
+        Trend
+      .panel-body
+        #display_trend.dashboard-chart{data: {chart: @trend}}
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        %i.fa.fa-align-left
+        Share
+      .panel-body
+        #display_share.dashboard-chart{data: {chart: @share}}

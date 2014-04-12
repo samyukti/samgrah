@@ -4,6 +4,13 @@
 .dashboard-metric {
   font-size: 48px;
 }
+.dashboard-chart {
+  height: 275px;
+}
+.chart-label {
+  font-size:16px;
+  color:white;
+}
 .display-label {
   width: 100%;
   border-bottom: 1px solid #eeeeee;

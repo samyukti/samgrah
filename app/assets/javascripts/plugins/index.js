@@ -3,3 +3,4 @@
 //= require ./bootstrap/bootstrap
 //= require ./datepicker/bootstrap-datepicker
 //= require ./selectize/selectize
+//= require ./jquery-flot
