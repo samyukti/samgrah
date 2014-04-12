@@ -29,6 +29,6 @@ private
   end
 
   def items
-    items = @items || search_items
+    @items || search_items
   end
 end

@@ -72,6 +72,10 @@ Sangrah::Application.routes.draw do
 
   match 'search', to: 'search#results', via: [:get]
 
-  resources :reports, only: [:index, :show]
-
+  resources :reports, only: [:index] do
+    collection do
+      match 'issues', to: 'reports#issues', via: [:get]
+      match 'reservations', to: 'reports#reservations', via: [:get]
+    end
+  end
 end

@@ -31,3 +31,6 @@ RedundantSelf:
 
 MethodLength:
   Enabled: false
+
+SingleSpaceBeforeFirstArg:
+  Enabled: false

@@ -1,0 +1,38 @@
+%h1.page-header
+  Issues
+  %small / Report
+.row
+  .col-md-12
+    .text-right
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Item
+            %th Accession No
+            %th Member
+            %th Issued
+            %th Return
+            %th Extensions
+            %th Status
+            %th.action-cell
+        %tbody
+          - @issues.each do |issue|
+            %tr
+              %td= issue.id
+              %td= issue.item.name
+              %td= issue.copy.name
+              %td= issue.member.name
+              %td= issue.issued_date
+              %td= issue.return_date
+              %td= issue.extension
+              %td= issue.status.titleize
+              %td.action-cell
+                = show_link issue do
+                  %span.btn-xs.btn-info
+                    %i.fa.fa-search
+                %span.spacer
+.row
+  .col-md-12.text-right
+    = paginate @issues

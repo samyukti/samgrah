@@ -29,6 +29,6 @@ private
   end
 
   def copies
-    copies = @copies || search_copies
+    @copies || search_copies
   end
 end

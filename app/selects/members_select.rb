@@ -29,6 +29,6 @@ private
   end
 
   def members
-    members = @members || search_members
+    @members || search_members
   end
 end
