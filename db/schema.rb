@@ -13,21 +13,24 @@
 
 ActiveRecord::Schema.define(version: 20140318220432) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: true do |t|
-    t.string   "addressable_type"
+    t.string   "addressable_type", limit: 64
     t.integer  "addressable_id"
-    t.string   "line_1"
-    t.string   "line_2"
-    t.string   "landmark"
-    t.string   "city"
-    t.string   "state"
-    t.string   "postal_code"
-    t.string   "country"
-    t.string   "mobile"
-    t.string   "phone_1"
-    t.string   "phone_2"
-    t.string   "email_1"
-    t.string   "email_2"
+    t.string   "line_1",           limit: 128
+    t.string   "line_2",           limit: 128
+    t.string   "landmark",         limit: 128
+    t.string   "city",             limit: 128
+    t.string   "state",            limit: 128
+    t.string   "postal_code",      limit: 16
+    t.string   "country",          limit: 128
+    t.string   "mobile",           limit: 16
+    t.string   "phone_1",          limit: 16
+    t.string   "phone_2",          limit: 16
+    t.string   "email_1",          limit: 128
+    t.string   "email_2",          limit: 128
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -36,12 +39,12 @@ ActiveRecord::Schema.define(version: 20140318220432) do
 
   create_table "categories", force: true do |t|
     t.integer  "parent_id"
-    t.string   "code"
-    t.string   "name"
-    t.string   "kind"
+    t.string   "code",       limit: 32
+    t.string   "name",       limit: 64
+    t.string   "kind",       limit: 32
     t.text     "notes"
-    t.boolean  "active",      default: true
-    t.boolean  "archived",    default: false
+    t.boolean  "active",                default: true
+    t.boolean  "archived",              default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -50,24 +53,24 @@ ActiveRecord::Schema.define(version: 20140318220432) do
 
   create_table "copies", force: true do |t|
     t.integer  "item_id"
-    t.string   "name"
+    t.string   "name",             limit: 128
     t.date     "procured_date"
     t.date     "published_date"
     t.integer  "length"
-    t.string   "length_uom"
+    t.string   "length_uom",       limit: 16
     t.decimal  "cost"
     t.decimal  "price"
-    t.string   "quality"
-    t.integer  "quantity",        default: 1
-    t.boolean  "issuable",        default: true
-    t.boolean  "issued",          default: false
-    t.string   "status"
-    t.string   "location"
-    t.string   "photo"
+    t.string   "quality",          limit: 32
+    t.integer  "quantity",                     default: 1
+    t.boolean  "issuable",                     default: true
+    t.boolean  "issued",                       default: false
+    t.string   "status",           limit: 16
+    t.string   "location",         limit: 64
+    t.string   "photo",            limit: 128
     t.string   "remote_photo_url"
     t.text     "notes"
-    t.boolean  "active",          default: true
-    t.boolean  "archived",        default: false
+    t.boolean  "active",                       default: true
+    t.boolean  "archived",                     default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -75,17 +78,17 @@ ActiveRecord::Schema.define(version: 20140318220432) do
   end
 
   create_table "creators", force: true do |t|
-    t.string   "kind"
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.string   "last_name"
-    t.string   "full_name"
-    t.string   "sort_name"
-    t.string   "photo"
+    t.string   "kind",             limit: 16
+    t.string   "first_name",       limit: 64
+    t.string   "middle_name",      limit: 64
+    t.string   "last_name",        limit: 64
+    t.string   "full_name",        limit: 192
+    t.string   "sort_name",        limit: 192
+    t.string   "photo",            limit: 128
     t.string   "remote_photo_url"
     t.text     "notes"
-    t.boolean  "active",      default: true
-    t.boolean  "archived",    default: false
+    t.boolean  "active",                       default: true
+    t.boolean  "archived",                     default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -97,8 +100,8 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.integer  "item_id"
     t.integer  "member_id"
     t.date     "issued_date"
-    t.string   "kind"
-    t.string   "status"
+    t.string   "kind",          limit: 16
+    t.string   "status",        limit: 16
     t.date     "return_date"
     t.date     "returned_date"
     t.integer  "extension"
@@ -113,7 +116,7 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.integer  "item_id"
     t.integer  "creator_id"
     t.integer  "sequence"
-    t.string   "role"
+    t.string   "role",       limit: 16
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -122,31 +125,31 @@ ActiveRecord::Schema.define(version: 20140318220432) do
 
   create_table "items", force: true do |t|
     t.integer  "category_id"
-    t.string   "code"
-    t.string   "name"
-    t.string   "alt_name"
-    t.string   "subject"
-    t.string   "kind"
-    t.string   "format"
+    t.string   "code",             limit: 32
+    t.string   "name",             limit: 128
+    t.string   "alt_name",         limit: 128
+    t.string   "subject",          limit: 32
+    t.string   "kind",             limit: 16
+    t.string   "format",           limit: 16
     t.integer  "length"
-    t.string   "length_uom"
-    t.string   "publisher"
+    t.string   "length_uom",       limit: 16
+    t.string   "publisher",        limit: 128
     t.date     "published_date"
-    t.string   "language"
-    t.string   "isbn_10"
-    t.string   "isbn_13"
+    t.string   "language",         limit: 16
+    t.string   "isbn_10",          limit: 16
+    t.string   "isbn_13",          limit: 16
     t.decimal  "cost"
     t.decimal  "price"
-    t.string   "reference"
-    t.string   "rights"
-    t.string   "rating"
-    t.string   "tags"
+    t.string   "reference",        limit: 128
+    t.string   "rights",           limit: 16
+    t.string   "rating",           limit: 8
+    t.string   "tags",             limit: 128
     t.text     "excerpt"
-    t.string   "photo"
+    t.string   "photo",            limit: 128
     t.string   "remote_photo_url"
     t.text     "notes"
-    t.boolean  "active",           default: true
-    t.boolean  "archived",         default: false
+    t.boolean  "active",                       default: true
+    t.boolean  "archived",                     default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -155,21 +158,21 @@ ActiveRecord::Schema.define(version: 20140318220432) do
 
   create_table "members", force: true do |t|
     t.integer  "membership_id"
-    t.string   "code"
-    t.string   "name"
-    t.string   "kind"
-    t.string   "gender"
-    t.string   "age_group"
-    t.string   "profession"
+    t.string   "code",          limit: 32
+    t.string   "name",          limit: 128
+    t.string   "kind",          limit: 16
+    t.string   "gender",        limit: 8
+    t.string   "age_group",     limit: 16
+    t.string   "profession",    limit: 32
     t.date     "join_date"
     t.date     "renewal_date"
     t.date     "renewed_date"
     t.date     "closed_date"
-    t.string   "status"
-    t.string   "photo"
+    t.string   "status",        limit: 16
+    t.string   "photo",         limit: 128
     t.text     "notes"
-    t.boolean  "active",      default: true
-    t.boolean  "archived",    default: false
+    t.boolean  "active",                    default: true
+    t.boolean  "archived",                  default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -177,12 +180,12 @@ ActiveRecord::Schema.define(version: 20140318220432) do
   end
 
   create_table "memberships", force: true do |t|
-    t.string   "code"
-    t.string   "name"
-    t.string   "kind"
+    t.string   "code",       limit: 32
+    t.string   "name",       limit: 128
+    t.string   "kind",       limit: 16
     t.text     "notes"
-    t.boolean  "active",      default: true
-    t.boolean  "archived",    default: false
+    t.boolean  "active",                 default: true
+    t.boolean  "archived",               default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -193,7 +196,7 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.integer  "item_id"
     t.integer  "member_id"
     t.date     "reserved_date"
-    t.string   "status"
+    t.string   "status",        limit: 16
     t.text     "notes"
     t.integer  "created_by"
     t.integer  "updated_by"
@@ -202,9 +205,9 @@ ActiveRecord::Schema.define(version: 20140318220432) do
   end
 
   create_table "roles", force: true do |t|
-    t.string   "name"
+    t.string   "name",          limit: 64
     t.integer  "resource_id"
-    t.string   "resource_type"
+    t.string   "resource_type", limit: 64
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -215,12 +218,12 @@ ActiveRecord::Schema.define(version: 20140318220432) do
   create_table "rules", force: true do |t|
     t.integer  "category_id"
     t.integer  "membership_id"
-    t.string   "mnemonic"
-    t.string   "name"
-    t.string   "value"
+    t.string   "mnemonic",      limit: 64
+    t.string   "name",          limit: 128
+    t.string   "value",         limit: 128
     t.text     "notes"
-    t.boolean  "active",      default: true
-    t.boolean  "archived",    default: false
+    t.boolean  "active",                    default: true
+    t.boolean  "archived",                  default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -228,28 +231,28 @@ ActiveRecord::Schema.define(version: 20140318220432) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "name",                   limit: 128
+    t.string   "email",                              default: "",    null: false
+    t.string   "encrypted_password",                 default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 64
+    t.string   "last_sign_in_ip",        limit: 64
     t.text     "notes"
-    t.boolean  "active",                 default: true
-    t.boolean  "archived",               default: false
+    t.boolean  "active",                             default: true
+    t.boolean  "archived",                           default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: true do |t|
     t.integer "user_id"
@@ -257,4 +260,5 @@ ActiveRecord::Schema.define(version: 20140318220432) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
 end
