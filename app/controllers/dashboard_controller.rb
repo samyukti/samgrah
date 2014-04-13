@@ -2,6 +2,11 @@ class DashboardController < ApplicationController
   def index
     redirect_to :welcome if cannot? :read, :dashboard
 
+    @open_issues = Issue.open.count
+    @issues_30_days = Issue.where(issued_date: 30.days.ago..Date.today).count
+    @open_reservations = Reservation.open.count
+    @overdue_issues = Issue.open.overdue.count
+
     # build data for trend chart, considering weeks without any issues
     @trend = []
     issues = Issue.where(issued_date: 13.weeks.ago..Date.today)

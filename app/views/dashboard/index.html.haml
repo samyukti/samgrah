@@ -6,33 +6,33 @@
     .panel.panel-success
       .panel-heading
         .dashboard-metric.pull-right
-          .text-right= Issue.open.count
+          .text-right= @open_issues
         .dashboard-icon
           %i.fa.fa-tags
         %p Currently Issued
   .col-md-3
+    .panel.panel-info
+      .panel-heading
+        .dashboard-metric.pull-right
+          .text-right= @issues_30_days
+        .dashboard-icon
+          %i.fa.fa-calendar
+        %p Issues in Past 30 Days
+  .col-md-3
     .panel.panel-warning
       .panel-heading
         .dashboard-metric.pull-right
-          .text-right= Reservation.open.count
+          .text-right= @open_reservations
         .dashboard-icon
           %i.fa.fa-lock
         %p Currently Reserved
   .col-md-3
-    .panel.panel-info
-      .panel-heading
-        .dashboard-metric.pull-right
-          .text-right= Copy.available.count
-        .dashboard-icon
-          %i.fa.fa-barcode
-        %p Available for Issue
-  .col-md-3
     .panel.panel-danger
       .panel-heading
         .dashboard-metric.pull-right
-          .text-right= Issue.open.overdue.count
+          .text-right= @overdue_issues
         .dashboard-icon
-          %i.fa.fa-calendar-o
+          %i.fa.fa-bell
         %p Currently Overdue
 %hr
 .row
