@@ -5,19 +5,19 @@ FactoryGirl.define do
     name 'Pride and Prejudice'
     alt_name 'Pride and Prejudice'
     subject 'Novel of Manners'
-    kind 'Book'
-    format 'Paperback'
+    kind 'book'
+    format 'paperback'
     length 208
-    length_uom 'Pages'
+    length_uom 'pages'
     publisher 'Whitehall'
     published_date '28-01-1813'
-    language 'English'
+    language 'english'
     isbn_10 '1234567890'
     isbn_13 '1234567890123'
     cost 10.0
     price 10.0
     reference 'This is a test book'
-    rights 'Public Domain'
+    rights 'public_domain'
     rating 10
     tags 'classics, satire'
     excerpt 'Pride and Prejudice is a novel of manners by Jane Austen, first published in 1813'

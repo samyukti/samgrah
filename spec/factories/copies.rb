@@ -3,12 +3,12 @@ FactoryGirl.define do
     item_id 1
     name 'P-1022013912-BP-01'
     procured_date '2014-01-01'
-    status 'a'
+    status 'available'
     length 208
     length_uom 'Pages'
     cost 10.0
     price 10.0
-    quality 'n'
+    quality 'new'
     quantity 1
     issuable true
     issued false

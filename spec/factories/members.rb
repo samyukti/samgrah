@@ -3,9 +3,9 @@ FactoryGirl.define do
     membership_id 1
     code 'M10001'
     name 'John Doe'
-    kind 'Person'
-    gender 'Male'
-    age_group 'Middle'
+    kind 'person'
+    gender 'male'
+    age_group 'middle'
     profession 'Teacher'
     join_date '2014-01-01'
     renewal_date '2030-12-31'

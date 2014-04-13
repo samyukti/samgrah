@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :membership do
     code 'MS10001'
     name 'Gold Class'
-    kind 'Premium'
+    kind 'premium'
     notes 'This is a test membership record'
     active true
     archived false

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :creator do
-    kind 'Author'
+    kind 'author'
     first_name 'Jane'
     middle_name 'Emma'
     last_name 'Austen'

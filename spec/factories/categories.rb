@@ -3,7 +3,7 @@ FactoryGirl.define do
     parent_id nil
     code '1001'
     name 'Classics'
-    kind 'Fiction'
+    kind 'fiction'
     notes 'Classical works of fiction'
     active true
     archived false

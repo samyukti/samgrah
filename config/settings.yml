@@ -1,93 +1,93 @@
 membership:
   kinds:
-    - Premium
-    - Plus
-    - Reader
+    - premium
+    - plus
+    - reader
 
 member:
   kinds:
-    - Person
-    - Family
-    - Organization
+    - person
+    - family
+    - organization
   genders:
-    - Male
-    - Female
-    - N/A
+    - male
+    - female
+    - n/a
   age_groups:
-    - Teen
-    - Young
-    - Middle
-    - Senior
-    - N/A
+    - teen
+    - young
+    - middle
+    - senior
+    - n/a
 
 category:
   kinds:
-    - Arts
-    - Biographies
-    - Business
-    - Children
-    - Comics
-    - Computers
-    - Cooking
-    - Crafts
-    - Engineering
-    - Entertainment
-    - Health
-    - History
-    - Humour
-    - Law
-    - Literature
-    - Mathematics
-    - Medicine
-    - News
-    - Others
-    - Reference
-    - Relationships
-    - Religion
-    - Politics
-    - Science
-    - Self-Help
-    - Sports
-    - Travel
+    - arts
+    - biographies
+    - business
+    - children
+    - comics
+    - computers
+    - cooking
+    - crafts
+    - engineering
+    - entertainment
+    - health
+    - history
+    - humour
+    - law
+    - literature
+    - mathematics
+    - medicine
+    - news
+    - others
+    - reference
+    - relationships
+    - religion
+    - politics
+    - science
+    - self-help
+    - sports
+    - travel
 
 creator:
   kinds:
-    - Author
-    - Artist
-    - Publisher
-    - Vendor
+    - author
+    - artist
+    - publisher
+    - vendor
 
 item:
   kinds:
-    - Book
-    - Periodical
-    - Magazine
-    - Newspaper
-    - Compact Disc
-    - DVD
+    - book
+    - periodical
+    - magazine
+    - newspaper
+    - compact_disc
+    - dvd
   formats:
-    - Paperback
-    - Hardbound
-    - Cased
+    - paperback
+    - hardbound
+    - cased
   length_uoms:
-    - Pages
-    - Minutes
+    - pages
+    - minutes
   languages:
-    - Malayalam
-    - English
-    - Hindi
-    - Tamil
-    - Kannada
-    - Arabic
-    - Other
+    - malayalam
+    - english
+    - hindi
+    - tamil
+    - kannada
+    - arabic
+    - other
   rights:
-    - Copyrighted
-    - Copyright Expired
-    - Patented
-    - Authors Rights
-    - Creative Commons
-    - Orphan Works
-    - Public Domain
+    - copyrighted
+    - copyright_expired
+    - patented
+    - authors_rights
+    - creative_commons
+    - orphan_works
+    - public_domain
   ratings:
     - 1
     - 2
@@ -102,25 +102,25 @@ item:
 
 item_creator:
   roles:
-    - Author
-    - Actor
-    - Director
-    - Editor
-    - Performer
-    - Producer
-    - Translator
+    - author
+    - actor
+    - director
+    - editor
+    - performer
+    - producer
+    - translator
 
 copy:
   qualities:
-    - New
-    - Used
-    - Worn Out
-    - Damaged
+    - new
+    - used
+    - worn_out
+    - damaged
   statuses:
-    - Available
-    - Misplaced
-    - Lost
-    - Unavailable
+    - available
+    - misplaced
+    - lost
+    - unavailable
 
 issue:
   defaults:
