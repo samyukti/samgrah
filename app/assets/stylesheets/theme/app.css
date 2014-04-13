@@ -33,6 +33,10 @@ h6,
   color: #eeeeee !important;
 }
 
+.jumbotron {
+  background-color: #f3f0eb;
+}
+
 #footer {
   position: absolute;
   bottom: 0;
