@@ -9,6 +9,8 @@ In future we may consider to develop this as a full-fledged application.
 
 * Install Ruby on Rails. Probably http://guides.railsgirls.com/install is an easy way to do it.
 
+* Install PostgreSQL. Refer https://wiki.postgresql.org/wiki/Detailed_installation_guides.
+
 * Clone this repository into your computer
 
     cd ~
