@@ -1,0 +1,38 @@
+%h1.page-header
+  Receipts
+  %small / Index
+.row
+  .col-md-12
+    .text-right
+      = new_link Receipt do
+        %button.btn.btn-success{type: 'button'} New
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Date
+            %th Member
+            %th Kind
+            %th Mode
+            %th Amount
+            %th Status
+            %th.action-cell
+        %tbody
+          - @receipts.each do |receipt|
+            %tr
+              %td= receipt.id
+              %td= receipt.received_date
+              %td= receipt.member.name
+              %td= receipt.kind.titleize
+              %td= receipt.mode.titleize
+              %td= receipt.amount
+              %td= receipt.status.titleize
+              %td.action-cell
+                = show_link receipt do
+                  %span.btn-xs.btn-info
+                    %i.fa.fa-search
+                %span.spacer
+.row
+  .col-md-12.text-right
+    = paginate @receipts

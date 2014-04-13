@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318220432) do
+ActiveRecord::Schema.define(version: 20140413190923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,6 +186,23 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.text     "notes"
     t.boolean  "active",                 default: true
     t.boolean  "archived",               default: false
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "receipts", force: true do |t|
+    t.integer  "member_id"
+    t.date     "received_date"
+    t.string   "kind",          limit: 16
+    t.decimal  "amount"
+    t.string   "mode",          limit: 16
+    t.string   "status",        limit: 16
+    t.string   "reference_1",   limit: 128
+    t.string   "reference_2",   limit: 128
+    t.string   "reference_3",   limit: 128
+    t.text     "notes"
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"

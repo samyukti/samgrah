@@ -33,6 +33,12 @@
         %i.fa.fa-lock
         Reservation
 
+  - if user_can? [:read], [Receipt]
+    %li{class: active?([:receipts])}
+      %a{href: receipts_path}
+        %i.fa.fa-money
+        Receipt
+
 %ul.nav.nav-sidebar
 
   - if user_can? [:read], [Creator]

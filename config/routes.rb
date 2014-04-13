@@ -72,6 +72,10 @@ Sangrah::Application.routes.draw do
     patch :cancel, :close
   end
 
+  resources :receipts do
+    patch :cancel, :approve
+  end
+
   match 'search', to: 'search#results', via: [:get]
 
   resources :reports, only: [:index] do

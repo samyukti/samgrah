@@ -126,5 +126,17 @@ issue:
   defaults:
     period: 7
 
+receipt:
+  kinds:
+    - membership
+    - fine
+    - contribution
+    - other
+  modes:
+    - cash
+    - cheque
+    - card
+    - journal
+
 format:
   date: 'yyyy-mm-dd'

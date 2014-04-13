@@ -1,0 +1,47 @@
+%h1.page-header
+  Receipts
+  %small / View
+.row
+  .col-md-12
+    .text-right
+      - if @receipt.draft?
+        - if user_can? [:approve], [@receipt]
+          = link_to receipt_approve_path(@receipt), method: :patch, data: { confirm: 'Are you sure?' } do
+            %button.btn.btn-danger{type: 'button'} Approve
+        - if user_can? [:cancel], [@receipt]
+          = link_to receipt_cancel_path(@receipt), method: :patch, data: { confirm: 'Are you sure?' } do
+            %button.btn.btn-warning{type: 'button'} Cancel
+        - if user_can? [:update], [@receipt]
+          = link_to edit_receipt_path(@receipt) do
+            %button.btn.btn-primary{type: 'button'} Edit
+      - if user_can? [:create], [@receipt]
+        = link_to new_receipt_path do
+          %button.btn.btn-success{type: 'button'} New
+      - if user_can? [:read], [@receipt]
+        = link_to @receipt.class do
+          %button.btn.btn-default{type: 'button'} Index
+
+    .row
+      .col-md-6
+        %h3
+          = "##{@receipt.id}"
+          %small= "/ #{Date.strptime(@receipt.received_date.to_s, "%Y-%m-%d").strftime("%d %b %Y")}"
+          %small= "/ #{@receipt.status.titleize}"
+    .row
+      .col-md-6
+        = display_field @receipt.member.name, label: 'Member'
+      .col-md-6
+        = display_field @receipt.amount, label: 'Amount'
+    .row
+      .col-md-6
+        = display_field @receipt.kind.titleize, label: 'Type'
+      .col-md-6
+        = display_field @receipt.mode.titleize, label: 'Mode'
+    .row
+      .col-md-6
+        = display_field @receipt.reference_1, label: 'Reference 1'
+      .col-md-6
+        = display_field @receipt.reference_2, label: 'Reference 2'
+    .row
+      .col-md-12
+        = display_field @receipt.notes, label: 'Notes'
