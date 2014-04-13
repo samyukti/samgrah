@@ -52,15 +52,16 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.integer  "item_id"
     t.string   "name"
     t.date     "procured_date"
-    t.string   "status"
+    t.date     "published_date"
     t.integer  "length"
-    t.integer  "length_uom"
+    t.string   "length_uom"
     t.decimal  "cost"
     t.decimal  "price"
     t.string   "quality"
     t.integer  "quantity",        default: 1
     t.boolean  "issuable",        default: true
     t.boolean  "issued",          default: false
+    t.string   "status"
     t.string   "location"
     t.string   "photo"
     t.string   "remote_photo_url"
@@ -110,7 +111,7 @@ ActiveRecord::Schema.define(version: 20140318220432) do
 
   create_table "item_creators", force: true do |t|
     t.integer  "item_id"
-    t.string   "creator_id"
+    t.integer  "creator_id"
     t.integer  "sequence"
     t.string   "role"
     t.integer  "created_by"
@@ -128,7 +129,7 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.string   "kind"
     t.string   "format"
     t.integer  "length"
-    t.integer  "length_uom"
+    t.string   "length_uom"
     t.string   "publisher"
     t.date     "published_date"
     t.string   "language"
@@ -216,7 +217,7 @@ ActiveRecord::Schema.define(version: 20140318220432) do
     t.integer  "membership_id"
     t.string   "mnemonic"
     t.string   "name"
-    t.integer  "value"
+    t.string   "value"
     t.text     "notes"
     t.boolean  "active",      default: true
     t.boolean  "archived",    default: false

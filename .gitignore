@@ -26,5 +26,3 @@ public/uploads
 # Ignore development and work files
 *.work
 *.todo
-*.xlsx
-

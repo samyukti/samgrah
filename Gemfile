@@ -36,6 +36,11 @@ gem 'nested_form'
 gem 'kaminari'
 gem 'mousetrap-rails'
 
+# excel
+gem 'rubyXL'
+gem 'nokogiri'
+gem 'rubyzip'
+
 # settings
 gem 'rails_config'
 
