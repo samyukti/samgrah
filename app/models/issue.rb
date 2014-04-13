@@ -22,8 +22,8 @@ class Issue < ActiveRecord::Base
 
   workflow do
     state :issued do
-      event :cancel,  transitions_to: :canceled
-      event :close,  transitions_to: :closed
+      event :cancel, transitions_to: :canceled
+      event :close, transitions_to: :closed
     end
     state :canceled
     state :closed
