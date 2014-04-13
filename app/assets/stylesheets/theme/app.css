@@ -28,6 +28,11 @@ h6,
   font-family: "Open Sans", sans-serif;
 }
 
+.navbar-brand {
+  font-size: 1.8em;
+  color: #eeeeee !important;
+}
+
 #footer {
   position: absolute;
   bottom: 0;
