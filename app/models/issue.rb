@@ -45,7 +45,7 @@ private
   end
 
   def reservations
-    item     = self.copy.item
+    item      = self.copy.item
     reserved  = item.reservations.open.count
     available = item.copies.available.count
     errors.add(:copy_id, 'All the copies of this item are reserved.') \
