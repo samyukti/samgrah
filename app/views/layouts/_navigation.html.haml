@@ -2,55 +2,79 @@
 
   - if user_can? [:read], [:dashboard]
     %li{class: active?([:dashboard])}
-      %a{href: application_root_path} Overview
+      %a{href: application_root_path}
+        %i.fa.fa-dashboard
+        Overview
 
   - if user_can? [:read], [:report]
     %li{class: active?([:reports])}
-      %a{href: reports_path} Reports
+      %a{href: reports_path}
+        %i.fa.fa-bar-chart-o
+        Reports
 
   - if user_can? [:read], [Issue]
     %li{class: active?([:issues])}
-      %a{href: issues_path} Issue
+      %a{href: issues_path}
+        %i.fa.fa-tags
+        Issue
 
   - if user_can? [:read], [Reservation]
     %li{class: active?([:reservations])}
-      %a{href: reservations_path} Reservation
+      %a{href: reservations_path}
+        %i.fa.fa-lock
+        Reservation
 
 %ul.nav.nav-sidebar
 
   - if user_can? [:read], [Creator]
     %li{class: active?([:creators])}
-      %a{href: creators_path} Creators
+      %a{href: creators_path}
+        %i.fa.fa-pencil
+        Creators
 
   - if user_can? [:read], [Category]
     %li{class: active?([:categories])}
-      %a{href: categories_path} Categories
+      %a{href: categories_path}
+        %i.fa.fa-list
+        Categories
 
   - if user_can? [:read], [Item]
     %li{class: active?([:items])}
-      %a{href: items_path} Items
+      %a{href: items_path}
+        %i.fa.fa-book
+        Items
 
   - if user_can? [:read], [Copy]
     %li{class: active?([:copies])}
-      %a{href: copies_path} Copies
+      %a{href: copies_path}
+        %i.fa.fa-barcode
+        Copies
 
 %ul.nav.nav-sidebar
 
   - if user_can? [:read], [Membership]
     %li{class: active?([:memberships])}
-      %a{href: memberships_path} Memberships
+      %a{href: memberships_path}
+        %i.fa.fa-group
+        Memberships
 
   - if user_can? [:read], [Member]
     %li{class: active?([:members])}
-      %a{href: members_path} Members
+      %a{href: members_path}
+        %i.fa.fa-user
+        Members
 
 - if current_user.has_role? :admin
   %ul.nav.nav-sidebar
 
     - if user_can? [:read], [User]
       %li{class: active?([:users])}
-        %a{href: users_path} Users
+        %a{href: users_path}
+          %i.fa.fa-key
+          Users
 
     - if user_can? [:read], [:settings]
       %li{class: active?([:settings])}
-        %a{href: ""} Settings
+        %a{href: ""}
+          %i.fa.fa-cogs
+          Settings
