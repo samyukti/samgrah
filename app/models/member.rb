@@ -11,6 +11,6 @@ class Member < ActiveRecord::Base
 
   accepts_nested_attributes_for :address, allow_destroy: true
 
-  validates_presence_of :code, :name, :membership_id
+  validates_presence_of :code, :name, :kind, :membership_id
   validates_uniqueness_of :code
 end

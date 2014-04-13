@@ -58,7 +58,7 @@
         = display_field @master.published_date, label: 'Published Date'
     .row
       .col-md-6
-        = display_field "#{@master.length} #{@master.length_uom.titleize}", label: 'Length'
+        = display_field "#{@master.length} #{@master.length_uom.to_s.titleize}", label: 'Length'
       .col-md-6
         = display_field @master.language.titleize, label: 'Language'
     .row
@@ -68,7 +68,7 @@
         = display_field @master.isbn_13, label: 'ISBN(13)'
     .row
       .col-md-6
-        = display_field @master.rights.titleize, label: 'Rights'
+        = display_field @master.rights.to_s.titleize, label: 'Rights'
       .col-md-6
         = display_field @master.rating, label: 'Rating'
     .row

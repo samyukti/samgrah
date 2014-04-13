@@ -25,9 +25,9 @@
             = display_field @master.kind.titleize, label: 'Type'
     .row
       .col-md-6
-        = display_field @master.gender.titleize, label: 'Gender'
+        = display_field @master.gender.to_s.titleize, label: 'Gender'
       .col-md-6
-        = display_field @master.age_group.titleize, label: 'Age Group'
+        = display_field @master.age_group.to_s.titleize, label: 'Age Group'
 
     %hr
     %h4.form-section Address

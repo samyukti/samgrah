@@ -19,7 +19,7 @@
           - @masters.each do |creator|
             %tr
               %td= creator.id
-              %td= creator.kind
+              %td= creator.kind.titleize
               %td= creator.full_name || [creator.first_name, creator.last_name].join(' ')
               %td= creator.sort_name
               %td.action-cell

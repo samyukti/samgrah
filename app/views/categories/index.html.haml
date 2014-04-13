@@ -21,7 +21,7 @@
               %td= category.id
               %td= category.code
               %td= category.name
-              %td= category.kind
+              %td= category.kind.titleize
               %td.action-cell
                 = show_link category do
                   %span.btn-xs.btn-info

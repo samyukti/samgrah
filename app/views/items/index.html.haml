@@ -24,8 +24,8 @@
               %td= item.code
               %td= item.name
               %td= item.category.name
-              %td= item.kind
-              %td= item.format
+              %td= item.kind.titleize
+              %td= item.format.titleize
               %td.action-cell
                 = show_link item do
                   %span.btn-xs.btn-info

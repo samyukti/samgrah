@@ -21,7 +21,7 @@
               %td= membership.id
               %td= membership.code
               %td= membership.name
-              %td= membership.kind
+              %td= membership.kind.titleize
               %td.action-cell
                 = show_link membership do
                   %span.btn-xs.btn-info
