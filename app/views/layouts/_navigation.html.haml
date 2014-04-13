@@ -1,5 +1,14 @@
 %ul.nav.nav-sidebar
 
+  %form.navbar-form.navbar-right{action: "#{search_path}", method: :get}
+    .input-group.sidebar-search
+      = text_field_tag 's', params[:s], placeholder: 'Search...', class: 'form-control input-md', autofocus: true
+      .input-group-btn
+        %button.btn.btn-success{type: "submit"}
+          %i.fa.fa-search
+
+%ul.nav.nav-sidebar
+
   - if user_can? [:read], [:dashboard]
     %li{class: active?([:dashboard])}
       %a{href: application_root_path}

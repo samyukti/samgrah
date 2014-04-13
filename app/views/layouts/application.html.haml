@@ -18,24 +18,21 @@
   %body{"app-controller" => "#{params[:controller].classify}", "app-action" => "#{params[:action]}" }
     .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
       .container-fluid
-        .navbar-header
+        .navbar-header.full-width
           %a.navbar-brand{href: application_root_path} Sangrah
           %button.navbar-toggle{data: {target: ".navbar-collapse", toggle: "collapse"}, type: "button"}
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-        .navbar-collapse.collapse
-          %form.navbar-form.navbar-right{action: "#{search_path}", method: :get}
-            = text_field_tag 's', params[:s], placeholder: 'Search...', class: 'form-control', autofocus: true
-            %button.btn.btn-success{type: "submit"}
-              %i.fa.fa-search
-            %span.space-r-m
-            = link_to edit_user_registration_path do
-              .btn.btn-info
-                %i.fa.fa-user
-            = link_to destroy_user_session_path, method: :delete do
-              %button.btn.btn-danger Sign out
+          %ul.nav.navbar-nav.navbar-right-top
+            %li
+              = link_to destroy_user_session_path, method: :delete do
+                .btn.btn-danger Sign out
+            %li
+              = link_to edit_user_registration_path do
+                .btn.btn-info
+                  %i.fa.fa-user
     .container-fluid
       .row
         .col-sm-3.col-md-2.sidebar
