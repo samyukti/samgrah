@@ -23,8 +23,8 @@
               %td= copy.id
               %td= copy.item.name
               %td= copy.name
-              %td= lookup(Settings.copy.qualities, copy.quality)
-              %td= lookup(Settings.copy.statuses, copy.status)
+              %td= copy.quality.titleize
+              %td= copy.status.titleize
               %td= copy.issued ? 'Yes' : 'No'
               %td.action-cell
                 = show_link copy do

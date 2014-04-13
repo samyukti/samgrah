@@ -26,9 +26,9 @@
         = display_field @master.issuable.to_s.titleize, label: 'Issuable'
     .row
       .col-md-3
-        = display_field lookup(Settings.copy.qualities, @master.quality), label: 'Quality'
+        = display_field @master.quality.titleize, label: 'Quality'
       .col-md-3
-        = display_field lookup(Settings.copy.statuses, @master.status), label: 'Status'
+        = display_field @master.status.titleize, label: 'Status'
       .col-md-6
         = display_field @master.location, label: 'Location'
     .row

@@ -112,15 +112,15 @@ item_creator:
 
 copy:
   qualities:
-    - {id: 'n', name: 'New'}
-    - {id: 'u', name: 'Used'}
-    - {id: 'w', name: 'Worn Out'}
-    - {id: 'd', name: 'Damaged'}
+    - New
+    - Used
+    - Worn Out
+    - Damaged
   statuses:
-    - {id: 'a', name: 'Available'}
-    - {id: 'm', name: 'Misplaced'}
-    - {id: 'l', name: 'Lost'}
-    - {id: 'u', name: 'Unavailable'}
+    - Available
+    - Misplaced
+    - Lost
+    - Unavailable
 
 issue:
   defaults:

@@ -3,16 +3,6 @@ class Copy < ActiveRecord::Base
 
   mount_uploader :photo, ImageUploader
 
-  # constants
-  STATUS_AVAILABLE   = 'a'
-  STATUS_MISPLACED   = 'm'
-  STATUS_LOST        = 'l'
-  STATUS_UNAVAILABLE = 'u'
-  QUALITY_NEW        = 'n'
-  QUALITY_USED       = 'u'
-  QUALITY_WORN_OUT   = 'w'
-  QUALITY_DAMAGED    = 'd'
-
   belongs_to :item
 
   has_many :issues, dependent: :restrict_with_error
@@ -23,7 +13,7 @@ class Copy < ActiveRecord::Base
   validate :unit_quantity_is_issuable
   validate :return_before_change_status
 
-  scope :available, -> { where(status: STATUS_AVAILABLE, issuable: true, issued: false) }
+  scope :available, -> { where(status: 'available', issuable: true, issued: false) }
 
   after_initialize :init_procured_date
   before_create :set_quantity
