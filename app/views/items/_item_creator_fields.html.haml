@@ -2,10 +2,10 @@
   %td.field-name.col-md-1
     = f.input :sequence, label: false
   %td.field-name.col-md-7
-    = f.association :creator, label: false, input_html: {class: "form-control selectize"}
+    = f.association :creator, label: false, input_html: {class: 'form-control selectize'}
   %td.field-designation.col-md-3
-    = f.input :role, label: false,                  |
-      collection: Settings.item_creator.roles,      |
-      input_html: {class: "form-control selectize"} |
+    = f.input :role, label: false,                                |
+      collection: format_collection(Settings.item_creator.roles), |
+      input_html: {class: 'form-control selectize'}               |
   %td.text-right.col-md-1
     %span= f.link_to_remove '', class: 'btn btn-xs btn-default fa fa-times', tabindex: -1

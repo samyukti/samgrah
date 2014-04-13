@@ -13,7 +13,7 @@
         = display_field @master.name, label: 'Name'
     .row
       .col-md-6
-        = display_field @master.kind, label: 'Type'
+        = display_field @master.kind.titleize, label: 'Type'
     .row
       .col-md-12
         = display_field @master.notes, label: 'Notes'

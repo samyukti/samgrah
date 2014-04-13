@@ -14,10 +14,9 @@
         = f.input :name
     .row
       .col-md-6
-        = f.input :kind,                                |
-          label: "Type",                                |
-          collection: Settings.membership.kinds,        |
-          input_html: {class: "form-control selectize"} |
+        = f.input :kind, label: 'Type',                             |
+          collection: format_collection(Settings.membership.kinds), |
+          input_html: {class: "form-control selectize"}             |
 
     %h4.form-section Notes
     .row

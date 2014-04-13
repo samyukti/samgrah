@@ -16,19 +16,18 @@
       .col-md-6
         = f.association :membership, input_html: { class: 'selectize' }
       .col-md-6
-        = f.input :kind,                                |
-          label: "Type",                                |
-          collection: Settings.member.kinds,            |
-          input_html: {class: "form-control selectize"} |
+        = f.input :kind, label: "Type",                         |
+          collection: format_collection(Settings.member.kinds), |
+          input_html: {class: "form-control selectize"}         |
     .row
       .col-md-6
-        = f.input :gender,                              |
-          collection: Settings.member.genders,          |
-          input_html: {class: "form-control selectize"} |
+        = f.input :gender,                                        |
+          collection: format_collection(Settings.member.genders), |
+          input_html: {class: "form-control selectize"}           |
       .col-md-6
-        = f.input :age_group,                           |
-          collection: Settings.member.age_groups,       |
-          input_html: {class: "form-control selectize"} |
+        = f.input :age_group,                                        |
+          collection: format_collection(Settings.member.age_groups), |
+          input_html: {class: "form-control selectize"}              |
 
     %hr
     %h4.form-section Address

@@ -13,7 +13,7 @@
       .col-md-6
         .row
           .col-md-12
-            = display_field @master.kind, label: 'Type'
+            = display_field @master.kind.titleize, label: 'Type'
         .row
           .col-md-12
             = display_field @master.first_name, label: 'First Name'

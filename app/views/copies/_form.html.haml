@@ -1,4 +1,4 @@
-= simple_form_for @master, defaults: {input_html: { class: "form-control" }}, html: { multipart: true } do |f|
+= simple_form_for @master, defaults: {input_html: { class: 'form-control' }}, html: { multipart: true } do |f|
   .row
     .col-md-12
       .text-right
@@ -9,7 +9,7 @@
   .form-inputs
     .row
       .col-md-6
-        = f.input :item_id, collection: [], input_html: {class: "form-control custom", data: {id: f.object.item_id}}, autofocus: true
+        = f.input :item_id, collection: [], input_html: {class: 'form-control custom', data: {id: f.object.item_id}}, autofocus: true
       .col-md-6
         = f.input :name, label: 'Accession No'
     .row
@@ -17,7 +17,7 @@
         = f.input :quantity
       .col-md-3
         = f.input :issuable, as: :select,               |
-          input_html: {class: "form-control selectize"} |
+          input_html: {class: 'form-control selectize'} |
       .col-md-6
         = f.input :procured_date, as: :datepick
     .row
@@ -35,7 +35,7 @@
     %h4.form-section Photo
     .row
       .col-md-12
-        = f.input :photo, as: :file, label: false, input_html: { capture: "camera" }
+        = f.input :photo, as: :file, label: false, input_html: { capture: 'camera' }
     .row
       .col-md-12
         = f.input :remote_photo_url, label: 'Or a URL to the photo'

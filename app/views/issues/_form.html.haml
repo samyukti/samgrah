@@ -4,7 +4,7 @@
       .text-right
         = f.button :submit, class: 'btn-primary'
         = link_to @issue do
-          %button.btn.btn-default{type: "button"} Cancel
+          %button.btn.btn-default{type: 'button'} Cancel
 
   = render 'shared/errors/messages', object: f.object
 
@@ -13,11 +13,11 @@
       .col-md-6
         = f.input :copy_id, autofocus: true,            |
           collection: copy_collection([f.object.copy]), |
-          input_html: {class: "form-control custom"}    |
+          input_html: {class: 'form-control custom'}    |
       .col-md-6
         = f.input :member_id,                               |
           collection: member_collection([f.object.member]), |
-          input_html: {class: "form-control custom"}        |
+          input_html: {class: 'form-control custom'}        |
     .row
       .col-md-6
         = f.input :issued_date, as: :datepick
@@ -32,4 +32,4 @@
   .form-actions
     = f.button :submit, class: 'btn-primary'
     = link_to @issue do
-      %button.btn.btn-default{type: "button"} Cancel
+      %button.btn.btn-default{type: 'button'} Cancel

@@ -44,13 +44,13 @@
                       %tr
                         %td= index + 1
                         %td= item_creator.creator.name
-                        %td= item_creator.role
+                        %td= item_creator.role.titleize
     .spaceholder
     .row
       .col-md-6
-        = display_field @master.kind, label: 'Type'
+        = display_field @master.kind.titleize, label: 'Type'
       .col-md-6
-        = display_field @master.format, label: 'Format'
+        = display_field @master.format.titleize, label: 'Format'
     .row
       .col-md-6
         = display_field @master.publisher, label: 'Publisher'
@@ -58,9 +58,9 @@
         = display_field @master.published_date, label: 'Published Date'
     .row
       .col-md-6
-        = display_field "#{@master.length} #{@master.length_uom}", label: 'Length'
+        = display_field "#{@master.length} #{@master.length_uom.titleize}", label: 'Length'
       .col-md-6
-        = display_field @master.language, label: 'Language'
+        = display_field @master.language.titleize, label: 'Language'
     .row
       .col-md-6
         = display_field @master.isbn_10, label: 'ISBN(10)'
@@ -68,7 +68,7 @@
         = display_field @master.isbn_13, label: 'ISBN(13)'
     .row
       .col-md-6
-        = display_field @master.rights, label: 'Rights'
+        = display_field @master.rights.titleize, label: 'Rights'
       .col-md-6
         = display_field @master.rating, label: 'Rating'
     .row

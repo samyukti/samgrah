@@ -22,12 +22,12 @@
             = display_field @master.membership.name, label: 'Membership'
         .row
           .col-md-12
-            = display_field @master.kind, label: 'Type'
+            = display_field @master.kind.titleize, label: 'Type'
     .row
       .col-md-6
-        = display_field @master.gender, label: 'Gender'
+        = display_field @master.gender.titleize, label: 'Gender'
       .col-md-6
-        = display_field @master.age_group, label: 'Age Group'
+        = display_field @master.age_group.titleize, label: 'Age Group'
 
     %hr
     %h4.form-section Address
