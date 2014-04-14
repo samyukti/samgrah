@@ -42,6 +42,7 @@ gem 'nokogiri'
 gem 'rubyzip'
 
 # settings
+gem 'figaro'
 gem 'rails_config'
 
 # development

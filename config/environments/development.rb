@@ -14,7 +14,7 @@ Sangrah::Application.configure do
   config.action_controller.perform_caching = false
 
   # mailer for development
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: ENV['SANGRAH_MAILER_HOST'] }
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

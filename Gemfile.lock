@@ -70,6 +70,9 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -211,6 +214,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  figaro
   haml
   haml-rails
   jbuilder (~> 1.2)
