@@ -15,7 +15,7 @@ categories[:table].each do |row|
 
   Category.create! code: category.code,
                    name: category.name,
-                   kind: category.kind,
+                   kind: category.kind.to_s.underscore,
                    notes: category.notes
 end
 
@@ -26,7 +26,7 @@ creators[:table].each do |row|
 
   creator = OpenStruct.new(row)
 
-  Creator.create! kind: creator.kind,
+  Creator.create! kind: creator.kind.to_s.underscore,
                   first_name: creator.full_name,
                   middle_name: creator.full_name,
                   last_name: creator.full_name,
@@ -63,16 +63,16 @@ items[:table].each do |row|
                name: item.name,
                alt_name: item.alt_name,
                subject: item.subject,
-               kind: item.kind,
-               format: item.format,
+               kind: item.kind.to_s.underscore,
+               format: item.format.to_s.underscore,
                length: item.length.to_i,
                length_uom: 'pages',
                publisher: item.publisher,
                published_date: item.published_date,
-               language: item.language,
+               language: item.language.to_s.underscore,
                isbn_10: item.isbn_10,
                isbn_13: item.isbn_13,
-               rights: item.rights,
+               rights: item.rights.to_s.underscore,
                rating: item.rating.to_s,
                tags: item.tags,
                excerpt: item.excerpt,
@@ -94,9 +94,9 @@ copies[:table].each do |row|
   Copy.create! item: item,
                name: copy.code,
                procured_date: copy.procured_date,
-               quality: copy.quality,
+               quality: copy.quality.to_s.underscore,
                quantity: copy.quantity,
-               status: copy.status,
+               status: copy.status.to_s.underscore,
                issuable: copy.issuable,
                cost: copy.cost,
                price: copy.price,
@@ -112,7 +112,7 @@ memberships[:table].each do |row|
 
   Membership.create! code: membership.code,
                      name: membership.name,
-                     kind: membership.kind,
+                     kind: membership.kind.to_s.underscore,
                      notes: membership.notes
 end
 
@@ -137,9 +137,9 @@ members[:table].each do |row|
   Member.create! code: member.code,
                  name: member.name,
                  membership: membership,
-                 kind: member.kind,
-                 gender: member.gender,
-                 age_group: member.age_group,
+                 kind: member.kind.to_s.underscore,
+                 gender: member.gender.to_s.underscore,
+                 age_group: member.age_group.to_s.underscore,
                  profession: member.profession,
                  join_date: member.join_date,
                  address: address
