@@ -34,9 +34,21 @@ In future we may consider to develop this as a full-fledged application.
     cd Sangrah
     bundle install
 
-* (Re)Initialize the database
+* Configure the application
+** Update secrets.yml with the string generated from "rake secret".
+
+    cd config
+    mv database.example.yml database.yml
+    mv secrets.example.yml secrets.yml
+    rake secret
+
+* Reset the database
 
     rake db:reset
+
+* Populate demo data
+
+    rake db:history
 
 * Start the application in development mode
 

@@ -1,5 +1,0 @@
-# Application configuration variables
-#
-SANGRAH_SECRET_TOKEN: 'use `rake secret` to generate a secret token and paste it here'
-development:
-  SANGRAH_MAILER_HOST: "localhost:3000"
