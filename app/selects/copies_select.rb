@@ -23,8 +23,8 @@ class CopiesSelect
 
   def search_copies
     copies = Copy.available.includes(item: :category).order("copies.name")
-    copies = copies.where("copies.name ilike :search or items.name ilike :search", search: "%#{@params[:s]}%") \
-      if copies.present? && @params[:s].present?
+    copies = copies.where("copies.name ilike :search or items.name ilike :search", search: "%#{@params[:s]}%")
+                   .references(:items) if copies.present? && @params[:s].present?
     copies.limit(@params[:per] || 10)
   end
 
