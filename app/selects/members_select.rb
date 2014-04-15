@@ -8,7 +8,7 @@ class MembersSelect
     data
   end
 
-private
+  private
 
   def data
     members.map do |member|

@@ -24,7 +24,7 @@ class Receipt < ActiveRecord::Base
     end
   end
 
-private
+  private
 
   def valid_received_date
     errors.add(:received_date, 'Receipt date should not be in future.') \

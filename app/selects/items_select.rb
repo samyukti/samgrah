@@ -8,7 +8,7 @@ class ItemsSelect
     data
   end
 
-private
+  private
 
   def data
     items.map do |item|

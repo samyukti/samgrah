@@ -37,7 +37,7 @@ class Issue < ActiveRecord::Base
     end
   end
 
-private
+  private
 
   def availability
     errors.add(:copy_id, 'This copy is not available for issue. Please review.') \

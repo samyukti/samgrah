@@ -16,7 +16,7 @@ class ReportsController < ApplicationController
     end
   end
 
-private
+  private
 
   def report_params
     params.require(:report).permit(:issue_id, :reservation_id,

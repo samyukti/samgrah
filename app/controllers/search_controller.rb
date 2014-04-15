@@ -9,7 +9,7 @@ class SearchController < ApplicationController
     end
   end
 
-private
+  private
 
   def search_params
     params.require(:search).permit(:s)

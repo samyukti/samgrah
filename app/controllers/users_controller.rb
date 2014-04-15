@@ -22,7 +22,7 @@ class UsersController < MastersController
     end
   end
 
-private
+  private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :role_ids)

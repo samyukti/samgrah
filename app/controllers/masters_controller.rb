@@ -102,7 +102,7 @@ class MastersController < ApplicationController
     end
   end
 
-private
+  private
 
   def set_class
     self.klass = self.class.name.sub(/Controller/, '').classify

@@ -29,7 +29,7 @@ class MembersController < MastersController
     end
   end
 
-private
+  private
 
   def member_params
     params.require(:member).permit(:membership_id, :code, :name, :kind, :gender, :age_group, :photo, :notes,

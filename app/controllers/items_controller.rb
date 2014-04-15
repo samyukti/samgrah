@@ -26,7 +26,7 @@ class ItemsController < MastersController
     end
   end
 
-private
+  private
 
   def item_params
     params.require(:item).permit(:category_id, :code, :name, :subject, :kind, :format, :length, :length_uom,

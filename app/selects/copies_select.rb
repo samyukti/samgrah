@@ -8,7 +8,7 @@ class CopiesSelect
     data
   end
 
-private
+  private
 
   def data
     copies.map do |copy|

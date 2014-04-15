@@ -25,7 +25,7 @@ class Reservation < ActiveRecord::Base
     end
   end
 
-private
+  private
 
   def valid_reserved_date
     errors.add(:reserved_date, 'Reservation date should not be in future.') \

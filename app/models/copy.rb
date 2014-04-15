@@ -31,7 +31,7 @@ class Copy < ActiveRecord::Base
     self.photo.blank? && self.item.photo.present? ? self.item.photo.url(version) : self.photo.url(version)
   end
 
-private
+  private
 
   def valid_procured_date
     errors.add(:procured_date, 'Procured date should not be in future.') \
