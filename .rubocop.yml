@@ -16,9 +16,6 @@ ClassAndModuleChildren:
 ClassLength:
   Enabled: false
 
-AccessModifierIndentation:
-  Enabled: false
-
 CaseIndentation:
   IndentWhenRelativeTo: case
   IndentOneStep: true

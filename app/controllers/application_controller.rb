@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
-protected
+  protected
 
   def public_controllers
     [:home].include? params[:controller].to_sym
