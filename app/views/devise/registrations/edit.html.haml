@@ -27,4 +27,6 @@
             = f.input :current_password, hint: 'We need your current password to confirm your changes', required: true
 
       .form-actions
-        = render 'shared/masters/form_actions', f: f
+        = f.button :submit, class: 'btn-primary'
+        = link_to application_root_path do
+          %button.btn.btn-default{type: "button"} Cancel
