@@ -16,6 +16,6 @@ class Item < ActiveRecord::Base
   validates_uniqueness_of :code
 
   def creator
-    self.item_creators.first ? self.item_creators.first.creator : ''
+    self.item_creators.first.creator if self.item_creators.first
   end
 end
