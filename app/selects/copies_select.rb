@@ -15,7 +15,7 @@ class CopiesSelect
       { id: copy.id,
         code: copy.item.name,
         name: copy.name,
-        detail: copy.item.creator.name,
+        detail: copy.item.creator ? copy.item.creator.name : '',
         image: copy.image_url(:select)
       }
     end
