@@ -13,18 +13,28 @@ class Member < ActiveRecord::Base
 
   validates_presence_of :code, :name, :kind, :membership_id
   validates_uniqueness_of :code
-  validate :enrolment_dates
+  validate :valid_renewed_date
+  validate :valid_renewal_date
+  validate :valid_closed_date
 
   private
 
-  def enrolment_dates
-    errors.add(:closed_date, 'Closed date should be greater than or equal to join date.') \
-      if self.join_date && self.closed_date && self.closed_date < self.join_date
-    errors.add(:renewal_date, 'Renewal date should be greater than or equal to last renewed date.') \
-      if self.renewal_date && self.renewed_date && self.renewal_date < self.renewed_date
+  def valid_renewed_date
     errors.add(:renewed_date, 'Renewal date should be greater than or equal to join date.') \
       if self.join_date && self.renewed_date && self.renewed_date < self.join_date
-    errors.add(:renewal_date, 'Renewal date should be greater than or equal to join date.') \
-      if self.join_date && self.renewal_date && self.renewal_date < self.join_date
+  end
+
+  def valid_renewal_date
+    if self.renewal_date
+      errors.add(:renewal_date, 'Renewal date should be greater than or equal to last renewed date.') \
+         if self.renewed_date && self.renewal_date < self.renewed_date
+      errors.add(:renewal_date, 'Renewal date should be greater than or equal to join date.') \
+        if self.join_date && self.renewal_date < self.join_date
+    end
+  end
+
+  def valid_closed_date
+    errors.add(:closed_date, 'Closed date should be greater than or equal to join date.') \
+      if self.join_date && self.closed_date && self.closed_date < self.join_date
   end
 end
