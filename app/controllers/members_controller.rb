@@ -8,6 +8,13 @@ class MembersController < MastersController
     @master.build_address unless @master.address
   end
 
+  def copy
+    original = @master
+    @master  = @master_class.new(original.attributes)
+    @master.build_address unless @master.address
+    render :new
+  end
+
   def photo
     @master = Member.where(id: params[:member_id]).first
     version = params[:version]
