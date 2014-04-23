@@ -1,0 +1,41 @@
+%h1.page-header
+  Reports
+  %small / Expired Memberships
+.row
+  .col-md-12
+    .text-right
+      = new_link Member do
+        %button.btn.btn-success{type: "button"} New
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Code
+            %th Name
+            %th Membership
+            %th Type
+            %th Join Date
+            %th Last Renewed
+            %th Next Renewal
+            %th.action-cell
+        %tbody
+          - @data[:members].each do |member|
+            %tr
+              %td= member.id
+              %td= member.code
+              %td= member.name
+              %td= member.membership.name
+              %td= member.kind.titleize
+              %td= member.join_date
+              %td= member.renewed_date
+              %td= member.renewal_date
+              %td.action-cell
+                = show_link member do
+                  %span.btn-xs.btn-info
+                    %i.fa.fa-search
+                %span.spacer
+.row
+  .col-md-12.text-right
+    = paginate @data[:members]
+.hidden.report-name expired_memberships

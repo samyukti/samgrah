@@ -1,0 +1,50 @@
+%h1.page-header
+  Reports
+  %small / Daily Status
+.row
+  .col-md-12
+    %form#daily_status{action: "#{show_reports_path}", method: :post}
+      = token_tag nil
+      %section.panel.panel-default
+        .panel-body
+          .row
+            .col-md-3
+              = text_field_tag :date, nil, class: 'form-control datepicker-input', |
+                'data-date-format' => 'yyyy-mm-dd', value: @data[:date]
+            .col-md-2
+              = submit_tag 'Submit', class: 'btn btn-primary'
+.row
+  .col-md-12
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Item
+            %th Accession No
+            %th Member
+            %th Issued
+            %th Return
+            %th Extensions
+            %th Status
+            %th.action-cell
+        %tbody
+          - @data[:issues].each do |issue|
+            %tr
+              %td= issue.id
+              %td= issue.item.name
+              %td= issue.copy.name
+              %td= issue.member.name
+              %td= issue.issued_date
+              %td= issue.return_date
+              %td= issue.extension
+              %td= issue.status.titleize
+              %td.action-cell
+                = show_link issue do
+                  %span.btn-xs.btn-info
+                    %i.fa.fa-search
+                %span.spacer
+.row
+  .col-md-12.text-right
+    = paginate @data[:issues]
+.hidden.report-name daily_status

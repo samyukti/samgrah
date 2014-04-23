@@ -1,18 +1,17 @@
 class ReportsController < ApplicationController
+  REPORTS = %w(overdue_issues unavailable_copies expired_memberships issues daily_status)
+
   def index
   end
 
-  def issues
-    @issues = IssuesReport.new(params).report
-    respond_to do |format|
-      format.html
-    end
-  end
+  def show
+    fail ActionController::RoutingError, 'Report Not Found' \
+      unless REPORTS.include? params[:report_name]
 
-  def reservations
-    @reservations = ReservationsReport.new.report
+    @data = "#{params[:report_name]}_report".classify.constantize.new(params).report
+
     respond_to do |format|
-      format.html
+      format.html { render template: "reports/#{params[:report_name]}" }
     end
   end
 
@@ -22,6 +21,6 @@ class ReportsController < ApplicationController
     params.require(:report).permit(:issue_id, :reservation_id,
                                    :category_id, :item_id, :copy_id,
                                    :membership_id, :member_id,
-                                   :status, :start_date, :end_date)
+                                   :status, :date, :start_date, :end_date)
   end
 end

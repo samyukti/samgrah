@@ -1,0 +1,10 @@
+#filter-list > div > label {
+  font-size: small;
+}
+
+#filter-list > div > label > a {
+  padding-left: 4px;
+  font-size: smaller;
+  font-weight: lighter;
+  color: #ff0000;
+}

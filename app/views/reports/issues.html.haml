@@ -1,38 +1,57 @@
 %h1.page-header
-  Issues
+  Analyze Issues
   %small / Report
 .row
   .col-md-12
-    .text-right
-    .table-responsive
-      %table.table.table-striped
-        %thead
-          %tr
-            %th #
-            %th Item
-            %th Accession No
-            %th Member
-            %th Issued
-            %th Return
-            %th Extensions
-            %th Status
-            %th.action-cell
-        %tbody
-          - @issues.each do |issue|
-            %tr
-              %td= issue.id
-              %td= issue.item.name
-              %td= issue.copy.name
-              %td= issue.member.name
-              %td= issue.issued_date
-              %td= issue.return_date
-              %td= issue.extension
-              %td= issue.status.titleize
-              %td.action-cell
-                = show_link issue do
-                  %span.btn-xs.btn-info
-                    %i.fa.fa-search
-                %span.spacer
+    %form#issues{action: "#{show_reports_path}", method: :post}
+      = token_tag nil
+      %section.panel.panel-default
+        .panel-body
+          .row
+            .col-md-3
+              = text_field_tag :start_date, nil, class: 'form-control datepicker-input', |
+                'data-date-format' => 'yyyy-mm-dd', value: @data[:start_date]
+            .col-md-3
+              = text_field_tag :end_date, nil, class: 'form-control datepicker-input', |
+                'data-date-format' => 'yyyy-mm-dd', value: @data[:end_date]
+            .col-md-2
+              = submit_tag 'Submit', class: 'btn btn-primary'
 .row
-  .col-md-12.text-right
-    = paginate @issues
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .subnav
+          %ul.nav.nav-tabs
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                Filter Fields
+                %b.caret
+              %ul.dropdown-menu.stop-propagation{style: "overflow:auto;max-height:450px;padding:10px;"}
+                #filter-list
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                Row Label Fields
+                %b.caret
+              %ul.dropdown-menu.stop-propagation{style: "overflow:auto;max-height:450px;padding:10px;"}
+                #row-label-fields
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                Column Label Fields
+                %b.caret
+              %ul.dropdown-menu.stop-propagation{style: "overflow:auto;max-height:450px;padding:10px;"}
+                #column-label-fields
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                Summary Fields
+                %b.caret
+              %ul.dropdown-menu.stop-propagation{style: "overflow:auto;max-height:450px;padding:10px;"}
+                #summary-fields
+        .row
+          .col-md-12
+            #pivot-detail
+            %br/
+        .row
+          .col-md-12
+            #results
+.hidden.report-name issues
+.hidden.report-data= @data[:rows].to_json

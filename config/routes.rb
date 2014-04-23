@@ -80,8 +80,7 @@ Sangrah::Application.routes.draw do
 
   resources :reports, only: [:index] do
     collection do
-      match 'issues', to: 'reports#issues', via: [:get]
-      match 'reservations', to: 'reports#reservations', via: [:get]
+      match 'show/:report_name', to: 'reports#show', via: [:get, :post], as: 'show'
     end
   end
 end
