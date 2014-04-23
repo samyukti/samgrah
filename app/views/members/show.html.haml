@@ -30,6 +30,18 @@
         = display_field @master.age_group.to_s.titleize, label: 'Age Group'
 
     %hr
+    %h4.form-section Enrolment
+    .row
+      .col-md-3
+        = display_field @master.join_date, label: 'Joined On'
+      .col-md-3
+        = display_field @master.renewed_date, label: 'Last Renewed'
+      .col-md-3
+        = display_field @master.renewal_date, label: 'Next Renewal'
+      .col-md-3
+        = display_field @master.closed_date, label: 'Closed On'
+
+    %hr
     %h4.form-section Address
     = render 'shared/addresses/show', address: @master.address
 

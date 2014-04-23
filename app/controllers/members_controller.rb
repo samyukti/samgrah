@@ -39,7 +39,9 @@ class MembersController < MastersController
   private
 
   def member_params
-    params.require(:member).permit(:membership_id, :code, :name, :kind, :gender, :age_group, :photo, :notes,
+    params.require(:member).permit(:membership_id, :code, :name, :kind, :gender, :age_group,
+                                   :join_date, :renewed_date, :renewal_date, :closed_date,
+                                   :photo, :notes,
                                    address_attributes: [:id, :line_1, :line_2, :landmark, :city,
                                                         :state, :country, :postal_code, :mobile,
                                                         :phone_1, :phone_2, :email_1, :email_2])
