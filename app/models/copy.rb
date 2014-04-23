@@ -14,6 +14,7 @@ class Copy < ActiveRecord::Base
   validate :return_before_change_status
 
   scope :available, -> { where(status: 'available', issuable: true, issued: false) }
+  scope :unavailable, -> { where("status <> 'available'") }
 
   after_initialize :init_procured_date
   before_create :set_quantity
