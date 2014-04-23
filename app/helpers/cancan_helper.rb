@@ -81,7 +81,7 @@ module CancanHelper
 
   def destroy_link(object, options = {}, &block)
     options[:method] = :delete
-    options[:confirm] = "Are you sure?"
+    options['data-confirm'] = "Are you sure?"
     if can?(:destroy, object)
       if block_given?
         link_to object, options do
