@@ -52,7 +52,7 @@ class ReservationsController < ApplicationController
   def close
     @reservation = Reservation.find params[:reservation_id]
     respond_to do |format|
-      if @reservation.return!
+      if @reservation.close!
         format.html { redirect_to @reservation, notice: 'Reservation was successfully closed.' }
       else
         format.html { redirect_to @reservation, notice: 'Reservation could not be closed due to errors.' }
