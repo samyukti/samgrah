@@ -18,8 +18,10 @@ class IssuesReport
   end
 
   def issues
-    # eager load relations
-    Issue.where('issued_date between :s and :e', s: start_date, e: end_date)
+    Issue.includes(:copy)
+         .includes(item: :category)
+         .includes(member: :membership)
+         .where('issued_date between :s and :e', s: start_date, e: end_date)
   end
 
   def header
