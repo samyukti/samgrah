@@ -23,6 +23,7 @@
 public/assets
 public/static/images
 public/uploads
+files/
 
 # Ignore pow configuration
 .powder
