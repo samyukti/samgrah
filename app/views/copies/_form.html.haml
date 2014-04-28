@@ -35,6 +35,29 @@
       .col-md-6
         = f.input :location
 
+    %h4.form-section Attributes
+    .row
+      .col-md-3
+        = f.input :length
+      .col-md-3
+        = f.input :length_uom,                                      |
+          collection: format_collection(Settings.item.length_uoms), |
+          input_html: {class: 'form-control selectize'}             |
+      .col-md-6
+        = f.input :format,                                      |
+          collection: format_collection(Settings.item.formats), |
+          input_html: {class: 'form-control selectize'}         |
+    .row
+      .col-md-6
+        = f.input :publisher
+      .col-md-6
+        = f.input :published_date, as: :datepick
+    .row
+      .col-md-6
+        = f.input :cost
+      .col-md-6
+        = f.input :price
+
     %h4.form-section Photo
     .row
       .col-md-12

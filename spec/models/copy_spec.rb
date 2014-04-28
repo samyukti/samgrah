@@ -33,8 +33,27 @@ describe Copy do
     build(:copy, issuable: false, quantity: 2).should be_valid
   end
 
-  it 'defaults quantity date to 1' do
+  it 'defaults quantity to 1' do
     create(:copy, issuable: false, quantity: nil).quantity.should eql(1)
+  end
+
+  it 'defaults attributes from item if not present' do
+    item = create(:item)
+    copy = create(:copy, item: item,
+                         format: nil,
+                         length: nil,
+                         length_uom: nil,
+                         publisher: nil,
+                         published_date: nil,
+                         cost: nil,
+                         price: nil)
+    copy.format.should eql(item.format)
+    copy.length.should eql(item.length)
+    copy.length_uom.should eql(item.length_uom)
+    copy.publisher.should eql(item.publisher)
+    copy.published_date.should eql(item.published_date)
+    copy.cost.should eql(item.cost)
+    copy.price.should eql(item.price)
   end
 
   it 'allows to change status only if the book is not issued' do

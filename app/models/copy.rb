@@ -18,6 +18,7 @@ class Copy < ActiveRecord::Base
 
   after_initialize :init_procured_date
   before_create :set_quantity
+  before_save :set_item_attributes
 
   def issuable?
     self.issuable == true
@@ -55,5 +56,15 @@ class Copy < ActiveRecord::Base
 
   def set_quantity
     self.quantity ||= 1
+  end
+
+  def set_item_attributes
+    self.format         = self.format.presence         || self.item.format
+    self.length         = self.length.presence         || self.item.length
+    self.length_uom     = self.length_uom.presence     || self.item.length_uom
+    self.publisher      = self.publisher.presence      || self.item.publisher
+    self.published_date = self.published_date.presence || self.item.published_date
+    self.cost           = self.cost.presence           || self.item.cost
+    self.price          = self.price.presence          || self.item.price
   end
 end

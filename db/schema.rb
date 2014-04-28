@@ -55,9 +55,11 @@ ActiveRecord::Schema.define(version: 20140413190923) do
     t.integer  "item_id"
     t.string   "name",             limit: 128
     t.date     "procured_date"
-    t.date     "published_date"
+    t.string   "format",           limit: 16
     t.integer  "length"
     t.string   "length_uom",       limit: 16
+    t.string   "publisher",        limit: 128
+    t.date     "published_date"
     t.decimal  "cost"
     t.decimal  "price"
     t.string   "quality",          limit: 32
