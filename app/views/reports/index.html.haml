@@ -17,5 +17,6 @@
     .panel.panel-default
       .panel-heading Analytical Reports
       %ul.list-group
+        %li.list-group-item= link_to 'Analyze Copies', show_reports_path('copies')
         %li.list-group-item= link_to 'Analyze Issues', show_reports_path('issues')
         %li.list-group-item= link_to 'Analyze Receipts', show_reports_path('receipts')

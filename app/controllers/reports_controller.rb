@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   REPORTS = %w(overdue_issues unavailable_copies expired_memberships
-               issues receipts daily_status)
+               copies issues receipts daily_status)
 
   def index
   end
