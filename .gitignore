@@ -21,7 +21,6 @@
 
 # Ignore assets and uploads
 public/assets
-public/static/images
 public/uploads
 files/
 
