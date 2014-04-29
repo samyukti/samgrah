@@ -14,10 +14,10 @@ var Page = function () {
 
       jQuery(document).ready(function () {
 
-        if (isFunction(window[fController]["init"])) {
+        if (window[fController] && isFunction(window[fController]["init"])) {
           window[fController]["init"]();
         }
-        if (isFunction(window[fController][fAction])) {
+        if (window[fController] && isFunction(window[fController][fAction])) {
           window[fController][fAction]();
         }
       });
