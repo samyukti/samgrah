@@ -10,11 +10,11 @@ class IssuesReport
   private
 
   def start_date
-    @params[:start_date] || Date.today.beginning_of_month.strftime('%F')
+    @params[:start_date].presence || Date.today.beginning_of_month.strftime('%F')
   end
 
   def end_date
-    @params[:end_date] || Date.today.end_of_month.strftime('%F')
+    @params[:end_date].presence || Date.today.end_of_month.strftime('%F')
   end
 
   def issues

@@ -10,7 +10,7 @@ class DailyStatusReport
   private
 
   def date
-    @params[:date] || Date.today
+    @params[:date].presence || Date.today
   end
 
   def issues
