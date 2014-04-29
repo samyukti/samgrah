@@ -34,7 +34,8 @@ describe Copy do
   end
 
   it 'defaults quantity to 1' do
-    create(:copy, issuable: false, quantity: nil).quantity.should eql(1)
+    item = create(:item)
+    create(:copy, item: item, issuable: false, quantity: nil).quantity.should eql(1)
   end
 
   it 'defaults attributes from item if not present' do

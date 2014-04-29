@@ -1,5 +1,6 @@
 class Copy < ActiveRecord::Base
   include MasterConcerns
+  include DataQuality
 
   mount_uploader :photo, ImageUploader
 
@@ -59,12 +60,12 @@ class Copy < ActiveRecord::Base
   end
 
   def set_item_attributes
-    self.format         = self.format.presence         || self.item.format
-    self.length         = self.length.presence         || self.item.length
-    self.length_uom     = self.length_uom.presence     || self.item.length_uom
-    self.publisher      = self.publisher.presence      || self.item.publisher
-    self.published_date = self.published_date.presence || self.item.published_date
-    self.cost           = self.cost.presence           || self.item.cost
-    self.price          = self.price.presence          || self.item.price
+    self.format         = either self.format,         or: self.item.format
+    self.length         = either self.length,         or: self.item.length
+    self.length_uom     = either self.length_uom,     or: self.item.length_uom
+    self.publisher      = either self.publisher,      or: self.item.publisher
+    self.published_date = either self.published_date, or: self.item.published_date
+    self.cost           = either self.cost,           or: self.item.cost
+    self.price          = either self.price,          or: self.item.price
   end
 end
