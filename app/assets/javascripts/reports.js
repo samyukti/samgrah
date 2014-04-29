@@ -24,9 +24,11 @@ var Report = function () {
         {name: 'Procured Date',  type: 'date',   filterable: true},
 
         // summary fields
+        {name: 'Quantity',       type: 'integer',  rowLabelable: false, summarizable: 'sum'},
         {name: 'Cost',           type: 'float',    rowLabelable: false, summarizable: 'sum'},
         {name: 'Price',          type: 'float',    rowLabelable: false, summarizable: 'sum'},
-        {name: 'Quantity',       type: 'integer',  rowLabelable: false, summarizable: 'sum'},
+        {name: 'Total Cost',     type: 'float',    rowLabelable: false, summarizable: 'sum'},
+        {name: 'Total Price',    type: 'float',    rowLabelable: false, summarizable: 'sum'},
       ];
 
     $(document).ready(function() {

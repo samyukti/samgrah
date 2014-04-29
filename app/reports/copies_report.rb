@@ -41,9 +41,11 @@ class CopiesReport
       'Status',
       'Location',
       'Procured Date',
+      'Quantity',
       'Cost',
       'Price',
-      'Quantity'
+      'Total Cost',
+      'Total Price'
     ]]
   end
 
@@ -67,9 +69,11 @@ class CopiesReport
        copy.status.titleize,
        copy.location.to_s,
        copy.procured_date,
+       copy.quantity.to_i,
        copy.cost.to_f,
        copy.price.to_f,
-       copy.quantity.to_i
+       copy.quantity.to_i * copy.cost.to_f,
+       copy.quantity.to_i * copy.price.to_f
       ]
     end
   end
