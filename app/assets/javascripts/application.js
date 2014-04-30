@@ -15,24 +15,7 @@
 //= require jquery_nested_form
 //= require mousetrap
 //= require plugins
+//= require theme
 //= require shared
 //= require_directory .
 //= require page
-
-// selectize
-if ($.fn.selectize) {
-  // $('.selectize').selectize();
-  $('.selectize').each( function () {
-    if ($(this).attr('autofocus') == 'autofocus') {
-      $(this).selectize()[0].selectize.focus();
-    } else {
-      $(this).selectize();
-    }
-  });
-}
-
-// datepicker
-$('.datepicker-input').datepicker({
-    todayBtn: "linked",
-    todayHighlight: true
-});
