@@ -9,7 +9,7 @@ class MastersController < ApplicationController
   before_action :set_master_custom, only: [:copy, :lock, :unlock, :archive, :unarchive]
 
   def index
-    @masters = @master_class.page(params[:page])
+    @masters = @master_class.order(:id).page(params[:page])
   end
 
   def show
