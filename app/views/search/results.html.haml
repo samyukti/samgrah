@@ -11,7 +11,7 @@
             %h4= link_to item.name, item
             .row
               .col-xs-4
-                = image_tag item.photo.select.url
+                = image_tag item.photo.thumb.url, class: 'max100'
               .col-xs-8
                 = item.excerpt
       %hr
@@ -25,7 +25,7 @@
             %h4= link_to creator.sort_name, creator
             .row
               .col-xs-4
-                = image_tag creator.photo.select.url
+                = image_tag creator.photo.thumb.url, class: 'max100'
               .col-xs-8
                 %ul
                   - creator.item_creators.each do |ic|

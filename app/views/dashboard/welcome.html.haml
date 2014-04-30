@@ -12,7 +12,7 @@
             = link_to item.name, item
           .row
             .col-xs-4
-              = image_tag item.photo.select.url
+              = image_tag item.photo.thumb.url, class: 'max100'
             .col-xs-8
               = item.excerpt
     %hr
