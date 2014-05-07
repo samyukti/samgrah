@@ -9,43 +9,43 @@
     .row
       .col-md-6.text-center.pull-right
         .image-container
-          = image_tag "/members/#{@master.id}/photo/thumb"
+          = image_tag "/members/#{@member.id}/photo/thumb"
       .col-md-6
         .row
           .col-md-12
-            = display_field @master.code, label: 'Code'
+            = display_field @member.code, label: 'Code'
         .row
           .col-md-12
-            = display_field @master.name, label: 'Name'
+            = display_field @member.name, label: 'Name'
         .row
           .col-md-12
-            = display_field @master.membership.name, label: 'Membership'
+            = display_field @member.membership.name, label: 'Membership'
         .row
           .col-md-12
-            = display_field @master.kind.titleize, label: 'Type'
+            = display_field @member.kind.titleize, label: 'Type'
     .row
       .col-md-6
-        = display_field @master.gender.to_s.titleize, label: 'Gender'
+        = display_field @member.gender.to_s.titleize, label: 'Gender'
       .col-md-6
-        = display_field @master.age_group.to_s.titleize, label: 'Age Group'
+        = display_field @member.age_group.to_s.titleize, label: 'Age Group'
 
     %hr
     %h4.form-section Enrolment
     .row
       .col-md-3
-        = display_field @master.join_date, label: 'Joined On'
+        = display_field @member.join_date, label: 'Joined On'
       .col-md-3
-        = display_field @master.renewed_date, label: 'Last Renewed'
+        = display_field @member.renewed_date, label: 'Last Renewed'
       .col-md-3
-        = display_field @master.renewal_date, label: 'Next Renewal'
+        = display_field @member.renewal_date, label: 'Next Renewal'
       .col-md-3
-        = display_field @master.closed_date, label: 'Closed On'
+        = display_field @member.closed_date, label: 'Closed On'
 
     %hr
     %h4.form-section Address
-    = render 'shared/addresses/show', address: @master.address
+    = render 'shared/addresses/show', address: @member.address if @member.address
 
     %hr
     .row
       .col-md-12
-        = display_field @master.notes, label: 'Notes'
+        = display_field @member.notes, label: 'Notes'

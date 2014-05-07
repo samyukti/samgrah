@@ -77,7 +77,7 @@ class Issue < ActiveRecord::Base
 
   def init_dates
     self.issued_date ||= Date.today
-    self.return_date ||= Date.today + Settings.issue.defaults.period
+    self.return_date ||= Date.today + Settings.issue_period
   end
 
   def set_item

@@ -8,44 +8,44 @@
 
     .row
       .col-md-6.text-center.pull-right
-        .image-container= image_tag @master.image_url(:thumb)
+        .image-container= image_tag @copy.image_url(:thumb)
       .col-md-6
         .row
           .col-md-12
-            = display_field @master.item.name, label: 'Item'
+            = display_field @copy.item.name, label: 'Item'
         .row
           .col-md-12
-            = display_field @master.name, label: 'Accession No'
+            = display_field @copy.name, label: 'Accession No'
         .row
           .col-md-12
-            = display_field @master.procured_date, label: 'Procured Date'
+            = display_field @copy.procured_date, label: 'Procured Date'
     .row
       .col-md-3
-        = display_field @master.quantity, label: 'Quantity'
+        = display_field @copy.quantity, label: 'Quantity'
       .col-md-3
-        = display_field @master.issuable.to_s.titleize, label: 'Issuable'
+        = display_field @copy.issuable.to_s.titleize, label: 'Issuable'
     .row
       .col-md-3
-        = display_field @master.quality.titleize, label: 'Quality'
+        = display_field @copy.quality.titleize, label: 'Quality'
       .col-md-3
-        = display_field @master.status.titleize, label: 'Status'
+        = display_field @copy.status.titleize, label: 'Status'
       .col-md-6
-        = display_field @master.location, label: 'Location'
+        = display_field @copy.location, label: 'Location'
     .row
       .col-md-6
-        = display_field "#{@master.length} #{@master.length_uom.to_s.titleize}", label: 'Length'
+        = display_field "#{@copy.length} #{@copy.length_uom.to_s.titleize}", label: 'Length'
       .col-md-6
-        = display_field @master.format.titleize, label: 'Format'
+        = display_field @copy.format.titleize, label: 'Format'
     .row
       .col-md-6
-        = display_field @master.publisher, label: 'Publisher'
+        = display_field @copy.publisher, label: 'Publisher'
       .col-md-6
-        = display_field @master.published_date, label: 'Published Date'
+        = display_field @copy.published_date, label: 'Published Date'
     .row
       .col-md-6
-        = display_field @master.cost, label: 'Cost'
+        = display_field @copy.cost, label: 'Cost'
       .col-md-6
-        = display_field @master.price, label: 'Price'
+        = display_field @copy.price, label: 'Price'
     .row
       .col-md-12
-        = display_field @master.notes, label: 'Notes'
+        = display_field @copy.notes, label: 'Notes'

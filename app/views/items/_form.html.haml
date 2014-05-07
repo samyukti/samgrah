@@ -1,4 +1,4 @@
-= simple_nested_form_for @master, defaults: {input_html: { class: 'form-control' }}, html: { multipart: true } do |f|
+= simple_nested_form_for @item, defaults: {input_html: { class: 'form-control' }}, html: { multipart: true } do |f|
   .row
     .col-md-12
       .text-right
@@ -43,11 +43,11 @@
     .row
       .col-md-6
         = f.input :kind, label: 'Type',                       |
-          collection: format_collection(Settings.item.kinds), |
+          collection: format_collection(Settings.item_kinds), |
           input_html: {class: 'form-control selectize'}       |
       .col-md-6
         = f.input :format,                                      |
-          collection: format_collection(Settings.item.formats), |
+          collection: format_collection(Settings.item_formats), |
           input_html: {class: 'form-control selectize'}         |
     .row
       .col-md-6
@@ -59,11 +59,11 @@
         = f.input :length
       .col-md-3
         = f.input :length_uom,                                      |
-          collection: format_collection(Settings.item.length_uoms), |
+          collection: format_collection(Settings.item_length_uoms), |
           input_html: {class: 'form-control selectize'}             |
       .col-md-6
         = f.input :language,                                      |
-          collection: format_collection(Settings.item.languages), |
+          collection: format_collection(Settings.item_languages), |
           input_html: {class: 'form-control selectize'}           |
     .row
       .col-md-6
@@ -73,11 +73,11 @@
     .row
       .col-md-6
         = f.input :rights,                                     |
-          collection: format_collection(Settings.item.rights), |
+          collection: format_collection(Settings.item_rights), |
           input_html: {class: 'form-control selectize'}        |
       .col-md-6
         = f.input :rating,                              |
-          collection: Settings.item.ratings,            |
+          collection: Settings.item_ratings,            |
           input_html: {class: 'form-control selectize'} |
     .row
       .col-md-6

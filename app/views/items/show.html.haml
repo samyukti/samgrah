@@ -9,20 +9,20 @@
     .row
       .col-md-6.text-center.pull-right
         .image-container
-          = image_tag @master.photo.thumb.url
+          = image_tag @item.photo.thumb.url
       .col-md-6
         .row
           .col-md-12
-            = display_field @master.code, label: 'Code'
+            = display_field @item.code, label: 'Code'
         .row
           .col-md-12
-            = display_field @master.name, label: 'Name'
+            = display_field @item.name, label: 'Name'
         .row
           .col-md-12
-            = display_field @master.category.name, label: 'Category'
+            = display_field @item.category.name, label: 'Category'
         .row
           .col-md-12
-            = display_field @master.subject, label: 'Subject'
+            = display_field @item.subject, label: 'Subject'
     .tabbable
       %ul.nav.nav-tabs
         %li.margin-10
@@ -40,7 +40,7 @@
                       %th Creator
                       %th Role
                   %tbody#item_creator_fields
-                    - @master.item_creators.each_with_index do |item_creator, index|
+                    - @item.item_creators.each_with_index do |item_creator, index|
                       %tr
                         %td= index + 1
                         %td= item_creator.creator.name
@@ -48,40 +48,40 @@
     .spaceholder
     .row
       .col-md-6
-        = display_field @master.kind.titleize, label: 'Type'
+        = display_field @item.kind.titleize, label: 'Type'
       .col-md-6
-        = display_field @master.format.titleize, label: 'Format'
+        = display_field @item.format.titleize, label: 'Format'
     .row
       .col-md-6
-        = display_field @master.publisher, label: 'Publisher'
+        = display_field @item.publisher, label: 'Publisher'
       .col-md-6
-        = display_field @master.published_date, label: 'Published Date'
+        = display_field @item.published_date, label: 'Published Date'
     .row
       .col-md-6
-        = display_field "#{@master.length} #{@master.length_uom.to_s.titleize}", label: 'Length'
+        = display_field "#{@item.length} #{@item.length_uom.to_s.titleize}", label: 'Length'
       .col-md-6
-        = display_field @master.language.titleize, label: 'Language'
+        = display_field @item.language.titleize, label: 'Language'
     .row
       .col-md-6
-        = display_field @master.isbn_10, label: 'ISBN(10)'
+        = display_field @item.isbn_10, label: 'ISBN(10)'
       .col-md-6
-        = display_field @master.isbn_13, label: 'ISBN(13)'
+        = display_field @item.isbn_13, label: 'ISBN(13)'
     .row
       .col-md-6
-        = display_field @master.rights.to_s.titleize, label: 'Rights'
+        = display_field @item.rights.to_s.titleize, label: 'Rights'
       .col-md-6
-        = display_field @master.rating, label: 'Rating'
+        = display_field @item.rating, label: 'Rating'
     .row
       .col-md-6
-        = display_field @master.cost, label: 'Cost'
+        = display_field @item.cost, label: 'Cost'
       .col-md-6
-        = display_field @master.price, label: 'Price'
-    .row
-      .col-md-12
-        = display_field @master.tags, label: 'Tags'
+        = display_field @item.price, label: 'Price'
     .row
       .col-md-12
-        = display_field @master.excerpt, label: 'Excerpt'
+        = display_field @item.tags, label: 'Tags'
     .row
       .col-md-12
-        = display_field @master.notes, label: 'Notes'
+        = display_field @item.excerpt, label: 'Excerpt'
+    .row
+      .col-md-12
+        = display_field @item.notes, label: 'Notes'

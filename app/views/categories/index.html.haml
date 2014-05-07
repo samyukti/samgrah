@@ -16,7 +16,7 @@
             %th Type
             %th.action-cell
         %tbody
-          - @masters.each do |category|
+          - @categories.each do |category|
             %tr
               %td= category.id
               %td= category.code
@@ -32,4 +32,4 @@
                     %i.fa.fa-pencil
 .row
   .col-md-12.text-right
-    = paginate @masters
+    = paginate @categories

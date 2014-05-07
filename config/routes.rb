@@ -83,4 +83,6 @@ Sangrah::Application.routes.draw do
       match 'show/:report_name', to: 'reports#show', via: [:get, :post], as: 'show'
     end
   end
+
+  resources :settings
 end

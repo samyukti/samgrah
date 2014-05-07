@@ -1,28 +1,28 @@
-= destroy_link @master do
+= destroy_link shared_master do
   %button.btn.btn-danger.hidden-xs{type: "button"} Delete
 
-- if @master.archived
-  = unarchive_link @master do
+- if shared_master.archived
+  = unarchive_link shared_master do
     %button.btn.btn-warning.hidden-xs{type: "button"} Unarchive
 - else
-  = archive_link @master do
+  = archive_link shared_master do
     %button.btn.btn-warning.hidden-xs{type: "button"} Archive
 
-- if @master.active
-  = lock_link @master do
+- if shared_master.active
+  = lock_link shared_master do
     %button.btn.btn-info.hidden-xs{type: "button"} Lock
 - else
-  = unlock_link @master do
+  = unlock_link shared_master do
     %button.btn.btn-info.hidden-xs{type: "button"} Unlock
 
-= edit_link @master do
+= edit_link shared_master do
   %button.btn.btn-primary{type: "button"} Edit
 
-= copy_link @master do
+= copy_link shared_master do
   %button.btn.btn-success{type: "button"} Copy
 
-= new_link @master do
+= new_link shared_master do
   %button.btn.btn-success{type: "button"} New
 
-= index_link @master do
+= index_link shared_master do
   %button.btn.btn-default{type: "button"} Index

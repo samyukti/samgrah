@@ -1,28 +1,28 @@
 class MembersController < MastersController
   def new
-    @master = Member.new
-    @master.build_address
+    @member = Member.new
+    @member.build_address
   end
 
   def edit
-    @master.build_address unless @master.address
+    @member.build_address unless @member.address
   end
 
   def copy
-    original = @master
-    @master  = @master_class.new(original.attributes)
-    @master.build_address unless @master.address
+    original = @member
+    @member  = Member.new(original.attributes)
+    @member.build_address unless @member.address
     render :new
   end
 
   def photo
-    @master = Member.where(id: params[:member_id]).first
+    @member = Member.where(id: params[:member_id]).first
     version = params[:version]
 
-    if File.file?(@master.photo_url(version).to_s)
-      photo = @master.photo_url(version).to_s
+    if File.file?(@member.photo_url(version).to_s)
+      photo = @member.photo_url(version).to_s
     else
-      photo = @master.photo.versions[version.to_sym].default_url
+      photo = @member.photo.versions[version.to_sym].default_url
     end
 
     expires_in 24.hours, public: false
@@ -30,9 +30,9 @@ class MembersController < MastersController
   end
 
   def select
-    @masters = Member.where(id: "#{params[:id]}") if params[:id].present?
+    @members = Member.where(id: "#{params[:id]}") if params[:id].present?
     respond_to do |format|
-      format.json { render json: MembersSelect.new(@masters, params) }
+      format.json { render json: MembersSelect.new(@members, params) }
     end
   end
 

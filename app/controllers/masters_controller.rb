@@ -2,33 +2,32 @@ class MastersController < ApplicationController
   include Userstamp
   load_and_authorize_resource
 
-  attr_writer :master_class
-  attr_writer :klass
+  attr_writer :klass, :master_class, :master_string
   before_action :set_class
   before_action :set_master, only: [:show, :edit, :update, :destroy]
   before_action :set_master_custom, only: [:copy, :lock, :unlock, :archive, :unarchive]
 
   def index
-    @masters = @master_class.order(:id).page(params[:page])
+    self.instance_variable_set("@#{controller_name}", @master_class.order(:id).page(params[:page]))
   end
 
   def show
   end
 
   def new
-    @master = @master_class.new
+    self.master = @master_class.new
   end
 
   def edit
   end
 
   def create
-    @master = @master_class.new(master_params)
-    userstamp @master
+    self.master = @master_class.new(master_params)
+    userstamp self.master
 
     respond_to do |format|
-      if @master.save
-        format.html { redirect_to @master, notice: "#{@klass.titleize} was successfully created." }
+      if self.master.save
+        format.html { redirect_to self.master, notice: "#{@klass.titleize} was successfully created." }
       else
         format.html { render action: 'new' }
       end
@@ -36,10 +35,10 @@ class MastersController < ApplicationController
   end
 
   def update
-    userstamp_update @master
+    userstamp_update self.master
     respond_to do |format|
-      if @master.update(master_params)
-        format.html { redirect_to @master, notice: "#{@klass.titleize} was successfully updated." }
+      if self.master.update(master_params)
+        format.html { redirect_to self.master, notice: "#{@klass.titleize} was successfully updated." }
       else
         format.html { render action: 'edit' }
       end
@@ -48,79 +47,89 @@ class MastersController < ApplicationController
 
   def destroy
     respond_to do |format|
-      if @master.destroy
+      if self.master.destroy
         format.html { redirect_to @master_class }
       else
-        format.html { redirect_to @master, alert: @master.errors[:base][0] }
+        format.html { redirect_to self.master, alert: self.master.errors[:base][0] }
       end
     end
   end
 
   def copy
-    original = @master
-    @master  = @master_class.new(original.attributes)
+    original = self.master
+    self.master  = @master_class.new(original.attributes)
     render :new
   end
 
   def lock
     respond_to do |format|
-      if @master.lock
-        format.html { redirect_to @master, notice: "#{@klass.titleize} was successfully locked." }
+      if self.master.lock
+        format.html { redirect_to self.master, notice: "#{@klass.titleize} was successfully locked." }
       else
-        format.html { redirect_to @master, notice: "#{@klass.titleize} could not be locked." }
+        format.html { redirect_to self.master, notice: "#{@klass.titleize} could not be locked." }
       end
     end
   end
 
   def unlock
     respond_to do |format|
-      if @master.unlock
-        format.html { redirect_to @master, notice: "#{@klass.titleize} was successfully unlocked." }
+      if self.master.unlock
+        format.html { redirect_to self.master, notice: "#{@klass.titleize} was successfully unlocked." }
       else
-        format.html { redirect_to @master, notice: "#{@klass.titleize} could not be unlocked." }
+        format.html { redirect_to self.master, notice: "#{@klass.titleize} could not be unlocked." }
       end
     end
   end
 
   def archive
     respond_to do |format|
-      if @master.archive
+      if self.master.archive
         format.html { redirect_to @master_class, notice: "#{@klass.titleize} was successfully archived." }
       else
-        format.html { redirect_to @master, notice: "#{@klass.titleize} could not be archived." }
+        format.html { redirect_to self.master, notice: "#{@klass.titleize} could not be archived." }
       end
     end
   end
 
   def unarchive
     respond_to do |format|
-      if @master.unarchive
-        format.html { redirect_to @master, notice: "#{@klass.titleize} was successfully unarchived." }
+      if self.master.unarchive
+        format.html { redirect_to self.master, notice: "#{@klass.titleize} was successfully unarchived." }
       else
-        format.html { redirect_to @master, notice: "#{@klass.titleize} could not be unarchived." }
+        format.html { redirect_to self.master, notice: "#{@klass.titleize} could not be unarchived." }
       end
     end
+  end
+
+  protected
+
+  def master
+    self.instance_variable_get("@#{@master_string}")
+  end
+
+  def master=(val)
+    self.instance_variable_set("@#{@master_string}", val)
   end
 
   private
 
   def set_class
-    self.klass = self.class.name.sub(/Controller/, '').classify
+    self.klass = controller_name.classify
     self.master_class = @klass.constantize
+    self.master_string = controller_name.singularize
   end
 
   def set_master
-    @master = @master_class.find(params[:id])
+    self.master = @master_class.find(params[:id])
   end
 
   def set_master_custom
     id = "#{@klass.underscore}_id".to_sym
-    @master = @master_class.find(params[id])
+    self.master = @master_class.find(params[id])
   end
 
   def master_params
-    resource = controller_name.singularize.to_sym
-    method = "#{resource}_params"
-    params[resource] &&= send(method) if respond_to?(method, true)
+    method = "#{@master_string}_params"
+    params[@master_string] &&= send(method) if respond_to?(method, true)
   end
 end

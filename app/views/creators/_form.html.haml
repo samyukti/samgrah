@@ -1,4 +1,4 @@
-= simple_form_for @master, defaults: {input_html: { class: 'form-control' }} do |f|
+= simple_form_for @creator, defaults: {input_html: { class: 'form-control' }} do |f|
   .row
     .col-md-12
       .text-right
@@ -10,7 +10,7 @@
     .row
       .col-md-6
         = f.input :kind, label: 'Type', include_blank: false,    |
-          collection: format_collection(Settings.creator.kinds), |
+          collection: format_collection(Settings.creator_kinds), |
           autofocus: true,                                       |
           input_html: {class: 'form-control selectize'}          |
     .row

@@ -35,16 +35,21 @@ In future we may consider to develop this as a full-fledged application.
     bundle install
 
 * Configure the application
-** Update secrets.yml with the string generated from "rake secret".
 
     cd config
     mv database.example.yml database.yml
     mv secrets.example.yml secrets.yml
     rake secret
 
+Update secrets.yml with the string generated from "rake secret".
+
 * Reset the database
 
     rake db:reset
+
+* Load default settings
+
+    rake db:settings
 
 * Populate demo data
 

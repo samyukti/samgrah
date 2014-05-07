@@ -18,7 +18,7 @@
             %th Format
             %th.action-cell
         %tbody
-          - @masters.each do |item|
+          - @items.each do |item|
             %tr
               %td= item.id
               %td= item.code
@@ -36,4 +36,4 @@
                     %i.fa.fa-pencil
 .row
   .col-md-12.text-right
-    = paginate @masters
+    = paginate @items

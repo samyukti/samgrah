@@ -42,7 +42,7 @@ gem 'nokogiri'
 gem 'rubyzip'
 
 # settings
-gem 'rails_config'
+gem 'rails-settings-cached'
 
 # development
 group :development do

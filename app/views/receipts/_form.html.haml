@@ -22,11 +22,11 @@
     .row
       .col-md-6
         = f.input :kind, label: 'Type', include_blank: false,    |
-          collection: format_collection(Settings.receipt.kinds), |
+          collection: format_collection(Settings.receipt_kinds), |
           input_html: {class: "form-control selectize"}          |
       .col-md-6
         = f.input :mode, include_blank: false,                   |
-          collection: format_collection(Settings.receipt.modes), |
+          collection: format_collection(Settings.receipt_modes), |
           input_html: {class: "form-control selectize"}          |
     .row
       .col-md-6

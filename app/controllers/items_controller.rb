@@ -1,28 +1,28 @@
 class ItemsController < MastersController
   def new
-    @master = @master_class.new
-    @master.item_creators.build
+    @item = Item.new
+    @item.item_creators.build
   end
 
   def copy
-    original = @master
-    @master  = @master_class.new(original.attributes)
+    original = @item
+    @item    = Item.new(original.attributes)
 
     original.item_creators.each do |creator|
-      @master.item_creators.build(creator.attributes)
+      @item.item_creators.build(creator.attributes)
     end
 
     render :new
   end
 
   def edit
-    @master.item_creators.build unless @master.item_creators.present?
+    @item.item_creators.build unless @item.item_creators.present?
   end
 
   def select
-    @masters = Item.where(id: "#{params[:id]}") if params[:id].present?
+    @items = Item.where(id: "#{params[:id]}") if params[:id].present?
     respond_to do |format|
-      format.json { render json: ItemsSelect.new(@masters, params) }
+      format.json { render json: ItemsSelect.new(@items, params) }
     end
   end
 
