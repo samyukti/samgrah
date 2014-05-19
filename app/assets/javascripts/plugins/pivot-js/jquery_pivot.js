@@ -3,18 +3,18 @@
 
 var element,
     callbacks = {},
-    resultsTitle, 
+    resultsTitle,
     resultsDivID;
 
 var methods = {
   setup   : function(options){
     element = this; // set element for build_containers()
     if (options.callbacks) callbacks = options.callbacks;
-    
+
     if(options.resultsDivID){
-    	
+
     	resultsDivID = options.resultsDivID;
-    	
+
     }
     else
     {
@@ -161,7 +161,7 @@ var methods = {
     if (fieldName === '') return;
 
     // Check to see if this field has already been built
-    var filterExists = $('#filter-list select[data-field=' + field.name + ']');
+    var filterExists = $('#filter-list select[data-field="' + field.name + '"]');
     if (filterExists.length) return;
 
     if (field.filterType === 'regexp')
