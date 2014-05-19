@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require mousetrap
-//= require plugins
+//= require vendor
 //= require theme
 //= require shared
 //= require_directory .

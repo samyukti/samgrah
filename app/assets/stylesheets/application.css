@@ -10,6 +10,6 @@
  *
  *= require_self
  *= require mousetrap
- *= require plugins
+ *= require vendor
  *= require theme
  */
