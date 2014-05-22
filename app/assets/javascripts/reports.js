@@ -1,5 +1,13 @@
 var Report = function () {
 
+  var initDatatable = function () {
+    $('#pivot-table').dataTable();
+
+    $('#pivot-table_wrapper .dataTables_filter input').addClass('input-dt-filter');
+    $('#pivot-table_wrapper .dataTables_length select').addClass('input-dt-length');
+    $('#pivot-table_wrapper .dataTables_length select').selectize();
+  };
+
   var show_copies_pivot = function () {
     var fields = [
         {name: 'ID',             type: 'integer',    rowLabelable: false},
@@ -36,7 +44,8 @@ var Report = function () {
       input = { json: report_data,
                 fields: fields,
                 rowLabels: ['Category', 'Language'],
-                summaries: ['Quantity']
+                summaries: ['Quantity'],
+                callbacks: {afterUpdateResults: initDatatable }
               };
 
       $('#pivot-detail').pivot_display('setup', input);
@@ -83,7 +92,8 @@ var Report = function () {
                 fields: fields,
                 filters: {Status: 'Issued'},
                 rowLabels: ['Copy', 'Item', 'Member'],
-                summaries: ['Count']
+                summaries: ['Count'],
+                callbacks: {afterUpdateResults: initDatatable }
               };
 
       $('#pivot-detail').pivot_display('setup', input);
@@ -126,7 +136,8 @@ var Report = function () {
                 fields: fields,
                 filters: {Status: 'Approved'},
                 rowLabels: ['Type', 'Mode', 'Member'],
-                summaries: ['Amount']
+                summaries: ['Amount'],
+                callbacks: {afterUpdateResults: initDatatable }
               };
 
       $('#pivot-detail').pivot_display('setup', input);
@@ -169,7 +180,8 @@ var Report = function () {
                 fields: fields,
                 filters: {Status: 'Reserved'},
                 rowLabels: ['Item', 'Member'],
-                summaries: ['Count']
+                summaries: ['Count'],
+                callbacks: {afterUpdateResults: initDatatable }
               };
 
       $('#pivot-detail').pivot_display('setup', input);
