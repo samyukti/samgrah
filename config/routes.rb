@@ -38,6 +38,7 @@ Sangrah::Application.routes.draw do
     get :copy
     patch :lock, :unlock, :archive, :unarchive
     collection do
+      match 'table', to: 'items#table', via: [:get]
       match 'select', to: 'items#select', via: [:get]
     end
   end

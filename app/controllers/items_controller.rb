@@ -1,4 +1,11 @@
 class ItemsController < MastersController
+  def table
+    @items = Item.all.includes(:category)
+    respond_to do |format|
+      format.json { render json: ItemsDatatable.new(view_context, @items) }
+    end
+  end
+
   def new
     @item = Item.new
     @item.item_creators.build

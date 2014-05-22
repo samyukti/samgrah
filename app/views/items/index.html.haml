@@ -6,8 +6,9 @@
     .text-right
       = new_link Item do
         %button.btn.btn-success{type: 'button'} New
+    .spaceholder
     .table-responsive
-      %table.table.table-striped
+      %table#datatable.table.table-striped{ data: { source: table_items_path(format: :json) }}
         %thead
           %tr
             %th #
@@ -18,22 +19,3 @@
             %th Format
             %th.action-cell
         %tbody
-          - @items.each do |item|
-            %tr
-              %td= item.id
-              %td= item.code
-              %td= item.name
-              %td= item.category.name
-              %td= item.kind.titleize
-              %td= item.format.titleize
-              %td.action-cell
-                = show_link item do
-                  %span.btn-xs.btn-info
-                    %i.fa.fa-search
-                %span.spacer
-                = edit_link item do
-                  %span.btn-xs.btn-primary
-                    %i.fa.fa-pencil
-.row
-  .col-md-12.text-right
-    = paginate @items
