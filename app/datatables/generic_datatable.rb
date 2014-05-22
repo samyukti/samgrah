@@ -1,5 +1,5 @@
 class GenericDatatable
-  delegate :params, :h, :link_to, :url_for, :raw, :can?, to: :@view
+  delegate :params, :url_for, :can?, to: :@view
 
   def initialize(view, records)
     @view = view
