@@ -6,7 +6,6 @@
  *= require ./datepicker/datepicker
  *= require ./datepicker/datepicker3
  *= require ./selectize/index
- *= require ./datatables/dataTables.bootstrap
+ *= require ./datatables/index
  *= require ./pivot-js/custom
  */
-

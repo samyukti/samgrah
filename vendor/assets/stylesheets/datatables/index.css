@@ -1,0 +1,6 @@
+/*
+ * This is a manifest file for dataTables plugin
+ *
+ *= require ./dataTables.bootstrap
+ *= require ./dataTables.tableTools
+ */

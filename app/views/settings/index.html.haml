@@ -1,0 +1,18 @@
+%h1.page-header
+  Settings
+  %small / Index
+.row
+  .col-md-12
+    .text-right
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Setting
+            %th Value
+        %tbody
+          - @settings.each do |setting|
+            %tr
+              %td= setting.var
+              %td= setting.value

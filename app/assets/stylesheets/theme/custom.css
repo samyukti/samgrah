@@ -5,3 +5,5 @@
 .input-dt-filter {
   margin-left: 8px !important;
 }
+div.DTTT { margin-bottom: 10px; float: right; }
+div.dataTables_wrapper { clear: both; }

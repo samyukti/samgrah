@@ -1,7 +1,11 @@
 var Report = function () {
 
   var initDatatable = function () {
-    $('#pivot-table').dataTable();
+    var dtable = $('#pivot-table').DataTable();
+    $.fn.dataTable.TableTools.defaults.aButtons = [ "copy", "csv", "print" ];
+    $.fn.dataTable.TableTools.defaults.sSwfPath = "/static/flash/copy_csv_xls.swf";
+    var ttools = new $.fn.dataTable.TableTools(dtable);
+    $( ttools.fnContainer() ).insertBefore('div.dataTables_wrapper');
 
     $('#pivot-table_wrapper .dataTables_filter input').addClass('input-dt-filter');
     $('#pivot-table_wrapper .dataTables_length select').addClass('input-dt-length');
