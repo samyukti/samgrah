@@ -21,7 +21,8 @@ body {
 
 /* layout elements */
 .jumbotron {
-  background-color: #f3f0eb;
+  background-color: #323c48;
+  color: #e2f5fc;
 }
 
 #footer {
@@ -38,7 +39,7 @@ body {
   width: 100%;
 }
 .navbar-inverse {
-  background-color: #444444;
+  background-color: #101a26;
   border-color: #080808;
 }
 .navbar-brand {
@@ -54,11 +55,11 @@ body {
   padding-right: 20px;
   padding-left: 40px;
   font-size: 1.1em;
-  color: #957d5b;
+  color: #e2f5fc;
 }
 .nav-sidebar > li > a:hover {
-  background-color: #e3e0db;
-  color: #957d5b;
+  background-color: #e2f5fc;
+  color: #323c48;
 }
 .nav-sidebar > .active > a {
   color: #ffffff;
@@ -103,7 +104,7 @@ body {
     padding-right: 0;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f3f0eb;
+    background-color: #323c48;
     border-right: 1px solid #eeeeee;
   }
 }
