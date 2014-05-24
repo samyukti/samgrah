@@ -15,7 +15,7 @@ class GenericDatatable
     }
   end
 
-private
+  private
 
   def data
   end
@@ -44,7 +44,7 @@ private
   end
 
   def action_links(object)
-   { show: can?(:read, object) ? url_for(object) : nil,
-     edit: can?(:update, object) ? url_for([:edit, object]) : nil }
+    { show: can?(:read, object) ? url_for(object) : nil,
+      edit: can?(:update, object) ? url_for([:edit, object]) : nil }
   end
 end
