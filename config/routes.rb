@@ -75,6 +75,9 @@ Sangrah::Application.routes.draw do
 
   resources :receipts do
     patch :cancel, :approve
+    collection do
+      match 'table', to: 'receipts#table', via: [:get]
+    end
   end
 
   match 'search', to: 'search#results', via: [:get]
