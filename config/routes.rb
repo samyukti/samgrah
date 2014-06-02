@@ -54,6 +54,9 @@ Sangrah::Application.routes.draw do
   resources :memberships do
     get :copy
     patch :lock, :unlock, :archive, :unarchive
+    collection do
+      match 'table', to: 'memberships#table', via: [:get]
+    end
   end
 
   resources :members do
