@@ -5,9 +5,10 @@
   .col-md-12
     .text-right
       = new_link Member do
-        %button.btn.btn-success{type: "button"} New
+        %button.btn.btn-success{type: 'button'} New
+    .spaceholder
     .table-responsive
-      %table.table.table-striped
+      %table#datatable.table.table-striped{ data: { source: table_members_path(format: :json) }}
         %thead
           %tr
             %th #
@@ -17,21 +18,3 @@
             %th Type
             %th.action-cell
         %tbody
-          - @members.each do |member|
-            %tr
-              %td= member.id
-              %td= member.code
-              %td= member.name
-              %td= member.membership.name
-              %td= member.kind.titleize
-              %td.action-cell
-                = show_link member do
-                  %span.btn-xs.btn-info
-                    %i.fa.fa-search
-                %span.spacer
-                = edit_link member do
-                  %span.btn-xs.btn-primary
-                    %i.fa.fa-pencil
-.row
-  .col-md-12.text-right
-    = paginate @members
