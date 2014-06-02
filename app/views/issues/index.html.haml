@@ -6,8 +6,9 @@
     .text-right
       = new_link Issue do
         %button.btn.btn-success{type: 'button'} New
+    .spaceholder
     .table-responsive
-      %table.table.table-striped
+      %table#datatable.table.table-striped{ data: { source: table_issues_path(format: :json) }}
         %thead
           %tr
             %th #
@@ -20,21 +21,3 @@
             %th Status
             %th.action-cell
         %tbody
-          - @issues.each do |issue|
-            %tr
-              %td= issue.id
-              %td= issue.item.name
-              %td= issue.copy.name
-              %td= issue.member.name
-              %td= issue.issued_date
-              %td= issue.return_date
-              %td= issue.extension
-              %td= issue.status.titleize
-              %td.action-cell
-                = show_link issue do
-                  %span.btn-xs.btn-info
-                    %i.fa.fa-search
-                %span.spacer
-.row
-  .col-md-12.text-right
-    = paginate @issues
