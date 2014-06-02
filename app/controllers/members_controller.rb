@@ -1,4 +1,11 @@
 class MembersController < MastersController
+  def table
+    @members = Member.all.includes(:membership)
+    respond_to do |format|
+      format.json { render json: MembersDatatable.new(view_context, @members) }
+    end
+  end
+
   def new
     @member = Member.new
     @member.build_address
