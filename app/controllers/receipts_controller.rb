@@ -1,6 +1,13 @@
 class ReceiptsController < ApplicationController
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
 
+  def table
+    @receipts = Receipt.all.includes(:member)
+    respond_to do |format|
+      format.json { render json: ReceiptsDatatable.new(view_context, @receipts) }
+    end
+  end
+
   def index
     @receipts = Receipt.order("received_date desc, id desc").page(params[:page])
   end
@@ -73,6 +80,6 @@ class ReceiptsController < ApplicationController
   end
 
   def receipt_params
-    params.require(:receipt).permit(:member_id, :received_date, :kind, :amount, :mode, :reference_1, :reference_2, :reference_3, :notes)
+    params.require(:receipt).permit(:member_id, :received_date, :kind, :amount, :mode, :status, :reference_1, :reference_2, :reference_3, :notes)
   end
 end
