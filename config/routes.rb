@@ -32,6 +32,9 @@ Sangrah::Application.routes.draw do
   resources :creators do
     get :copy
     patch :lock, :unlock, :archive, :unarchive
+    collection do
+      match 'table', to: 'creators#table', via: [:get]
+    end
   end
 
   resources :items do

@@ -6,8 +6,9 @@
     .text-right
       = new_link Creator do
         %button.btn.btn-success{type: 'button'} New
+    .spaceholder
     .table-responsive
-      %table.table.table-striped
+      %table#datatable.table.table-striped{ data: { source: table_creators_path(format: :json) }}
         %thead
           %tr
             %th #
@@ -16,20 +17,3 @@
             %th Sort Name
             %th.action-cell
         %tbody
-          - @creators.each do |creator|
-            %tr
-              %td= creator.id
-              %td= creator.kind.titleize
-              %td= creator.full_name || [creator.first_name, creator.last_name].join(' ')
-              %td= creator.sort_name
-              %td.action-cell
-                = show_link creator do
-                  %span.btn-xs.btn-info
-                    %i.fa.fa-search
-                %span.spacer
-                = edit_link creator do
-                  %span.btn-xs.btn-primary
-                    %i.fa.fa-pencil
-.row
-  .col-md-12.text-right
-    = paginate @creators
