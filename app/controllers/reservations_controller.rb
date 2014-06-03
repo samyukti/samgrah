@@ -2,6 +2,13 @@ class ReservationsController < ApplicationController
   load_and_authorize_resource
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
+  def table
+    @reservations = Reservation.all.includes(:item, :member)
+    respond_to do |format|
+      format.json { render json: ReservationsDatatable.new(view_context, @reservations) }
+    end
+  end
+
   def index
     @reservations = Reservation.order("status desc, id desc").page(params[:page])
   end

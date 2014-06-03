@@ -5,9 +5,10 @@
   .col-md-12
     .text-right
       = new_link Reservation do
-        %button.btn.btn-success{type: "button"} New
+        %button.btn.btn-success{type: 'button'} New
+    .spaceholder
     .table-responsive
-      %table.table.table-striped
+      %table#datatable.table.table-striped{ data: { source: table_reservations_path(format: :json) }}
         %thead
           %tr
             %th #
@@ -17,18 +18,3 @@
             %th Status
             %th.action-cell
         %tbody
-          - @reservations.each do |reservation|
-            %tr
-              %td= reservation.id
-              %td= reservation.item.name
-              %td= reservation.member.name
-              %td= reservation.reserved_date
-              %td= reservation.status.titleize
-              %td.action-cell
-                = show_link reservation do
-                  %span.btn-xs.btn-info
-                    %i.fa.fa-search
-                %span.spacer
-.row
-  .col-md-12.text-right
-    = paginate @reservations
