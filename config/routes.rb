@@ -71,6 +71,9 @@ Sangrah::Application.routes.draw do
 
   resources :issues do
     patch :cancel, :close
+    collection do
+      match 'table', to: 'issues#table', via: [:get]
+    end
   end
 
   resources :reservations do

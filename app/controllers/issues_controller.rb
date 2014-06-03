@@ -2,6 +2,13 @@ class IssuesController < ApplicationController
   load_and_authorize_resource
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
 
+  def table
+    @issues = Issue.all.includes(:item, :copy, :member)
+    respond_to do |format|
+      format.json { render json: IssuesDatatable.new(view_context, @issues) }
+    end
+  end
+
   def index
     @issues = Issue.order("status desc, id desc").page(params[:page])
   end
