@@ -4,10 +4,11 @@
 .row
   .col-md-12
     .text-right
-      = render 'shared/masters/index_actions'
-
+      = new_link Category do
+        %button.btn.btn-success{type: 'button'} New
+    .spaceholder
     .table-responsive
-      %table.table.table-striped
+      %table#datatable.table.table-striped{ data: { source: table_categories_path(format: :json) }}
         %thead
           %tr
             %th #
@@ -16,20 +17,3 @@
             %th Type
             %th.action-cell
         %tbody
-          - @categories.each do |category|
-            %tr
-              %td= category.id
-              %td= category.code
-              %td= category.name
-              %td= category.kind.titleize
-              %td.action-cell
-                = show_link category do
-                  %span.btn-xs.btn-info
-                    %i.fa.fa-search
-                %span.spacer
-                = edit_link category do
-                  %span.btn-xs.btn-primary
-                    %i.fa.fa-pencil
-.row
-  .col-md-12.text-right
-    = paginate @categories
