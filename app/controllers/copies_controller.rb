@@ -1,4 +1,11 @@
 class CopiesController < MastersController
+  def table
+    @copies = Copy.all.includes(:item)
+    respond_to do |format|
+      format.json { render json: CopiesDatatable.new(view_context, @copies) }
+    end
+  end
+
   def select
     @copies = Copy.where(id: "#{params[:id]}") if params[:id].present?
     respond_to do |format|
