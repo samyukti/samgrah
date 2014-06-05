@@ -6,8 +6,9 @@
     .text-right
       = new_link Copy do
         %button.btn.btn-success{type: 'button'} New
+    .spaceholder
     .table-responsive
-      %table.table.table-striped
+      %table#datatable.table.table-striped{ data: { source: table_copies_path(format: :json) }}
         %thead
           %tr
             %th #
@@ -18,22 +19,3 @@
             %th Issued
             %th.action-cell
         %tbody
-          - @copies.each do |copy|
-            %tr
-              %td= copy.id
-              %td= copy.item.name
-              %td= copy.name
-              %td= copy.quality.titleize
-              %td= copy.status.titleize
-              %td= copy.issued ? 'Yes' : 'No'
-              %td.action-cell
-                = show_link copy do
-                  %span.btn-xs.btn-info
-                    %i.fa.fa-search
-                %span.spacer
-                = edit_link copy do
-                  %span.btn-xs.btn-primary
-                    %i.fa.fa-pencil
-.row
-  .col-md-12.text-right
-    = paginate @copies
