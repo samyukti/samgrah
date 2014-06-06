@@ -27,6 +27,9 @@ Sangrah::Application.routes.draw do
   resources :categories do
     get :copy
     patch :lock, :unlock, :archive, :unarchive
+    collection do
+      match 'table', to: 'categories#table', via: [:get]
+    end
   end
 
   resources :creators do
@@ -50,6 +53,7 @@ Sangrah::Application.routes.draw do
     get :copy
     patch :lock, :unlock, :archive, :unarchive
     collection do
+      match 'table', to: 'copies#table', via: [:get]
       match 'select', to: 'copies#select', via: [:get]
     end
   end

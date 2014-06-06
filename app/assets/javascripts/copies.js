@@ -1,5 +1,38 @@
 var Copy = function () {
 
+  var renderCopiesIssued = function (data, type, row) {
+    return data ? 'Yes' : 'No';
+  };
+
+  var renderActionLinks = function (data, type, row) {
+    var linkShow = data.show ? '<a href="' + data.show + '"> \
+                                  <span class="btn-xs btn-info"> \
+                                    <i class="fa fa-search"></i> \
+                                  </span> \
+                                </a>' : '';
+
+    var linkEdit = data.edit ? '<a href="' + data.edit + '"> \
+                                  <span class="btn-xs btn-primary"> \
+                                    <i class="fa fa-pencil"></i> \
+                                  </span> \
+                                </a>' : '';
+
+    return linkShow +  '<span class="spacer"></span>' + linkEdit;
+  };
+
+  var initTable = function () {
+    varColumns = [
+        null,
+        null,
+        null,
+        null,
+        null,
+        { "render": renderCopiesIssued },
+        { "sortable": false, "render": renderActionLinks }
+    ];
+    Datatable.init('#datatable', varColumns);
+  };
+
   var initForm = function () {
     var handleItemChange = function () {
       var id = $(this).val();
@@ -38,7 +71,9 @@ var Copy = function () {
   };
 
   return {
-    index: function () {},
+    index: function () {
+      initTable();
+    },
 
     new: function () {
       initForm();
