@@ -15,7 +15,7 @@
     /[if lt IE 9]
       = javascript_include_tag "ie", "data-turbolinks-track" => true
     %style#holderjs-style{type: "text/css"}
-  %body{"app-controller" => "#{params[:controller].classify}", "app-action" => "#{params[:action]}" }
+  %body{app: {controller: controller_name, action: action_name}}
     .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
       .container-fluid
         .navbar-header.full-width

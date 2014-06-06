@@ -1,4 +1,4 @@
-var Reservation = function () {
+var Reservations = function () {
 
   var renderActionLinks = function (data, type, row) {
     var linkShow = data.show ? '<a href="' + data.show + '"> \

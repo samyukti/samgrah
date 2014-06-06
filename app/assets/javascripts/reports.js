@@ -1,4 +1,4 @@
-var Report = function () {
+var Reports = function () {
 
   var initDatatable = function () {
     var dtable = $('#pivot-table').DataTable();
@@ -205,7 +205,7 @@ var Report = function () {
 
   var show_report = function () {
     report_name = $('.report-name').text();
-    Report[report_name]();
+    Reports[report_name]();
   };
 
   return {

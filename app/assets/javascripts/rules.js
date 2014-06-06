@@ -1,4 +1,4 @@
-var Rule = function () {
+var Rules = function () {
 
   var initForm = function () {  };
 

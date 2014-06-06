@@ -1,4 +1,4 @@
-var Copy = function () {
+var Copies = function () {
 
   var renderCopiesIssued = function (data, type, row) {
     return data ? 'Yes' : 'No';

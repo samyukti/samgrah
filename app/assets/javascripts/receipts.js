@@ -1,4 +1,4 @@
-var Receipt = function () {
+var Receipts = function () {
 
   var renderActionLinks = function (data, type, row) {
     var linkShow = data.show ? '<a href="' + data.show + '"> \

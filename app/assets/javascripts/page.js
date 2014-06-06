@@ -3,14 +3,18 @@ var Page = function () {
   // Check whether the function is defined
   var isFunction = function (fn) {
     return (typeof(fn) == typeof(Function));
-  }
+  };
+
+  var initCap = function (str) {
+    return str.charAt(0).toUpperCase() + str.substring(1);
+  };
 
   return {
     //main function to initiate the module
     init: function () {
       // initialize the shadow script for controller+action
-      fController = $('body').attr('app-controller');
-      fAction     = $('body').attr('app-action');
+      var fController = initCap($('body').attr('app-controller'));
+      var fAction     = $('body').attr('app-action');
 
       jQuery(document).ready(function () {
 

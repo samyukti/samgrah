@@ -1,4 +1,4 @@
-var Category = function () {
+var Categories = function () {
 
   var renderActionLinks = function (data, type, row) {
     var linkShow = data.show ? '<a href="' + data.show + '"> \
