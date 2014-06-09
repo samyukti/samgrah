@@ -35,7 +35,7 @@ class ReservationsReport
       'Reserved Date',
       'No of Days',
       'Count'
-    ]]
+     ]]
   end
 
   def rows

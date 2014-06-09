@@ -31,3 +31,12 @@ MethodLength:
 
 SingleSpaceBeforeFirstArg:
   Enabled: false
+
+GuardClause:
+  Enabled: false
+
+UnusedMethodArgument:
+  Enabled: false
+
+UnusedBlockArgument:
+  Enabled: false

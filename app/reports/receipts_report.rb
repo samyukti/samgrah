@@ -34,7 +34,7 @@ class ReceiptsReport
       'Received Date',
       'Amount',
       'Count'
-    ]]
+     ]]
   end
 
   def rows

@@ -40,7 +40,7 @@ class IssuesReport
       'Return Date',
       'No of Days',
       'Count'
-    ]]
+     ]]
   end
 
   def rows

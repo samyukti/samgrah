@@ -46,7 +46,7 @@ class CopiesReport
       'Price',
       'Total Cost',
       'Total Price'
-    ]]
+     ]]
   end
 
   def rows
