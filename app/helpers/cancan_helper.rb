@@ -19,7 +19,7 @@ module CancanHelper
 
   def index_link(object, options = {}, &block)
     if can?(:read, object)
-      object_class = (object.kind_of?(Class) ? object : object.class)
+      object_class = (object.is_a?(Class) ? object : object.class)
       if block_given?
         link_to object_class, options do
           block.call
@@ -32,7 +32,7 @@ module CancanHelper
 
   def new_link(object, options = {}, &block)
     if can?(:create, object)
-      object_class = (object.kind_of?(Class) ? object : object.class)
+      object_class = (object.is_a?(Class) ? object : object.class)
       if block_given?
         link_to [:new, object_class.name.underscore.to_sym], options do
           block.call
