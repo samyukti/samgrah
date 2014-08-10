@@ -235,7 +235,6 @@ var Reports = function () {
     daily_status: function () {},
     expired_memberships: function () {},
     overdue_issues: function () {},
-    unavailable_copies: function () {},
   };
 
 }();
