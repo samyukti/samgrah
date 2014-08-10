@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.0'
+gem 'rails', '4.1.4'
 
 # Databases
 gem 'pg'
@@ -15,7 +15,7 @@ gem 'haml-rails'
 gem 'turbolinks'
 
 # api
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 
 # images
 gem 'mini_magick'
