@@ -57,7 +57,7 @@ describe Copy do
     copy.price.should eql(item.price)
   end
 
-  it 'allows to change status only if the book is not issued' do
+  it 'allows to change status only if the item is not issued' do
     build(:copy, issued: true, status: 'n').should_not be_valid
   end
 
