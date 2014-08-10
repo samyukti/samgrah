@@ -1,0 +1,36 @@
+= simple_form_for @adjustment, defaults: {input_html: { class: "form-control" }} do |f|
+  .row
+    .col-md-12
+      .text-right
+        = f.button :submit, class: 'btn-primary'
+        = link_to @adjustment do
+          %button.btn.btn-default{type: "button"} Cancel
+
+  = render 'shared/errors/messages', object: f.object
+
+  .form-inputs
+    .row
+      .col-md-6
+        = f.input :copy_id, autofocus: true,              |
+          collection: item_collection([f.object.item]),   |
+          input_html: {class: "form-control custom"}      |
+      .col-md-6
+        = f.input :adjusted_quantity
+    .row
+      .col-md-6
+        = f.input :adjusted_date, as: :datepick
+      .col-md-6
+        = f.input :return_date, as: :datepick
+    .row
+      .col-md-12
+        = f.input :reason
+
+    %h4.form-section Notes
+    .row
+      .col-md-12
+        = f.input :notes, label: false
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = link_to @adjustment do
+      %button.btn.btn-default{type: "button"} Cancel

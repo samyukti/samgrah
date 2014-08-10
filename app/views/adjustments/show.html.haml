@@ -1,0 +1,42 @@
+%h1.page-header
+  Adjustments
+  %small / View
+.row
+  .col-md-12
+    .text-right
+      - if @adjustment.adjusted?
+        - if user_can? [:close], [@adjustment]
+          = link_to adjustment_close_path(@adjustment), method: :patch, data: { confirm: 'Are you sure?' } do
+            %button.btn.btn-danger{type: "button"} Close
+        - if user_can? [:cancel], [@adjustment]
+          = link_to adjustment_cancel_path(@adjustment), method: :patch, data: { confirm: 'Are you sure?' } do
+            %button.btn.btn-warning{type: "button"} Cancel
+        - if user_can? [:update], [@adjustment]
+          = link_to edit_adjustment_path(@adjustment) do
+            %button.btn.btn-primary{type: "button"} Edit
+      - if user_can? [:create], [@adjustment]
+        = link_to new_adjustment_path do
+          %button.btn.btn-success{type: "button"} New
+      - if user_can? [:read], [@adjustment]
+        = link_to @adjustment.class do
+          %button.btn.btn-default{type: "button"} Index
+
+    .row
+      .col-md-6
+        %h3
+          = "##{@adjustment.id}"
+          %small= "/ #{@adjustment.status.titleize}"
+    .row
+      .col-md-6
+        = display_field @adjustment.copy.name, label: 'Copy'
+      .col-md-6
+        = display_field @adjustment.item.name, label: 'Item'
+    .row
+      .col-md-6
+        = display_field @adjustment.adjusted_date, label: 'Adjusted On'
+    .row
+      .col-md-12
+        = display_field @adjustment.reason, label: 'Reason'
+    .row
+      .col-md-12
+        = display_field @adjustment.notes, label: 'Notes'

@@ -83,6 +83,13 @@ Sangrah::Application.routes.draw do
     end
   end
 
+  resources :adjustments do
+    patch :cancel, :close
+    collection do
+      match 'table', to: 'adjustments#table', via: [:get]
+    end
+  end
+
   resources :reservations do
     patch :cancel, :close
     collection do

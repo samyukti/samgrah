@@ -37,6 +37,23 @@ ActiveRecord::Schema.define(version: 20140506111158) do
     t.datetime "updated_at"
   end
 
+  create_table "adjustments", force: true do |t|
+    t.integer  "copy_id"
+    t.integer  "item_id"
+    t.date     "adjusted_date"
+    t.integer  "adjusted_quantity",            default: 1
+    t.string   "kind",              limit: 16
+    t.string   "reason",            limit: 96
+    t.string   "status",            limit: 16
+    t.date     "return_date"
+    t.date     "returned_date"
+    t.text     "notes"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "categories", force: true do |t|
     t.integer  "parent_id"
     t.string   "code",       limit: 32
@@ -66,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140506111158) do
     t.boolean  "issuable",                       default: true
     t.integer  "quantity",                       default: 1
     t.integer  "issued_quantity",                default: 0
-    t.integer  "troubled_quantity",              default: 0
+    t.integer  "adjusted_quantity",              default: 0
     t.string   "status",             limit: 16
     t.string   "location",           limit: 64
     t.string   "photo",              limit: 128

@@ -1,0 +1,20 @@
+%h1.page-header
+  Adjustments
+  %small / Index
+.row
+  .col-md-12
+    .text-right
+      = new_link Adjustment do
+        %button.btn.btn-success{type: 'button'} New
+    .spaceholder
+    .table-responsive
+      %table#datatable.table.table-striped{ data: { source: table_adjustments_path(format: :json) }}
+        %thead
+          %tr
+            %th #
+            %th Copy
+            %th Item
+            %th Adjusted On
+            %th Status
+            %th.action-cell
+        %tbody

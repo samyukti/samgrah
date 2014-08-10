@@ -14,7 +14,7 @@ FactoryGirl.define do
     issuable true
     quantity 1
     issued_quantity 0
-    troubled_quantity 0
+    adjusted_quantity 0
     status 'available'
     location 'A1'
     photo 'item.jpg'

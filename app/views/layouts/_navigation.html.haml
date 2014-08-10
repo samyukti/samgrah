@@ -27,6 +27,12 @@
         %i.fa.fa-tags
         Issue
 
+  - if user_can? [:read], [Adjustment]
+    %li{class: active?([:adjustments])}
+      %a{href: adjustments_path}
+        %i.fa.fa-ban
+        Adjustment
+
   - if user_can? [:read], [Reservation]
     %li{class: active?([:reservations])}
       %a{href: reservations_path}

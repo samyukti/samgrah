@@ -14,8 +14,6 @@ class Copy < ActiveRecord::Base
   validate :copywise_issuable
   validate :return_before_change_status
 
-  scope :available, -> { where(status: 'available', issuable: true).where('copies.quantity > copies.issued_quantity') }
-
   after_initialize :init_procured_date
   before_create :set_quantity
   before_save :set_item_attributes
@@ -24,12 +22,18 @@ class Copy < ActiveRecord::Base
     self.issuable == true
   end
 
+  def available
+    where(issuable: true).
+    where(status: 'available').
+    where('copies.quantity > (copies.issued_quantity + copies.adjusted_quantity)')
+  end
+
   def issued
-    self.quantity == self.issued_quantity
+    self.issued_quantity == (self.quantity - self.adjusted_quantity)
   end
 
   def available_quantity
-    self.quantity - (self.issued_quantity + self.troubled_quantity)
+    self.quantity - (self.issued_quantity + self.adjusted_quantity)
   end
 
   def image_url(version = nil)
