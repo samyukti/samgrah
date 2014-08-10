@@ -8,7 +8,7 @@ class CopiesDatatable < GenericDatatable
        copy.name,
        copy.quality.titleize,
        copy.status.titleize,
-       copy.issued,
+       copy.issued_quantity,
        action_links(copy)
       ]
     end

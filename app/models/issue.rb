@@ -15,7 +15,7 @@ class Issue < ActiveRecord::Base
 
   after_initialize :init_dates
   before_save :set_item
-  after_create :update_copy
+  after_create :issue_copy
 
   scope :open, -> { where(status: :issued) }
   scope :overdue, -> { where('return_date < current_date') }
@@ -29,7 +29,7 @@ class Issue < ActiveRecord::Base
     state :closed
 
     after_transition do
-      update_copy
+      return_copy
     end
 
     on_error do |error, from, to, event, *args|
@@ -41,13 +41,13 @@ class Issue < ActiveRecord::Base
 
   def availability
     errors.add(:copy_id, 'This copy is not available for issue. Please review.') \
-      if self.copy.issued?
+      if self.copy.issued
   end
 
   def reservations
     item      = self.copy.item
     reserved  = item.reservations.open.count
-    available = item.copies.available.count
+    available = item.available_quantity
     errors.add(:copy_id, 'All the copies of this item are reserved.') \
       unless available > reserved
   end
@@ -67,8 +67,12 @@ class Issue < ActiveRecord::Base
       if self.return_date < issued_date
   end
 
-  def update_copy
-    self.copy.update_attribute :issued, (self.current_state.name == :issued)
+  def issue_copy
+    self.copy.update_attributes! issued_quantity: self.copy.issued_quantity + 1
+  end
+
+  def return_copy
+    self.copy.update_attributes! issued_quantity: self.copy.issued_quantity - 1
   end
 
   def close

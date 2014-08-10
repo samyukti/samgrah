@@ -11,9 +11,10 @@ FactoryGirl.define do
     cost 10.0
     price 10.0
     quality 'new'
-    quantity 1
     issuable true
-    issued false
+    quantity 1
+    issued_quantity 0
+    troubled_quantity 0
     status 'available'
     location 'A1'
     photo 'item.jpg'

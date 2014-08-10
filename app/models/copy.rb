@@ -11,10 +11,10 @@ class Copy < ActiveRecord::Base
   validates_presence_of :name, :quality, :status, :item_id
   validates_uniqueness_of :name
   validate :valid_procured_date
-  validate :unit_quantity_is_issuable
+  validate :copywise_issuable
   validate :return_before_change_status
 
-  scope :available, -> { where(status: 'available', issuable: true, issued: false) }
+  scope :available, -> { where(status: 'available', issuable: true).where('copies.quantity > copies.issued_quantity') }
   scope :unavailable, -> { where("status <> 'available'") }
 
   after_initialize :init_procured_date
@@ -25,8 +25,12 @@ class Copy < ActiveRecord::Base
     self.issuable == true
   end
 
-  def issued?
-    self.issued == true
+  def issued
+    self.quantity == self.issued_quantity
+  end
+
+  def available_quantity
+    self.quantity - (self.issued_quantity + self.troubled_quantity)
   end
 
   def image_url(version = nil)
@@ -41,14 +45,14 @@ class Copy < ActiveRecord::Base
       if procured_date && self.procured_date > Date.today
   end
 
-  def unit_quantity_is_issuable
-    errors.add(:quantity, 'Issuable items should be 1 per copy') \
-      if self.issuable? && quantity != 1
+  def copywise_issuable
+    errors.add(:quantity, 'Copy-wise Issuable items should be 1 per copy') \
+      if self.issuable? && self.item && self.item.copywise && self.quantity != 1
   end
 
   def return_before_change_status
-    errors.add(:status, 'Return the book before the changing the status') \
-      if self.status_was != self.status && self.issued?
+    errors.add(:status, 'Return the item before the changing the status') \
+      if self.status_was != self.status && self.issued_quantity > 0
   end
 
   def init_procured_date

@@ -53,26 +53,27 @@ ActiveRecord::Schema.define(version: 20140506111158) do
 
   create_table "copies", force: true do |t|
     t.integer  "item_id"
-    t.string   "name",             limit: 128
+    t.string   "name",               limit: 128
     t.date     "procured_date"
-    t.string   "format",           limit: 16
+    t.string   "format",             limit: 16
     t.integer  "length"
-    t.string   "length_uom",       limit: 16
-    t.string   "publisher",        limit: 128
+    t.string   "length_uom",         limit: 16
+    t.string   "publisher",          limit: 128
     t.date     "published_date"
     t.decimal  "cost"
     t.decimal  "price"
-    t.string   "quality",          limit: 32
-    t.integer  "quantity",                     default: 1
-    t.boolean  "issuable",                     default: true
-    t.boolean  "issued",                       default: false
-    t.string   "status",           limit: 16
-    t.string   "location",         limit: 64
-    t.string   "photo",            limit: 128
+    t.string   "quality",            limit: 32
+    t.boolean  "issuable",                       default: true
+    t.integer  "quantity",                       default: 1
+    t.integer  "issued_quantity",                default: 0
+    t.integer  "troubled_quantity",              default: 0
+    t.string   "status",             limit: 16
+    t.string   "location",           limit: 64
+    t.string   "photo",              limit: 128
     t.string   "remote_photo_url"
     t.text     "notes"
-    t.boolean  "active",                       default: true
-    t.boolean  "archived",                     default: false
+    t.boolean  "active",                         default: true
+    t.boolean  "archived",                       default: false
     t.integer  "created_by"
     t.integer  "updated_by"
     t.datetime "created_at"
@@ -149,6 +150,7 @@ ActiveRecord::Schema.define(version: 20140506111158) do
     t.text     "excerpt"
     t.string   "photo",            limit: 128
     t.string   "remote_photo_url"
+    t.boolean  "copywise",                     default: true
     t.text     "notes"
     t.boolean  "active",                       default: true
     t.boolean  "archived",                     default: false

@@ -37,8 +37,8 @@ class ItemsController < MastersController
 
   def item_params
     params.require(:item).permit(:category_id, :code, :name, :subject, :kind, :format, :length, :length_uom,
-                                 :publisher, :published_date, :language, :isbn_10, :isbn_13, :rights,
-                                 :cost, :price, :tags, :excerpt, :rating, :photo, :remote_photo_url, :notes,
+                                 :publisher, :published_date, :language, :isbn_10, :isbn_13, :rights, :cost,
+                                 :price, :tags, :excerpt, :rating, :photo, :remote_photo_url, :copywise, :notes,
                                  item_creators_attributes: [:id, :sequence, :creator_id, :role, :_destroy])
   end
 end

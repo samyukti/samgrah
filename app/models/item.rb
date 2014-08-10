@@ -18,4 +18,8 @@ class Item < ActiveRecord::Base
   def creator
     self.item_creators.first.creator if self.item_creators.first
   end
+
+  def available_quantity
+    self.copies.map(&:available_quantity).reduce(:+)
+  end
 end

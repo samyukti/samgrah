@@ -1,9 +1,5 @@
 var Copies = function () {
 
-  var renderCopiesIssued = function (data, type, row) {
-    return data ? 'Yes' : 'No';
-  };
-
   var renderActionLinks = function (data, type, row) {
     var linkShow = data.show ? '<a href="' + data.show + '"> \
                                   <span class="btn-xs btn-info"> \
@@ -27,7 +23,7 @@ var Copies = function () {
         null,
         null,
         null,
-        { "render": renderCopiesIssued },
+        null,
         { "sortable": false, "render": renderActionLinks }
     ];
     Datatable.init('#datatable', varColumns);

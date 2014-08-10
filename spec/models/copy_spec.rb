@@ -25,8 +25,9 @@ describe Copy do
     Copy.new.procured_date.should eql(Date.today)
   end
 
-  it 'should have only one quantity if it is issuable' do
-    build(:copy, issuable: true, quantity: 2).should_not be_valid
+  it 'should have only one quantity if item is marked copywise' do
+    item = create(:item, copywise: true)
+    build(:copy, item: item, issuable: true, quantity: 2).should_not be_valid
   end
 
   it 'may have more quantities if it is not issuable' do
@@ -58,7 +59,7 @@ describe Copy do
   end
 
   it 'allows to change status only if the item is not issued' do
-    build(:copy, issued: true, status: 'n').should_not be_valid
+    build(:copy, issued_quantity: 1, status: 'unavailable').should_not be_valid
   end
 
   it 'shows the item image if does not have an cover image' do
