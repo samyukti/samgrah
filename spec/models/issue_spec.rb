@@ -112,7 +112,7 @@ describe Issue do
     copy.issued.should be(false)
   end
 
-  it 'should set the returned date upon return of the item' do
+  it 'should set the returned date upon return of the copy' do
     item  = create(:item)
     copy  = create(:copy, item: item)
     issue = create(:issue, copy: copy)
