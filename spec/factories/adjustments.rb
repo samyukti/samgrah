@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :adjustment do
     copy_id 1
     item_id 1
-    adjusted_date "2014-08-10"
+    adjusted_date Date.today
     adjusted_quantity 1
     kind "MyString"
     reason "MyString"

@@ -1,4 +1,4 @@
-# This file is used to load history data for once into Sangrah.
+# This file is used to load history data for once into Samgrah.
 # Please refer history.xlsx for the data format.
 # The data can then be loaded with the rake db:history.
 

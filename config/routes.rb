@@ -1,4 +1,4 @@
-Sangrah::Application.routes.draw do
+Rails.application.routes.draw do
 
   unauthenticated do
     root to: 'home#index', as: :public_root

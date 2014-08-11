@@ -2,7 +2,7 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 puts 'Seeding Default Users...'
-admin = User.create! email: 'admin@sangrah.local', password: 'samyukti', password_confirmation: 'samyukti'
+admin = User.create! email: 'admin@samgrah.local', password: 'samyukti', password_confirmation: 'samyukti'
 
 puts 'Seeding Default Roles...'
 role_admin = Role.create! name: 'admin'

@@ -1,26 +1,19 @@
-development:
+default: &default
   host: localhost
   adapter: postgresql
   encoding: unicode
-  database: sangrah_dev
   pool: 5
-  username: sangrah
-  password: sangrah
+  username: samgrah
+  password: samgrah
+
+development:
+  <<: *default
+  database: samgrah_dev
 
 test:
-  host: localhost
-  adapter: postgresql
-  encoding: unicode
-  database: sangrah_test
-  pool: 5
-  username: sangrah
-  password: sangrah
+  <<: *default
+  database: samgrah_test
 
 production:
-  host: localhost
-  adapter: postgresql
-  encoding: unicode
-  database: sangrah
-  pool: 5
-  username: sangrah
-  password: sangrah
+  <<: *default
+  database: samgrah

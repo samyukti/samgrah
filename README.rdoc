@@ -1,6 +1,6 @@
 == About
 
-Sangrah is a simple Library Management System built using Ruby on Rails.
+Samgrah is a simple Library Management System built using Ruby on Rails.
 
 At this moment, the primary purpose is to use this project as a training ground in Samyukti.
 In future we may consider to develop this as a full-fledged application.
@@ -16,22 +16,22 @@ In future we may consider to develop this as a full-fledged application.
     cd ~
     mkdir -p Code
     cd Code
-    git clone https://github.com/samyukti/sangrah.git Sangrah
+    git clone https://github.com/samyukti/samgrah.git Samgrah
 
 * Configure the PostgreSQL database
 
-    create user sangrah with encrypted password 'sangrah';
-    alter user sangrah createdb;
-    create database sangrah;
-    create database sangrah_dev;
-    create database sangrah_test;
-    alter database sangrah owner to sangrah;
-    alter database sangrah_dev owner to sangrah;
-    alter database sangrah_test owner to sangrah;
+    create user samgrah with encrypted password 'samgrah';
+    alter user samgrah createdb;
+    create database samgrah;
+    create database samgrah_dev;
+    create database samgrah_test;
+    alter database samgrah owner to samgrah;
+    alter database samgrah_dev owner to samgrah;
+    alter database samgrah_test owner to samgrah;
 
 * Install the dependencies
 
-    cd Sangrah
+    cd Samgrah
     bundle install
 
 * Configure the application
