@@ -44,6 +44,9 @@ gem 'rubyzip'
 # settings
 gem 'rails-settings-cached'
 
+# server
+gem 'puma'
+
 # development
 group :development do
   gem 'quiet_assets'
