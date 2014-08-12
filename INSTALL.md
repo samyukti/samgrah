@@ -1,10 +1,10 @@
-== Recommended Configuration
+## Recommended Configuration
 
   - Rails 4.1.4
   - Nginx
   - Puma
 
-== Nginx Configuration
+## Nginx Configuration
 
     upstream samgrah {
       server unix:///opt/apps/samgrah/run/samgrah.sock;
@@ -38,7 +38,7 @@
       }
     }
 
-== Running the Application
+## Running the Application
 
     cd /opt/apps/samgrah
     bundle exec puma -e production -d -b unix:///opt/apps/samgrah/run/samgrah.sock;
